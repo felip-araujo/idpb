@@ -56,6 +56,7 @@
 .contsl {
     padding: 15px;
 }
+
 .slogan{
     font-family: 'Open Sans', sans-serif;
     font-weight: 300; 
@@ -121,32 +122,37 @@ a{
     text-align: center;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    
 } 
 
 .gradeculto{
-    width: 60vh;  
-    border-radius: 10px; 
-    margin-right: 0px; 
-    margin-left:  40px ; 
-    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.603)); 
+    width: 100%;  
+    border-radius: 0px; 
+    margin-right: 5px; 
+    margin-left:  5px ; 
+    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.603));  
 } 
+
+#image{
+    height: 50vh; 
+    width: 50vh;  
+    border-radius: 10px;
+}
 
 .slogan2{
     font-family: 'Open Sans', sans-serif;
-    font-weight: 700; 
+    font-weight: 300; 
     text-transform: uppercase; 
-    font-size: 35px; 
+    font-size: 30px; 
     color: rgb(139, 92, 3);
-    line-height: 55px; 
-    margin-left: 400px;
-    margin-top: 25px;  
-    
+    line-height: 45px; 
+    margin-left: 0px;
+    margin-top: 25px;   
+    text-align: center;
 }   
 
 .parag{ 
-    padding-right: 85px;
-    padding-left: 85px;
+    padding-right: 130px;
+    padding-left: 130px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400; 
     font-size: 22px; 
@@ -155,3 +161,89 @@ a{
     margin-top: -75px; 
     text-align: center;
 }
+
+.btn3{
+    width: 25%; 
+    height: 65%; 
+    background-color: white;
+    margin-left: 550px;
+    margin-top: -45px; 
+    border: solid 2px rgb(139, 92, 3);; 
+    border-radius: 25px; 
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; 
+    font-size: 22px; 
+    color: rgb(139, 92, 3);
+} 
+
+.btn3:hover{
+    width: 25%; 
+    height: 65%; 
+    background-image: linear-gradient(to right, rgb(139, 92, 3), orange);
+    margin-left: 550px;
+    margin-top: -45px; 
+    border: none;
+    border-radius: 25px; 
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; 
+    font-size: 22px; 
+    color: white; 
+    transition: color, ease-in-out 0.2s;
+}
+
+/* CONTNAINER CELULAS */ 
+
+.cont3{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    grid-row: inherit; 
+    width: 100%;
+    height: 100vh;
+    max-width: 100%; 
+    background-image: linear-gradient(to right, rgba(0,0,0, 0.9) 45%, rgba(0,0,0,0)), url(/estilos/image/capa\ celulas.jpeg);
+    background-size:cover; 
+    background-position: 100%;
+}  
+
+.slogan3{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300; 
+    text-transform: uppercase; 
+    font-size: 30px; 
+    color: white;
+    line-height: 45px; 
+    margin-left: 0px;
+    margin-top: 25px;   
+    text-align: center;
+} 
+
+.parag2{ 
+    padding-right: 130px;
+    padding-left: 130px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; 
+    font-size: 22px; 
+    color: white; 
+    line-height: 35px; 
+    margin-top: -75px; 
+    text-align: center;
+}
+
+.grid-celulas{
+    margin-top: 0px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+}  
+
+.gradecelulas{ 
+    text-align: center;
+    width: 100%;  
+    border-radius: 0px; 
+    margin-right: 5px; 
+    margin-left:  95px ; 
+   
+} 
+
+/* CONTNAINER CELULAS */ 
+
