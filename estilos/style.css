@@ -30,6 +30,7 @@
 }
 
 .menu{
+
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     margin-top: 80px; 
@@ -97,10 +98,109 @@ span {
     font-size: 18px; 
     
 }
+
+#menu-button{
+    display: none;
+}
+
 a{
     text-decoration: none; 
     color: white;
-} 
+}  
+
+
+
+
+@media(max-width: 600px){ 
+
+    #cont1{
+        height: 60vh;
+        max-width: 100%; 
+        background-image: linear-gradient(to bottom, rgba(0,0,0, 0.9) 45%, rgba(0,0,0,0)), url(/estilos/image/cover.jpg);
+        background-size: cover;
+        background-position: center;
+        display: block;
+    
+    }
+    
+    .logo {
+        margin-top:  15px; 
+        margin-left: 160px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .menu {  
+        display: none;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        margin-top: 5px;  
+        margin-left: 15px; 
+        margin-right: 15px;
+        padding-top: 25px;
+        padding-bottom: 25px; 
+        padding-right: 25px;
+        padding-left: 15px;
+        background-color: #55555577;
+        text-align: left; 
+        text-transform: uppercase;  
+        color: white; 
+        line-height: 22px;
+        list-style-type: none; 
+        display: grid; 
+        grid-template-columns: repeat(1, 1fr); 
+        border-radius: 5px;
+    }  
+    .slogan{
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300; 
+        text-transform: uppercase; 
+        font-size: 25px; 
+        color: white; 
+        line-height: 40px; 
+        margin-left: 0px;  
+        margin-top: 0px;
+        text-align: center; 
+    }  
+    span {
+        
+        margin-left: 0px; 
+        font-weight: 900; 
+        font-size: 40px;
+    } 
+    
+    .btn1{
+        margin-left: 80px;
+        margin-top: 15px;
+        padding: 13px;
+        padding-left: 100px;
+        padding-right: 100px;
+        background-image: linear-gradient(to right, rgb(139, 92, 3), orange);
+        text-align: center;  
+        border: none;  
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 20px; 
+        font-size: 18px;   
+        
+    }  
+    #menu-button{
+        visibility: visible;  
+        display: inline;   
+        margin-left: 95px; 
+    } 
+
+    #menu{
+        display: none;
+    }
+    
+}   
+
+
+
+
+
+
 
 /* CONTAINER SECUNDÁRIO */ 
 
@@ -200,8 +300,9 @@ a{
     width: 100%;
     height: 100vh;
     max-width: 100%; 
-    background-image: linear-gradient(to right, rgba(0,0,0, 0.9) 45%, rgba(0,0,0,0)), url(/estilos/image/capa\ celulas.jpeg);
+    background-image: linear-gradient(to right, rgba(0,0,0, 0.9) 45%, rgba(0,0,0,0)), url(/estilos/image/capa\ celulas.jpeg);    
     background-size:cover; 
+    
     background-position: 100%;
 }  
 
