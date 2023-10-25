@@ -194,12 +194,17 @@ a{
         display: none;
     }
     
+    .fa-solid, .fa-bars{
+        margin-top: -5px;
+        margin-left: -5px;
+        margin-right: -5px;
+        margin-bottom: -5px; 
+        padding: 8px; 
+        background: none; 
+        background-color: rgb(139, 92, 3); 
+        color: white;
+    }
 }   
-
-
-
-
-
 
 
 /* CONTAINER SECUNDÁRIO */ 

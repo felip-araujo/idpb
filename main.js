@@ -1,4 +1,4 @@
-<script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+
 
 
 function abrirPopup(){
