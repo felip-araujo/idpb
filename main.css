@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* grupos */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    
+    padding: 24px 40px;
+}
+
+.start, .agenda, .mensagens, .pastores {
+    max-width: 1024px;
+    /* width: 100%; */
+    padding: 0 64px;
+}
+
+/* header */
+header {
+    justify-content: space-between;
+    color: #fff;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 3em;
+}
+
+
+.nav-block {
+    display: flex;
+    align-items: start;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.nav-block button {
+    background-color: transparent;
+    border: 0;
+    font: 1em sans-serif;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.black-bar {
+    width: 29,25px;
+    height: 2px;
+    background-color: #fff;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    list-style: none;
+    margin-left: 32px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+/* abertura */
+.abertura {
+    height: 101vh;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    top: -166.7px;
+}
+
+.bg-video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+.abertura h2 {
+    align-self: center;
+    font-size: 2em;
+}
+
+.convite {
+    position: absolute;
+    bottom: 0;
+}
+
+.descricao {
+    display: block
+}
+
+.social {
+    display: flex;
+    padding-bottom: 40px;
+}
+
+.social img {
+    margin-top: 24px;
+    max-width: 24px;
+}
+
+.social li {
+    list-style: none;
+    padding-right: 16px;
+}
+
+/* comece aqui start */
+.start h2, .agenda h2, .mensagens h2, .pastores h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 3em;
+    margin-bottom: 24px;
+}
+
+.card {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.passo {
+    margin: 0 auto;
+}
+
+.passo h3 {
+    margin-bottom: 8px;
+    font-size: 2em;
+}
+
+.passo p {
+    font-weight: 300;
+}
+
+/* agenda */
+.start, .agenda, .mensagens {
+    display: block;
+    margin-bottom: 80px;
+}
+
+.eventos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.evento {
+    margin: 0 auto;
+}
+
+/* mensagens */
+.artigos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.artigo {
+    margin: 0 auto;
+    padding: 8px;
+}
+
+/* pastores */
+.pastores {
+    display: block;
+    padding-bottom: 40px;
+}
+
+.pastores img {
+    margin-right: 24px;
+}
+
+.pastores-descricao {
+    display: flex;
+}
+
+/* footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .social {
+    padding: 0;
+    margin: 0;
+}
+
+footer .social img {
+    margin: 0px;
+    padding: 0;
+}
