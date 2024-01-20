@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;700&family=Cormorant+Garamond:wght@300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="main.css">
     <title>IDPB Filadélfia</title>
     <script defer src="app.js"></script>
 </head>
+
 <body>
     <header class="container">
         <h1>IDPB<br>Filadélfia</h1>
-            <div class="nav-block">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#">IGREJA</a>
-                        </li>
-                        <li>
-                            <a href="#">AGENDA</a>
-                        </li>
-                        <li>
-                            <a href="#">PALAVRA</a>
-                        </li>
-                        <li>
-                            <a href="#">ONDE ESTAMOS</a>
-                        </li>
-                        <li>
-                            <a href="#">LOGIN</a>
-                        </li>
-                    </ul>
-                    
-                </nav>
-            </div>
+        <div class="nav-block">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#start">START</a>
+                    </li>
+                    <li>
+                        <a href="#agenda">AGENDA</a>
+                    </li>
+                    <li>
+                        <a href="#palavra">PALAVRA</a>
+                    </li>
+                    <li>
+                        <a href="#">ONDE ESTAMOS &#x2BC6;</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Central</a></li>
+                            <li><a href="#">Monte das Olvieiras</a></li>
+                            <li><a href="#">Tarumã</a></li>
+                            <li><a href="#">Águas Claras</a></li>
+                            <li><a href="#">Viver Melhor</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">LOGIN</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
     </header>
     <section class="container abertura">
         <video autoplay loop muted playsinline poster class="bg-video">
             <source src="assets/videos/bgvideo.mp4" type="video/mp4">
         </video>
-        <h2>nossa missão é amar</h2>
+        <h2>NOSSA MISSÃO É AMAR</h2>
         <div class="convite">
             <div class="descricao">
                 <h3>VENHA CELEBRAR</h3>
                 <p>Domingo | 18:00</p>
                 <p>Quarta-feira | 19:30</p>
-                <a target="_blank" href="https://maps.app.goo.gl/vyxw1djFA41F8V1C7">COMO CHEGAR</a>
+                <a target="_blank" href="https://maps.app.goo.gl/vyxw1djFA41F8V1C7">COMO CHEGAR &rarr;</a>
             </div>
             <ul class="social">
                 <li>
@@ -63,78 +74,82 @@
         </div>
     </section>
     <main>
-        <section class="container start">
-            <h3>ENCONTRE SEU LUGAR NA FILADÉLFIA</h3>
+        <section id="start" class="container start">
+            <h2>SEU LUGAR É AQUI</h2>
             <div class="passos">
                 <div class="card passo">
                     <h4>VEM PARA A FAMÍLIA</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis labore eos atque!</p>
-                    <a href="#">Comece aqui</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod
+                        eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis
+                        labore eos atque!</p>
+                    <a href="#">Comece aqui &rarr;</a>
                 </div>
                 <div class="card passo">
                     <h4>FIQUE LIGADO</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis labore eos atque!</p>
-                    <a href="#">Entre na lista</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod
+                        eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis
+                        labore eos atque!</p>
+                    <a href="#">Entre na lista &rarr;</a>
                 </div>
                 <div class="card passo">
                     <h4>CÉLULAS</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis labore eos atque!</p>
-                    <a href="#">Marque uma visita</a>
-                </div>
-                <div class="card passo">
-                    <h4>CÉLULAS</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis labore eos atque!</p>
-                    <a href="#">Marque uma visita</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, iste. Alias perspiciatis, quod
+                        eum debitis libero aut quae officia itaque deserunt doloremque possimus fugit, hic ipsa omnis
+                        labore eos atque!</p>
+                    <a href="#">Marque uma visita &rarr;</a>
                 </div>
             </div>
         </section>
-        <section class="container agenda">
-            <h2>Agenda</h2>
+        <section id="agenda" class="container agenda">
+            <h2>PRÓXIMOS EVENTOS</h2>
             <div class="eventos">
                 <div class="card evento">
-                    <img src="https://placehold.co/120x120" alt="">
-                    <h3>evento 1</h3>
+                    <img src="assets/images/aviso1.png" alt="Fogo No Altar">
+                    <h3>Fogo No Altar</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis cum sapiente sint aspernatur facere, repellendus molestias! Quis esse deserunt eos.
+                    </p>
+                    <a href="#">Saiba mais</a>
                 </div>
                 <div class="card evento">
-                    <img src="https://placehold.co/120x120" alt="">
-                    <h3>evento 2</h3>
+                    <img src="assets/images/aviso2.png" alt="">
+                    <h3>Renovo</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde repellat dolorum nam? Fugiat beatae id veniam nulla suscipit explicabo provident.
+                    </p>
+                    <a href="#">Saiba mais</a>
                 </div>
                 <div class="card evento">
-                    <img src="https://placehold.co/120x120" alt="">
-                    <h3>evento 3</h3>
-                </div>
-                <div class="card evento">
-                    <img src="https://placehold.co/120x120" alt="">
-                    <h3>evento 4</h3>
+                    <img src="assets/images/aviso3.png" alt="">
+                    <h3>Radicamping</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam illo voluptatum, recusandae dignissimos in voluptatibus impedit explicabo eos culpa aut?
+                    </p>
+                    <a href="#">Saiba mais</a>
                 </div>
             </div>
         </section>
-        <!-- <section class="container mensagens">
-            <h2>Últimas mensagens</h2>
+        <section id="palavra" class="container mensagens">
+            <h2>VÍDEO MAIS RECENTE</h2>
             <div class="artigos">
-                <div class="card artigo">
-                    <img src="https://placehold.co/250x150" alt="">
-                    <h3>mensagem 1</h3>
-                </div>
-                <div class="card artigo">
-                    <img src="https://placehold.co/250x150" alt="">
-                    <h3>mensagem 2</h3>
-                </div>
-                <div class="card artigo">
-                    <img src="https://placehold.co/250x150" alt="">
-                    <h3>mensagem 3</h3>
-                </div>
+                <iframe src="https://www.youtube.com/embed?listType=playlist&list=UUyL73mTdFcESxcDOGE5IHxg" width="600" height="340" allowfullscreen></iframe>
             </div>
-        </section> -->
-        <section class="container pastores">
-            <h2>Nossos Pastores</h2>
+            <a href="https://youtube.com/@IDPBFiladelfia/">Ir para YouTube &rarr;</a>
+            <a href="https://youtube.com/@IDPBFiladelfia/">Ver boletim &rarr;</a>
+        </section>
+        <section id="pastores" class="container pastores">
+            <h2>NOSSOS PASTORES</h2>
             <div class="pastores-descricao">
                 <img src="assets/images/1 - 26x34,67cm.png" alt="Prs. Joel e Edilene">
                 <div>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum corrupti iste, explicabo dignissimos laudantium optio nemo perspiciatis quae a, neque blanditiis? Doloremque totam sed amet, quam non sint eos id.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quas facilis tenetur, veritatis dolor provident quam repellat! Perspiciatis facere totam sunt aliquid, distinctio nesciunt sed ipsam unde amet, labore sit?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum corrupti iste, explicabo
+                        dignissimos laudantium optio nemo perspiciatis quae a, neque blanditiis? Doloremque totam sed
+                        amet, quam non sint eos id.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quas facilis tenetur, veritatis
+                        dolor provident quam repellat! Perspiciatis facere totam sunt aliquid, distinctio nesciunt sed
+                        ipsam unde amet, labore sit?</p>
+                        <a href="#">Conheça toda a liderança &rarr;</a>
                 </div>
-                <a href="#">Conheça toda a liderança</a>
             </div>
         </section>
     </main>
@@ -154,4 +169,5 @@
     </footer>
     <script src="/assets/js/main.js"></script>
 </body>
+
 </html>

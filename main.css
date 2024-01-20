@@ -1,8 +1,13 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Almarai', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
 }
 
 /* grupos */
@@ -10,14 +15,21 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    
     padding: 24px 40px;
 }
 
-.start, .agenda, .mensagens, .pastores {
+main .container {
     max-width: 1024px;
-    /* width: 100%; */
-    padding: 0 64px;
+}
+
+main a {
+    /* position: absolute; */
+    padding: 8px 16px;
+    background-color: #08799e;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.9em;
 }
 
 /* header */
@@ -43,13 +55,11 @@ header h1 {
     font-size: 1em;
 }
 
-.nav-block button {
-    background-color: transparent;
-    border: 0;
-    font: 1em sans-serif;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
+.dropdown {
+    display: none;
+    text-align: center;
+    padding-inline: 16px;
+    position: absolute;
 }
 
 .black-bar {
@@ -64,20 +74,28 @@ nav ul {
 
 nav li {
     list-style: none;
-    margin-left: 32px;
 }
 
 nav a {
+    padding: 8px 16px;
     text-decoration: none;
     color: #fff;
     font-size: 0.8em;
+}
+
+.dropdown li {
+    margin-left: 0;
+}
+
+nav li:hover .dropdown{
+    display: block;
 }
 
 /* abertura */
 .abertura {
     height: 101vh;
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-image: linear-gradient(to top, rgba(0,0,0,1)1%, rgba(0, 0, 0, 0.703)30%);
     color: #fff;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +117,8 @@ nav a {
 
 .abertura h2 {
     align-self: center;
-    font-size: 2em;
+    font-size: 1em;
+    font-weight: normal;
 }
 
 .convite {
@@ -143,18 +162,12 @@ nav a {
 }
 
 .card {
-    border: 2px solid #ccc;
-    border-radius: 8px;
     padding: 24px;
 }
 
 .passos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
-
-.passo {
-    margin: 0 auto;
 }
 
 .passo h3 {
@@ -174,11 +187,17 @@ nav a {
 
 .eventos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .evento {
     margin: 0 auto;
+}
+
+.evento img {
+    width: 200px;
+    object-fit: cover;
+    margin-bottom: 8px;
 }
 
 /* mensagens */
@@ -200,7 +219,9 @@ nav a {
 
 .pastores img {
     margin-right: 24px;
+    object-fit: cover;
     width: 300px;
+    height: 400px;
 }
 
 .pastores-descricao {
@@ -208,7 +229,6 @@ nav a {
 }
 
 .pastores-descricao p {
-    padding-left: 80px;
     padding-bottom: 24px;
 }
 
