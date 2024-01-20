@@ -67,7 +67,7 @@ nav li {
     margin-left: 32px;
 }
 
-a {
+nav a {
     text-decoration: none;
     color: #fff;
     font-size: 0.8em;
@@ -93,6 +93,8 @@ a {
     top: 0;
     z-index: -1;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .abertura h2 {
@@ -107,6 +109,14 @@ a {
 
 .descricao {
     display: block
+}
+
+.descricao a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: smaller;
+    font-weight: bold;
+    padding-top: 8px;
 }
 
 .social {
@@ -190,10 +200,16 @@ a {
 
 .pastores img {
     margin-right: 24px;
+    width: 300px;
 }
 
 .pastores-descricao {
     display: flex;
+}
+
+.pastores-descricao p {
+    padding-left: 80px;
+    padding-bottom: 24px;
 }
 
 /* footer */
