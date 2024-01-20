@@ -10,6 +10,23 @@ a {
     color: #000;
 }
 
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 3em;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 3em;
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 1em;
+}
+
 /* grupos */
 .container {
     width: 100%;
@@ -20,6 +37,12 @@ a {
 
 main .container {
     max-width: 1024px;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.button {
+    margin-top: 16px;
 }
 
 main a {
@@ -37,16 +60,9 @@ header {
     justify-content: space-between;
     color: #fff;
     align-items: start;
-    position: relative;
+    position: absolute;
     z-index: 1;
 }
-
-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 3em;
-}
-
 
 .nav-block {
     display: flex;
@@ -99,10 +115,9 @@ nav li:hover .dropdown{
     color: #fff;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto 80px;
     position: relative;
     overflow: hidden;
-    top: -166.7px;
 }
 
 .bg-video {
@@ -115,10 +130,10 @@ nav li:hover .dropdown{
     object-fit: cover;
 }
 
-.abertura h2 {
+.abertura>h3 {
     align-self: center;
-    font-size: 1em;
     font-weight: normal;
+    font-size: 1.2em;
 }
 
 .convite {
@@ -154,15 +169,9 @@ nav li:hover .dropdown{
 }
 
 /* comece aqui start */
-.start h2, .agenda h2, .mensagens h2, .pastores h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 3em;
-    margin-bottom: 24px;
-}
 
 .card {
-    padding: 24px;
+    padding: 24px 24px;
 }
 
 .passos {
@@ -177,12 +186,6 @@ nav li:hover .dropdown{
 
 .passo p {
     font-weight: 300;
-}
-
-/* agenda */
-.start, .agenda, .mensagens {
-    display: block;
-    margin-bottom: 80px;
 }
 
 .eventos {
@@ -234,7 +237,7 @@ nav li:hover .dropdown{
 
 /* footer */
 footer {
-    background-color: #000;
+    background-color: #1e1d31;
     color: #fff;
     padding: 24px 40px;
     display: flex;
