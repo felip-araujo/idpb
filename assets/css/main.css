@@ -107,6 +107,14 @@ nav li:hover .dropdown{
     display: block;
 }
 
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1e1d31;
+}
+
 /* abertura */
 .abertura {
     height: 101vh;
