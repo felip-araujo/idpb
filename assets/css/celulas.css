@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+} 
+
+
+.formulario{
+    display: grid; 
+    grid-template-columns: 1fr; 
+    padding: 1.5rem ;
+    margin-top: 1rem;
+    
+}  
+
+.label {
+    font-size: 1rem; 
+    margin-top: 1.3rem;
+    margin-bottom: .3rem;
+    font-weight: 600; 
+    
+} 
+
+.input {
+    font-weight: 500; 
+    padding: .3rem; 
+    border-radius: .5rem; 
+    border: solid .5px;
+}
+
+.btn-enviar{
+    margin-top: 1rem; 
+    width: 25%; 
+    padding: .4rem;
+    font-weight: 600; 
+    border: solid 1px; 
+    border-radius: .3rem;
+    margin-left: 6.5rem;
+
+} 
+
