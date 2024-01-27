@@ -140,8 +140,9 @@ nav li:hover .dropdown{
 
 .abertura>h3 {
     align-self: center;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: normal;
-    font-size: 1.2em;
+    font-size: 2em;
 }
 
 .convite {
