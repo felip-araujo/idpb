@@ -1,9 +1,9 @@
 <?php
 
-$hostname = "127.0.0.1";
-$database = "idpb_membros";
-$username = "root";
-$password = '$Hur3216';
+$hostname = "108.167.151.34";
+$database = "evolud85_idpb";
+$username = "evolud85_chris";
+$password = 'vGT{R_A^-E+4';
 
 try {
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
@@ -12,7 +12,7 @@ try {
     echo "";
 } catch (PDOException $e) {
     echo "Falha ao conectar ao banco de dados: " . $e->getMessage();
-}
+} 
 
 // Não é mais necessário verificar a conexão usando $mysqli->connect_errno
 // O PDO lança exceções em caso de erros

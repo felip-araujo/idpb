@@ -1,32 +1,43 @@
-.formulario{
-    display: grid; 
-    margin-top: 15vh;
-    padding-left: 30rem;
-    padding-right: 30rem;
-} 
-.titulo{
-    text-align: center; 
-    margin-bottom: .5rem; 
-} 
-.input{
-    padding: .5rem; 
-    border-radius: .4rem;
-    border: solid .5px;
-    margin-bottom: .5rem;
-    margin-top: .2rem;
-} 
-.input-select {
-    padding: .5rem; 
-    border-radius: .4rem;
-    border: solid .5px;
-    margin-bottom: .5rem;
-    margin-top: .2rem;
-} 
-.btn{
-    padding: .8rem; 
-    width: fit-content50%; 
-    border-radius: .4rem;
-    border: solid .5px; 
-    margin-top: 1.4rem;  
+
+
+/* @media screen and (max-width: 480px ){
+    
 }
 
+@media screen and (min-width: 1280px ){
+    .formulario{
+        display: grid; 
+        margin-top: 15vh;
+        padding-left: 30rem;
+        padding-right: 30rem;
+    } 
+    .titulo{
+        text-align: center; 
+        margin-bottom: .5rem; 
+    } 
+    .input{
+        padding: .5rem; 
+        border-radius: .4rem;
+        border: solid .5px;
+        margin-bottom: .5rem;
+        margin-top: .2rem;
+    } 
+    .input-select {
+        padding: .5rem; 
+        border-radius: .4rem;
+        border: solid .5px;
+        margin-bottom: .5rem;
+        margin-top: .2rem;
+    } 
+    .btn{
+        padding: .8rem; 
+        width: fit-content: 50%; 
+        border-radius: .4rem;
+        border: solid .5px; 
+        margin-top: 1.4rem;  
+    };
+    
+}
+
+
+ */
