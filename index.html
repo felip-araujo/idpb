@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Membros</title> 
-    <!-- <link rel="stylesheet" href="/idpb/assets/css/formulario.css"> 
-    <link rel="stylesheet" href="/idpb/assets/css/cadastro.css"> 
-    --> 
-    <link rel="stylesheet" href="/idpb/assets/css/news.css">
+    <title>Cadastro de Membros</title>
+    <link rel="stylesheet" href="/FORM_IDPB/idpb/assets/css/style.css">
+
 
 
 
@@ -15,21 +14,21 @@
     <script>
 
         function limpa_formulário_cep() {
-                //Limpa valores do formulário de cep.
-                document.getElementById('rua').value=("");
-                document.getElementById('bairro').value=("");
-                document.getElementById('cidade').value=("");
-                document.getElementById('uf').value=("");
-                document.getElementById('ibge').value=("");
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+            document.getElementById('ibge').value = ("");
         }
-    
+
         function meu_callback(conteudo) {
             if (!("erro" in conteudo)) {
                 //Atualiza os campos com os valores.
-                document.getElementById('rua').value=(conteudo.logradouro);
-                document.getElementById('bairro').value=(conteudo.bairro);
-                document.getElementById('cidade').value=(conteudo.localidade);
-                document.getElementById('uf').value=(conteudo.uf);
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
             } //end if.
             else {
                 //CEP não Encontrado.
@@ -37,36 +36,36 @@
                 alert("CEP não encontrado.");
             }
         }
-            
+
         function pesquisacep(valor) {
-    
+
             //Nova variável "cep" somente com dígitos.
             var cep = valor.replace(/\D/g, '');
-    
+
             //Verifica se campo cep possui valor informado.
             if (cep != "") {
-    
+
                 //Expressão regular para validar o CEP.
                 var validacep = /^[0-9]{8}$/;
-    
+
                 //Valida o formato do CEP.
-                if(validacep.test(cep)) {
-    
+                if (validacep.test(cep)) {
+
                     //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value="...";
-                    document.getElementById('bairro').value="...";
-                    document.getElementById('cidade').value="...";
-                    document.getElementById('uf').value="...";
-    
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
                     //Cria um elemento javascript.
                     var script = document.createElement('script');
-    
+
                     //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-    
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
                     //Insere script no documento e carrega o conteúdo.
                     document.body.appendChild(script);
-    
+
                 } //end if.
                 else {
                     //cep é inválido.
@@ -79,12 +78,13 @@
                 limpa_formulário_cep();
             }
         };
-    
-        </script>
+
+    </script>
 </head>
+
 <body>
     <h2 class="titulo">Cadastro de Membros</h2>
-    
+
     <form id="cadastroForm" action="processar_cadastro.php" method="post" class="formulario">
         <label for="cpf">CPF:</label>
         <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required class="input">
@@ -117,7 +117,8 @@
         <label for="base">Base:</label>
         <select id="base" name="base" required class="input">
             <option value="Filadélfia I (Santo Antônio)">Filadélfia I (Santo Antônio)</option>
-            <option value="Filadélfia II (Monte das Oliveiras/ Fazendinha)">Filadélfia II (Monte das Oliveiras/ Fazendinha)</option>
+            <option value="Filadélfia II (Monte das Oliveiras/ Fazendinha)">Filadélfia II (Monte das Oliveiras/
+                Fazendinha)</option>
             <option value="Filadélfia III (Tarumã)">Filadélfia III (Tarumã)</option>
             <option value="Filadélfia IV (Águas Claras)">Filadélfia IV (Águas Claras)</option>
             <option value="Filadélfia V (Viver Melhor)">Filadélfia V (Viver Melhor)</option>
@@ -161,23 +162,23 @@
         <input type="text" id="profissao" name="profissao" maxlength="75" required class="input">
         <!-- Inicio do formulario CEP autoincremento -->
         <label>Cep:
-        <input name="cep" type="text" id="cep" value="" class="input" size="10" maxlength="9"
-               onblur="pesquisacep(this.value);" /></label><br />
+            <input name="cep" type="text" id="cep" value="" class="input" size="10" maxlength="9"
+                onblur="pesquisacep(this.value);" /></label>
 
         <label>Rua:
-        <input class="input" name="rua" type="text" id="rua" size="60" /></label><br />
+            <input class="input" name="rua" type="text" id="rua" size="60" /></label>
 
         <label>Bairro:
-        <input class="input" name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <input class="input" name="bairro" type="text" id="bairro" size="40" /></label>
 
         <label>Cidade:
-        <input class="input" name="cidade" type="text" id="cidade" size="40" /></label><br />
+            <input class="input" name="cidade" type="text" id="cidade" size="40" /></label>
 
         <label>Estado:
-        <input class="input" name="uf" type="text" id="uf" size="2" /></label><br />
+            <input class="input" name="uf" type="text" id="uf" size="2" /></label>
 
         <label>Número:
-        <input class="input" name="numero" type="text" id="numero" size="2" /></label><br />
+            <input class="input" name="numero" type="text" id="numero" size="2" /></label>
         <label for="receber_noticias">Quer receber notícias da Igreja:</label>
         <select class="input" id="receber_noticias" name="receber_noticias" required>
             <option value="Sim">Sim</option>
@@ -186,4 +187,5 @@
         <button type="submit" class="btn">Cadastrar Membro</button>
     </form>
 </body>
+
 </html>

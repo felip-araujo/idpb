@@ -1,0 +1,80 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+     margin: 0;
+     box-sizing: border-box; 
+     padding: 0; 
+     font-family: 'Montserrat', sans-serif;
+ }
+
+@media screen and (max-width: 480px) {
+
+    .formulario{
+        display:inline-block;  
+        margin-top: 2vh;
+        padding-left: 1rem;
+        padding-right: 30rem;
+    } 
+    .titulo{
+        text-align: center; 
+        margin-bottom: .1rem;  
+        margin-top: 2rem;
+    }  
+
+    .input{
+        padding: .2rem; 
+        width: 180%;
+    }
+
+    /* .input-select {
+        padding: .5rem; 
+        border-radius: .4rem;
+        border: solid .5px;
+        margin-bottom: .5rem;
+        margin-top: .2rem;
+    } 
+    .btn{
+        padding: .8rem; 
+        width: fit-content: 50%; 
+        border-radius: .4rem;
+        border: solid .5px; 
+        margin-top: 1.4rem;  
+    };
+     */
+}
+
+@media screen and (max-width: ) {
+    .formulario{
+        display: grid;  
+        width: 80%;
+        margin-top: 15vh;
+        padding-left: 30rem;
+        padding-right: 30rem; 
+    } 
+    .titulo{
+        text-align: center; 
+        margin-bottom: .5rem; 
+    } 
+    .input{
+        padding: .5rem; 
+        border-radius: .4rem;
+        border: solid .5px;
+        margin-bottom: .5rem;
+        margin-top: .2rem;
+    } 
+    .input-select {
+        padding: .5rem; 
+        border-radius: .4rem;
+        border: solid .5px;
+        margin-bottom: .5rem;
+        margin-top: .2rem;
+    } 
+    .btn{
+        padding: .8rem; 
+        width: fit-content: 50%; 
+        border-radius: .4rem;
+        border: solid .5px; 
+        margin-top: 1.4rem;  
+    };    
+}
