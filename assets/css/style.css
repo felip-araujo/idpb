@@ -1,80 +1,202 @@
- 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-     margin: 0;
-     box-sizing: border-box; 
-     padding: 0; 
-     font-family: 'Montserrat', sans-serif;
- }
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 0; 
+    font-family: "Montserrat", sans-serif;
+} 
 
+/* css aplicado para dispositivos mobile ate 480px de width */
 @media screen and (max-width: 480px) {
+   
 
-    .formulario{
-        display:inline-block;  
-        margin-top: 2vh;
-        padding-left: 1rem;
-        padding-right: 30rem;
-    } 
     .titulo{
         text-align: center; 
-        margin-bottom: .1rem;  
-        margin-top: 2rem;
+        padding: 2rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem; 
+        background-color: #191a1b;
+        color: white; 
+        font-size: 1.2rem;
+        font-weight: 400;
+     
+    } 
+
+    .formulario{
+        background-color: #F7F8FA; 
+        padding: .8rem; 
+        display: grid; 
+        grid-template-columns: repeat(1, 2fr); 
+        
+    
+    } 
+
+    .input, .input-select {
+        display: grid;
+        font-size: smaller;  
+        width: 95%;  
+        text-align: center;
+        padding: .3rem;
+        margin: .5rem; 
+        margin-top:0px ;
+        border-radius: .5rem; 
+        border: solid .3px #191a1b57;;  
+
+    } 
+    label{
+        margin-left: .3rem;
+        color: #191a1b;
+        font-weight: 500; 
+        font-size: .9rem;
+        padding: .3rem;  
+    } 
+
+    .btn{
+        width: 75%; 
+        padding-top: .5rem; 
+        padding-bottom: .5rem;  
+        margin-top: .8rem;
+        margin-bottom: .8rem;
+        margin-left: 2.5rem;
+        border-radius: 1rem;
+        border: solid .3px #191a1b57;;   
+        background-color: #101111; 
+        color: white;
+       
+    } 
+
+    
+} 
+
+/* css aplicado para dispositivos tablet de 481px ate 768px de width */
+@media screen and (min-width: 481px) and (max-width: 768px)  {
+    .titulo{
+        text-align: center; 
+        padding: 2rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem; 
+        background-color: #191a1b;
+        color: white; 
+        font-size: 1.5rem;
+        font-weight: 400;
+     
+    } 
+
+    .formulario{
+        background-color: #F7F8FA; 
+        padding: .8rem; 
+        display: grid; 
+        grid-template-columns: repeat(1, 2fr); 
+        
+    
+    } 
+
+    .input, .input-select {
+        display: grid;
+        font-size: smaller;  
+        width: 95%;  
+        text-align: center;
+        padding: .4rem;
+        margin: .5rem; 
+        margin-top:0px ;
+        border-radius: .5rem; 
+        border: solid .3px #191a1b57;;  
+
+    } 
+    label{
+        margin-left: .3rem;
+        color: #191a1b;
+        font-weight: 500; 
+        font-size: 1.1rem;
+        padding: .3rem;  
+    } 
+
+    .btn{
+        width: 75%; 
+        padding-top: .5rem; 
+        padding-bottom: .5rem;  
+        margin-top: .8rem;
+        margin-bottom: .8rem;
+        margin-left: 3.5rem;
+        border-radius: 1rem;
+        border: solid .3px #191a1b57;;   
+        background-color: #101111; 
+        color: white;
+       
+    } 
+}
+
+/* css apllicado para laptps, tablet horizontal, e pequenos laptops de: 769px ate 1279px*/
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+    
+    body{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);   
+        grid-area: auto;      
+    }
+    
+    
+    .titulo{   
+        display: flex;
+        justify-content: center;
+        text-align: center; 
+        flex-direction:column-reverse; 
+        padding: 2rem;
+        background-color: #191a1b;  
+        background-image: linear-gradient(to top, #131414, 88%, #4b4b4b);
+        color: white; 
+        font-size: 1.5rem; 
+        font-weight: 400;      
+    } 
+
+    .formulario{
+        background-color: #F7F8FA; 
+        padding: 5rem; 
+        text-align: right;
+        display: grid;  
+    } 
+
+    .input, .input-select {
+        display: grid;
+        font-size: medium;  
+        width: 100%;  
+        text-align: center;
+        padding: .4rem;
+        margin: .5rem; 
+        margin-top:0px ;
+        border-radius: .5rem; 
+        border: solid .3px #191a1b57;;  
+
+    } 
+    label{
+        margin-left: .3rem;
+        color: #191a1b;
+        font-weight: 600; 
+        font-size: 1.1rem;
+        padding: .6rem;   
+        text-align: left; 
+        
     }  
 
-    .input{
-        padding: .2rem; 
-        width: 180%;
+    .btn{
+       
+        width: 90%; 
+        padding-top: .5rem; 
+        padding-bottom: .5rem;  
+        margin-top: .8rem;
+        margin-bottom: .8rem;
+        border-radius: 1rem;
+        border: solid .3px #191a1b57;;   
+        background-color: #101111; 
+        color: white;
+       
+    } 
+}  
+
+/* css aplicado para laptops maiores e monitores (pc) 1280px + */ 
+@media screen and (min-width: 1280px) {
+    body{
+        background-color: green;
     }
-
-    /* .input-select {
-        padding: .5rem; 
-        border-radius: .4rem;
-        border: solid .5px;
-        margin-bottom: .5rem;
-        margin-top: .2rem;
-    } 
-    .btn{
-        padding: .8rem; 
-        width: fit-content: 50%; 
-        border-radius: .4rem;
-        border: solid .5px; 
-        margin-top: 1.4rem;  
-    };
-     */
-}
-
-@media screen and (max-width: ) {
-    .formulario{
-        display: grid;  
-        width: 80%;
-        margin-top: 15vh;
-        padding-left: 30rem;
-        padding-right: 30rem; 
-    } 
-    .titulo{
-        text-align: center; 
-        margin-bottom: .5rem; 
-    } 
-    .input{
-        padding: .5rem; 
-        border-radius: .4rem;
-        border: solid .5px;
-        margin-bottom: .5rem;
-        margin-top: .2rem;
-    } 
-    .input-select {
-        padding: .5rem; 
-        border-radius: .4rem;
-        border: solid .5px;
-        margin-bottom: .5rem;
-        margin-top: .2rem;
-    } 
-    .btn{
-        padding: .8rem; 
-        width: fit-content: 50%; 
-        border-radius: .4rem;
-        border: solid .5px; 
-        margin-top: 1.4rem;  
-    };    
-}
+} 
