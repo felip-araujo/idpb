@@ -4,7 +4,7 @@
     padding: 0px;
     box-sizing: border-box;
     margin: 0; 
-    font-family: 'Almarai', sans-serif;
+    font-family: "Montserrat", sans-serif;
 } 
 
 /* css aplicado para dispositivos mobile ate 480px de width */
@@ -66,13 +66,17 @@
        
     } 
 
+    .subtitulo, h3 {
+        visibility: hidden;
+    }
+
     
 } 
 
 /* css aplicado para dispositivos tablet de 481px ate 768px de width */
 @media screen and (min-width: 481px) and (max-width: 768px)  {
     
-    .titulo{
+    .titulo,{
         text-align: center; 
         padding: 2rem;
         padding-top: 2.5rem;
@@ -125,7 +129,12 @@
         background-color: #101111; 
         color: white;
        
-    } 
+    }  
+    
+    .subtitulo, h3 {
+        visibility: hidden;
+    }
+
 }
 
 /* css apllicado para laptps, tablet horizontal, e pequenos laptops de: 769px ate 1279px*/
@@ -191,7 +200,11 @@
         background-color: #101111; 
         color: white;
        
-    } 
+    }  
+
+    .subtitulo {
+        visibility: hidden;
+    }
 }  
 
 /* css aplicado para laptops maiores e monitores (pc) 1280px + */ 
@@ -204,16 +217,19 @@
     
     
     .titulo{   
-        display: flex;
-        justify-content: center;
+     
+    }  
+
+    .container{
+        display: block;
+        justify-content: center; 
         text-align: center; 
-        flex-direction:column-reverse; 
         padding: 2rem;
         background-image: linear-gradient(to top, #131414, 88%, #4b4b4b); 
         color: white; 
         font-size: 1.5rem; 
         font-weight: 400;      
-    } 
+    }
 
     .formulario{
         background-color: #F7F8FA; 
@@ -277,7 +293,7 @@
         background-color: green; 
         color: white; 
         text-align: center; 
-        transition: color .2s ease-in-out;
+        transition: color .2s ea;
         font-size: 1rem;  
         font-weight: 600; 
     } 
