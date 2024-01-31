@@ -131,8 +131,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
             if ($insere_membro->execute()) {
-                echo "Cadastro realizado com sucesso!";
-            } else {
+                // Se o cadastro for bem-sucedido, redireciona para a página principal
+                header("Location: https://www.idpbfiladelfia.com.br/");
+                exit();
                 echo "Erro ao cadastrar: " . $insere_membro->errorInfo()[2];
             }
         }
