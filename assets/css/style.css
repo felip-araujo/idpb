@@ -245,7 +245,7 @@
     }
 
     .titulo{
-        margin-top: 50vh; 
+        margin-top: 70vh; 
         font-family: "Cormorant Garamond", serif;
         font-weight: 600; 
         font-size: 3.4rem;
@@ -254,7 +254,7 @@
     .subtitulo {
         font-family: "Cormorant Garamond", serif;
         font-weight: 200; 
-        margin-top: -15px;
+        margin-top: -10px; 
     }
     
 
@@ -263,7 +263,7 @@
         justify-content: center; 
         text-align: center; 
         padding: 2rem; 
-        background-image: linear-gradient(to top, #131414, 88%, #00000096), url(/form_idpb/idpb/assets/css/image/idpb_mebers.png); 
+        background-image: linear-gradient(to top, #000000, 90%, #00000096), url(/form_idpb/idpb/assets/css/image/idpb_mebers.png); 
         background-size: 100%; 
         background-position:top;
         color: white; 
