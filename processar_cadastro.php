@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $numero_celular = $_POST["numero_celular"];
     $email = $_POST["email"];
     $estado_civil = $_POST["estado_civil"];
-    $base = $_POST["base"];
+    $numero_celula = $_POST["numero_celula"];
     $participacao_ministerio = $_POST["participacao_ministerio"];
     $data_batismo = $_POST["data_batismo"];
     $data_conversao = $_POST["data_conversao"];
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 numero_celular, 
                 email, 
                 estado_civil, 
-                base, 
+                numero_celula, 
                 participacao_ministerio, 
                 data_batismo, 
                 data_conversao, 
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     :numero_celular, 
                     :email, 
                     :estado_civil, 
-                    :base, 
+                    :numero_celula, 
                     :participacao_ministerio, 
                     :data_batismo, 
                     :data_conversao, 
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         numero_celular = :numero_celular, 
                         email = :email, 
                         estado_civil = :estado_civil, 
-                        base = :base, 
+                        numero_celula = :numero_celula, 
                         participacao_ministerio = :participacao_ministerio, 
                         data_batismo = :data_batismo, 
                         data_conversao = :data_conversao, 
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $insere_membro->bindParam(':numero_celular', $numero_celular);
             $insere_membro->bindParam(':email', $email);
             $insere_membro->bindParam(':estado_civil', $estado_civil);
-            $insere_membro->bindParam(':base', $base);
+            $insere_membro->bindParam(':numero_celula', $numero_celula);
             $insere_membro->bindParam(':participacao_ministerio', $participacao_ministerio);
             $insere_membro->bindParam(':data_batismo', $data_batismo);
             $insere_membro->bindParam(':data_conversao', $data_conversao);
