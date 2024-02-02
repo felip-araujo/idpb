@@ -1,0 +1,61 @@
+@use 'variaveis';
+
+.hero {
+    height: 101vh;
+    padding: 40px;
+    background-image: linear-gradient(to top, rgba(0,0,0,1)1%, rgba(0, 0, 0, 0.703)30%);
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    &__bg-video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__slogan {
+        align-self: center;
+        font-family: variaveis.$font-family_2;
+        font-weight: normal;
+        font-size: 2em;
+    }
+
+    &-convite {
+        position: absolute;
+        bottom: 0;
+
+        &__descricao {
+            display: block;
+            a {
+                display: block;
+                text-decoration: none;
+                color: variaveis.$color_3;
+                font-size: smaller;
+                font-weight: bold;
+                margin-top: 8px;
+            }
+        }
+
+        &__social {
+            display: flex;
+            padding-bottom: 40px;
+
+            
+            &__item{
+                padding-right: 16px;
+                img {
+                    margin-top: 24px;
+                    max-width: 24px;
+                }
+            }
+        }
+    }
+}

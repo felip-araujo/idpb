@@ -1,0 +1,18 @@
+@use 'variaveis';
+
+footer {
+    background-color: variaveis.$background-color_3;
+    color: variaveis.$color_2;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .social {
+        display: flex;
+        gap: 16px;
+    
+        img {
+            width: 24px;
+        }
+    }
+}

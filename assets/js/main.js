@@ -4,8 +4,8 @@ window.addEventListener("scroll", function () {
     const viewportHeight = window.innerHeight;
     const scrollPosition = window.scrollY;
     if (scrollPosition > viewportHeight) {
-        header.classList.add("header-fixed");
+        header.classList.add("header--fixed");
     } else {
-        header.classList.remove("header-fixed");
+        header.classList.remove("header--fixed");
     }
 });

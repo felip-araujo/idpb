@@ -1,0 +1,19 @@
+.pastores {
+    display: block;
+    padding-bottom: 40px;
+    img {
+        margin-right: 24px;
+        object-fit: cover;
+        width: 300px;
+        height: 400px;
+        border-radius: 5px;
+    }
+
+    &__descricao {
+        display: flex;
+        p {
+            padding-bottom: 24px;
+        }
+
+    }
+}

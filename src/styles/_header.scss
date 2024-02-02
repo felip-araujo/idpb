@@ -1,0 +1,70 @@
+@use 'variaveis';
+
+.header {
+	position: absolute;
+	z-index: 1;
+	margin: 0 auto;
+	color: variaveis.$color_2;
+	width: 100%;
+
+	&__logo {
+		display: flex;
+		img {
+			object-fit: contain;
+			margin-right: 20px;
+		}
+	}
+
+	&__container {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 32px;
+	}
+
+	img {
+        max-width: 50px;
+    }
+
+	&__nav {
+        display: flex;
+        align-items: center;
+        // font-weight: bold;
+		font-size: 0.8em;
+
+		&__dropdown {
+			display: none;
+			text-align: center;
+			position: absolute;
+		}
+
+		&__links {
+			display: flex;
+			li:hover .header__nav__dropdown {
+				display: block;
+			}
+		}
+		
+		&__link {
+			padding: 8px 16px;
+			color: #fff;
+
+			&--last {
+				padding-right: 0;
+			}
+
+			&:hover {
+				color: variaveis.$color-3;
+			}
+		}
+	}
+
+	&--fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #1e1d31;
+	}
+}
