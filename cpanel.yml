@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/evolud85//sistemaidpb.evoludesign.com.br/idpb/public_html
+    - /bin/git pull origin main
