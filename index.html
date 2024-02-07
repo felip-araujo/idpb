@@ -235,15 +235,6 @@
 
     <!-- Adicionando Javascript -->
         <script>
-        function limparCampos() {
-            document.getElementById('base').value = "";
-            document.getElementById('coordenacao').value = "";
-            document.getElementById('supervisao').value = "";
-            document.getElementById('supervisor').value = "";
-            document.getElementById('celula').value = "";
-            document.getElementById('lideres').value = "";
-        }
-
         function preencherCamposCoordenacao(dados) {
             console.log('Dados recebidos:', dados);
 
@@ -256,7 +247,17 @@
                 var nomeCelula = coordenacao.Celula;
                 var nomesLideres = coordenacao.Lideres;
 
-                document.getElementById('base').value = nomeBase;
+                // Define o valor da base de acordo com os dados da API
+                var baseSelect = document.getElementById('base');
+                var opcoesBase = baseSelect.options;
+                for (var i = 0; i < opcoesBase.length; i++) {
+                    if (opcoesBase[i].textContent.includes(nomeBase)) {
+                        baseSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+
+                // Define os valores dos outros campos
                 document.getElementById('coordenacao').value = nomeCoordenacao;
                 document.getElementById('supervisao').value = nomeSupervisao;
                 document.getElementById('supervisor').value = nomeSupervisor;
@@ -266,23 +267,7 @@
                 alert("Dados da coordenação não encontrados.");
             }
         }
-        //Funcao que busca os dados
-        function buscarDados() {
-            limparCampos();
 
-            var numero_celula = document.getElementById('numero_celula').value;
-
-            // Adicionar o número da célula no final
-            fetch(`https://sistemaidpb.evoludesign.com.br/api/index.php?celula=${numero_celula}`)
-                .then(response => response.json())
-                .then(data => {
-                    preencherCamposCoordenacao(data);
-                })
-                .catch(error => {
-                    console.error('Erro na requisição:', error);
-                    alert("Erro na requisição. Verifique o console para mais detalhes.");
-                });
-        }
     </script>
 </body>
 
