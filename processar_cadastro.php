@@ -30,8 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // checkbox para receber notícias
     $receber_noticias = $_POST["receber_noticias"];
 
-
-
     try {
         // Verificar se o CPF já está cadastrado
         $verifica_cpf = $pdo->prepare("SELECT cpf FROM membros WHERE cpf = :cpf");
@@ -128,17 +126,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $insere_membro->bindParam(':numero', $numero);
             $insere_membro->bindParam(':receber_noticias', $receber_noticias);
 
-
-
             if ($insere_membro->execute()) {
                 // Se o cadastro for bem-sucedido, redireciona para a página principal
                 header("Location: https://www.idpbfiladelfia.com.br/");
                 exit();
-                echo "Erro ao cadastrar: " . $insere_membro->errorInfo()[2];
             }
         }
     } catch (PDOException $e) {
-        echo "Erro no banco de dados: " . $e->getMessage();
+        // Registra o erro em um arquivo de log
+        $error_message = "Erro no banco de dados: " . $e->getMessage();
+        error_log($error_message, 3, "erro.log");
+
+        // Exibe uma mensagem de erro genérica para o usuário
+        echo "Ocorreu um erro durante o processamento. Por favor, tente novamente mais tarde.";
     }
 }
 
