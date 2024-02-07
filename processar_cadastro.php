@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($verifica_cpf->rowCount() > 0) {
             // Se o CPF já estiver cadastrado, exibir mensagem de erro
-            echo "Erro: CPF já cadastrado.";
+            echo"<script>alert('Erro: CPF já cadastrado!')</script>";
         } else {
             // Inserir ou atualizar dados no banco de dados
             $insere_membro = $pdo->prepare("INSERT INTO membros (
