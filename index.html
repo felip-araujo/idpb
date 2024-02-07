@@ -74,38 +74,7 @@
             }
         };
 
-        function preencherCamposCoordenacao(dados) {
-            console.log('Dados recebidos:', dados);
-
-            if (dados && dados.length > 0) {
-                var coordenacao = dados[0];
-                var nomeBase = coordenacao.Base;
-                var nomeCoordenacao = coordenacao.Coordenacao;
-                var nomeSupervisao = coordenacao.Supervisao;
-                var nomeSupervisor = coordenacao.Supervisor;
-                var nomeCelula = coordenacao.Celula;
-                var nomesLideres = coordenacao.Lideres;
-
-                // Define o valor da base de acordo com os dados da API
-                var baseSelect = document.getElementById('base');
-                var opcoesBase = baseSelect.options;
-                for (var i = 0; i < opcoesBase.length; i++) {
-                    if (opcoesBase[i].textContent.includes(nomeBase)) {
-                        baseSelect.selectedIndex = i;
-                        break;
-                    }
-                }
-
-                // Define os valores dos outros campos
-                document.getElementById('coordenacao').value = nomeCoordenacao;
-                document.getElementById('supervisao').value = nomeSupervisao;
-                document.getElementById('supervisor').value = nomeSupervisor;
-                document.getElementById('celula').value = nomeCelula;
-                document.getElementById('lideres').value = nomesLideres;
-            } else {
-                alert("Dados da coordenação não encontrados.");
-            }
-        }
+        
     </script>
 
 </head>
@@ -259,6 +228,41 @@
             <button type="submit" class="btn">Cadastrar Membro</button>
         </form>
     </div>
+
+    <script>
+        function preencherCamposCoordenacao(dados) {
+            console.log('Dados recebidos:', dados);
+
+            if (dados && dados.length > 0) {
+                var coordenacao = dados[0];
+                var nomeBase = coordenacao.Base;
+                var nomeCoordenacao = coordenacao.Coordenacao;
+                var nomeSupervisao = coordenacao.Supervisao;
+                var nomeSupervisor = coordenacao.Supervisor;
+                var nomeCelula = coordenacao.Celula;
+                var nomesLideres = coordenacao.Lideres;
+
+                // Define o valor da base de acordo com os dados da API
+                var baseSelect = document.getElementById('base');
+                var opcoesBase = baseSelect.options;
+                for (var i = 0; i < opcoesBase.length; i++) {
+                    if (opcoesBase[i].textContent.includes(nomeBase)) {
+                        baseSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+
+                // Define os valores dos outros campos
+                document.getElementById('coordenacao').value = nomeCoordenacao;
+                document.getElementById('supervisao').value = nomeSupervisao;
+                document.getElementById('supervisor').value = nomeSupervisor;
+                document.getElementById('celula').value = nomeCelula;
+                document.getElementById('lideres').value = nomesLideres;
+            } else {
+                alert("Dados da coordenação não encontrados.");
+            }
+        }
+    </script>
 
 </body>
 
