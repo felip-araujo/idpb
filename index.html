@@ -121,8 +121,8 @@
             <option value="União estável">União estável</option>
         </select>
 
-        <label for="numeroCelula">Número da Célula:</label>
-        <input type="text" id="numeroCelula" />
+        <label for="numero_celula">Número da Célula:</label>
+        <input type="text" id="numero_celula" />
     
         <button type="button" onclick="buscarDados()">Buscar Dados</button>
     
@@ -268,10 +268,10 @@
         function buscarDados() {
             limparCampos();
 
-            var numeroCelula = document.getElementById('numeroCelula').value;
+            var numero_celula = document.getElementById('numero_celula').value;
 
             // Adicionar o número da célula no final
-            fetch(`https://sistemaidpb.evoludesign.com.br/api/index.php?celula=${numeroCelula}`)
+            fetch(`https://sistemaidpb.evoludesign.com.br/api/index.php?celula=${numero_celula}`)
                 .then(response => response.json())
                 .then(data => {
                     preencherCamposCoordenacao(data);
