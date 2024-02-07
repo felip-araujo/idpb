@@ -79,7 +79,9 @@
             }
         };
 
+
     </script>
+
 </head>
 
 <body>
@@ -118,15 +120,51 @@
             <option value="Divorciado(a)">Divorciado(a)</option>
             <option value="União estável">União estável</option>
         </select>
+
+        <label for="numeroCelula">Número da Célula:</label>
+        <input type="text" id="numeroCelula" />
+    
+        <button type="button" onclick="buscarDados()">Buscar Dados</button>
+    
+        <br>
+    
         <label for="base">Base:</label>
         <select id="base" name="base" required class="input">
             <option value="Filadélfia I (Santo Antônio)">Filadélfia I (Santo Antônio)</option>
-            <option value="Filadélfia II (Monte das Oliveiras/ Fazendinha)">Filadélfia II (Monte das Oliveiras/
-                Fazendinha)</option>
+            <option value="Filadélfia II (Monte das Oliveiras/ Fazendinha)">Filadélfia II (Monte das Oliveiras/ Fazendinha)</option>
             <option value="Filadélfia III (Tarumã)">Filadélfia III (Tarumã)</option>
             <option value="Filadélfia IV (Águas Claras)">Filadélfia IV (Águas Claras)</option>
             <option value="Filadélfia V (Viver Melhor)">Filadélfia V (Viver Melhor)</option>
         </select>
+    
+        <br>
+    
+        <label for="coordenacao">Coordenação:</label>
+        <input type="text" id="coordenacao" disabled />
+    
+        <br>
+    
+        <label for="supervisao">Supervisão:</label>
+        <input type="text" id="supervisao" disabled />
+    
+        <br>
+    
+        <label for="supervisor">Supervisor:</label>
+        <input type="text" id="supervisor" disabled />
+    
+        <br>
+    
+        <label for="celula">Célula:</label>
+        <input type="text" id="celula" disabled />
+    
+        <br>
+    
+        <label for="lideres">Líderes:</label>
+        <input type="text" id="lideres" disabled />
+
+        <br>
+
+
         <label for="participacao_ministerio">Participa ativamente de algum ministério?</label>
         <select id="participacao_ministerio" name="participacao_ministerio" required class="input">
             <option value="Não">Não</option>
@@ -191,6 +229,59 @@
         <button type="submit" class="btn">Cadastrar Membro</button>
     </form> 
     </div>
+
+
+    <!-- Adicionando Javascript -->
+        <script>
+        function limparCampos() {
+            document.getElementById('base').value = "";
+            document.getElementById('coordenacao').value = "";
+            document.getElementById('supervisao').value = "";
+            document.getElementById('supervisor').value = "";
+            document.getElementById('celula').value = "";
+            document.getElementById('lideres').value = "";
+        }
+
+        function preencherCamposCoordenacao(dados) {
+            console.log('Dados recebidos:', dados);
+
+            if (dados && dados.length > 0) {
+                var coordenacao = dados[0];
+                var nomeBase = coordenacao.Base;
+                var nomeCoordenacao = coordenacao.Coordenacao;
+                var nomeSupervisao = coordenacao.Supervisao;
+                var nomeSupervisor = coordenacao.Supervisor;
+                var nomeCelula = coordenacao.Celula;
+                var nomesLideres = coordenacao.Lideres;
+
+                document.getElementById('base').value = nomeBase;
+                document.getElementById('coordenacao').value = nomeCoordenacao;
+                document.getElementById('supervisao').value = nomeSupervisao;
+                document.getElementById('supervisor').value = nomeSupervisor;
+                document.getElementById('celula').value = nomeCelula;
+                document.getElementById('lideres').value = nomesLideres;
+            } else {
+                alert("Dados da coordenação não encontrados.");
+            }
+        }
+        //Funcao que busca os dados
+        function buscarDados() {
+            limparCampos();
+
+            var numeroCelula = document.getElementById('numeroCelula').value;
+
+            // Adicionar o número da célula no final
+            fetch(`https://sistemaidpb.evoludesign.com.br/api/index.php?celula=${numeroCelula}`)
+                .then(response => response.json())
+                .then(data => {
+                    preencherCamposCoordenacao(data);
+                })
+                .catch(error => {
+                    console.error('Erro na requisição:', error);
+                    alert("Erro na requisição. Verifique o console para mais detalhes.");
+                });
+        }
+    </script>
 </body>
 
 </html>
