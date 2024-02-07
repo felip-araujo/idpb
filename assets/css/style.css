@@ -263,7 +263,7 @@
         justify-content: center; 
         text-align: center; 
         padding: 2rem; 
-        background-image: linear-gradient(to top, #000000, 90%, #00000096), url(/form_idpb/idpb/assets/css/image/idpb_mebers.png); 
+        background-image: linear-gradient(to top, #000000, 90%, #00000096), url(/idpb/assets/css/image/idpb_mebers.png); 
         background-size: 100%; 
         background-position:top;
         color: white; 
