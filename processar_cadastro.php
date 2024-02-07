@@ -129,7 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if ($insere_membro->execute()) {
                 // Se o cadastro for bem-sucedido, redireciona para a página principal
-                echo"<script>alert('Membro Cadastrado!')</script>";
+                echo"<script> alert('Membro Cadastrado!') </script>";           
+                
                 header("Location: https://www.idpbfiladelfia.com.br/");
                 exit();
             } else {
@@ -141,6 +142,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Se ocorrer um erro no banco de dados, exibir mensagem de erro
         echo "Erro no banco de dados: " . $e->getMessage();
     }
-}
+}  
 
 ?>
