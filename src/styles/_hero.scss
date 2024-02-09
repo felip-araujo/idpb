@@ -3,7 +3,7 @@
 .hero {
     height: 101vh;
     padding: 40px;
-    background-image: linear-gradient(to top, rgba(0,0,0,1)1%, rgba(0, 0, 0, 0.703)30%);
+    background-image: linear-gradient(to top, rgb(20, 20, 29)1%, rgba(20, 20, 29, 0.703)30%);
     color: #fff;
     flex-direction: column;
     justify-content: center;
@@ -23,9 +23,11 @@
 
     &__slogan {
         align-self: center;
-        font-family: variaveis.$font-family_2;
+        font-family: variaveis.$font-family_3;
         font-weight: normal;
-        font-size: 2em;
+        // text-transform: uppercase;
+        letter-spacing: 1px; 
+        font-size: 4em;
     }
 
     &-convite {

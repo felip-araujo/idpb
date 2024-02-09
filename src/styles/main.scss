@@ -42,24 +42,24 @@ a {
 }
 
 main {
+	background-color: variaveis.$background-color_2;
 	.container {
 		max-width: 1024px;
 		display: block;
 		padding-top: 75px;
 	}
-	a {
-		padding: 8px 16px;
-		background-color: variaveis.$background-color_1;
-	}
 }
 
 .button {
-    
-    display: inline-block;
+	
+	padding: 8px 16px;
+	display: inline-block;
     margin-top: 16px;
     font-size: 0.9em;
     font-weight: bold;
+	background-color: variaveis.$background-color_1;
     color: variaveis.$color_2;
+	border-radius: 5px;
 }
 
 .card {
