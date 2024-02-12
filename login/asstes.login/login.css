@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+} 
+
+/* css basico apenas pra testes modificar apos funcoes estarem completas  */
+
+.container-registro{
+    display: grid;
+    padding: 2rem; 
+} 
+
+.input, .btn{
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+    margin-top: .5rem; 
+} 
+
+.btn{
+    padding: .5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
