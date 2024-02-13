@@ -1,25 +1,20 @@
 *{
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+    padding: 0; 
+    
 } 
 
-/* css basico apenas pra testes modificar apos funcoes estarem completas  */
+/* media para computador */
+@media screen and (min-width: 1024px) {
+    .container-login {
+        background-color: gray; 
+        text-align: center;
+        padding: 8rem; 
+        margin-left: 35vh;
+        margin-right: 35vh;
+        margin-top: 20vh;
+        border-radius: 2.5rem;
 
-.container-registro{
-    display: grid;
-    padding: 2rem; 
-} 
-
-.input, .btn{
-    padding-top: .6rem;
-    padding-bottom: .6rem;
-    margin-top: .5rem; 
-} 
-
-.btn{
-    padding: .5rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+        
+    }
 }

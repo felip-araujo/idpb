@@ -27,7 +27,8 @@ if($resultado->num_rows == 1){
 
 } else {
     header("Location: login.php?erro_de_login=1");
-}
+    
+};
 
 
 
