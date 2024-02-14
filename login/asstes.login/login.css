@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Philosopher&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 *{
     margin: 0;
     padding: 0; 
@@ -6,15 +9,107 @@
 
 /* media para computador */
 @media screen and (min-width: 1024px) {
-    .container-login {
-        background-color: gray; 
-        text-align: center;
-        padding: 8rem; 
-        margin-left: 35vh;
-        margin-right: 35vh;
-        margin-top: 20vh;
-        border-radius: 2.5rem;
+    
+    body{
+        
+        /* background-image: linear-gradient(to right, #0F0F0F, 70%, #2c2c2c); */
+         background-color: #0F0F0F;  
+         font-family: "Raleway", sans-serif;
+    } 
 
+    .logotipo{
+        width: 12%; 
+        margin-left: 43%; 
+        margin-bottom: 1.2rem;
+       
+    }
+
+    .titulo{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 500; 
+        font-size: 2.5rem;
+    } 
+
+    .subtitulo{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 300; 
+        font-size: 1.3rem; 
+        margin-bottom: 1.5rem;
+    } 
+
+    .cad{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 600; 
+        font-size: 1.3rem; 
+        margin-bottom: 1.5rem; 
+        text-transform: none;
+        text-decoration: none;
+    }
+
+
+    
+    .container-login {
+        background-color:#191919a1 ; 
+        text-align: center;
+        padding: 5rem; 
+        margin-left: 50vh;
+        margin-right: 50vh;
+        margin-top: 12vh;
+        border-radius: 1.2rem; 
+        
+    }  
+
+
+    form{
+        display: grid; 
         
     }
+
+    .input{
+        padding: .9rem; 
+        margin-left: 8vh;
+        margin-right: 8vh;
+        border-radius: .5rem; 
+        border: none; 
+        color: #ffffff; 
+        font-size: 1rem; 
+        font-family: "Raleway", sans-serif; 
+        text-transform: lowercase; 
+        background-color:#0F0F0F;
+        
+        
+    } 
+    
+    .input-btn{
+        padding: .7rem; 
+        border-radius: .5rem; 
+        border: none; 
+        background-color: #0374D9; 
+        color: white; 
+        font-size: 1.2rem; 
+        font-family: "Raleway", sans-serif;  
+        font-weight: 600; 
+        margin-left: 8vh;
+        margin-right: 8vh;
+    }  
+
+    .input-btn:hover{
+        padding: .7rem; 
+        border-radius: .5rem; 
+        border: none; 
+        background-color: #0375d9a8; 
+        color: white; 
+        font-size: 1.2rem; 
+        font-family: "Raleway", sans-serif;  
+        font-weight: 600; 
+        margin-left: 8vh;
+        margin-right: 8vh; 
+
+        transition: all ease-in-out .1s;
+    } 
+
+   
 }
