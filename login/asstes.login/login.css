@@ -66,7 +66,8 @@
         font-size: 1.3rem; 
         margin-bottom: 1.5rem; 
         text-transform: none;
-        text-decoration: none;
+        text-decoration: none; 
+        text-decoration: underline;
     }
 
 
