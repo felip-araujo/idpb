@@ -9,16 +9,140 @@
 
 /* MEDIA PARA CELULAR */
 @media screen and (max-width:767px) {
+
+    body{
+        font-family: 'Raleway', 'sans-serif';
+        background-image: linear-gradient( -90deg, rgb(5, 64, 92), .1%, #000000); 
+    }
+    
     .logotipo{
         width: 20%;
+        margin-left: 40%;
+        margin-bottom: 1rem;
     } 
+
+    .titulo{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 800; 
+        font-size: 2rem;
+        text-align: center;
+    }  
+
+    .subtitulo{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 300; 
+        font-size: .9rem; 
+        margin-bottom: .4rem;  
+        text-align: center;
+    }  
+
+    .cad{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 600; 
+        font-size: .9rem; 
+        margin-bottom: 1.5rem; 
+        text-transform: none;
+        text-decoration: none; 
+        text-decoration: none;
+    }
 
     .container-login{
         display: grid; 
         padding: 2rem; 
-        background-color: gray; 
-
+        background-color:#191919 ; 
+        margin-top: 20vh; 
+        margin-left: 1.5vh;
+        margin-right: 1.5vh;
+        border-radius: .6rem;
     }
+
+    form{
+        display: grid; 
+    } 
+    
+    .input{
+        
+        padding-top: 0;;
+        padding: .6rem;  
+        margin-left: .5vh;
+        margin-right: .5vh;
+        border-radius: .2rem; 
+        border: none; 
+        color: #ffffff; 
+        font-size: .9rem; 
+        font-family: "Raleway", sans-serif; 
+        background-color:#0F0F0F; 
+        margin-bottom: .5rem;    
+    } 
+
+    input::placeholder{
+        
+        padding-left: 1.5rem;
+    }   
+
+    i{
+        visibility: hidden;
+    }
+
+    .fa-envelope, .fa-lock, .fa-eye-slash {
+        position: absolute;
+        color: #ffffff7a;
+        top: 10%;
+        
+        transform: translateY(-40%);
+    }
+
+    .fa-lock, .fa-eye-slash{
+        top: 45%; 
+    } 
+
+    .fa-envelope{
+        top: 38.5%;
+        
+    }
+
+    .fa-envelope, .fa-lock {
+        left: 54px; /* Altere conforme necessário */
+    } 
+
+    .fa-lock{
+        left: 53px
+    }
+
+    .fa-eye-slash {
+        left: calc(100% - 78px); /* Posicionamento relativo ao lado direito */
+    }
+
+    .link{
+        margin-top: -2rem;
+        text-align: center; 
+        margin-left: 45%;
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 300; 
+        font-size: .9rem;  
+        text-decoration:none; 
+    }
+
+    .input-btn{
+        margin-top: -.4rem;
+        padding: .7rem; 
+        border-radius: .2rem; 
+        border: none; 
+        background-color: #0374D9; 
+        color: white; 
+        font-size: .8rem; 
+        font-family: "Raleway", sans-serif;  
+        font-weight: 500; 
+        margin-left: 1vh;
+        margin-right: 1vh;
+    }   
+
+
+
 }
 
 /* MEDIA PARA TABLET */
@@ -102,7 +226,6 @@
 
     form{
         display: grid; 
-        
     }
 
     .input{
