@@ -9,14 +9,14 @@
 
 
 /* media para smartphone */ 
-@media screen and (max-width: 767px ) {
+@media screen and (max-width: 768px ) {
     
     body{
         
-        /* background-image: linear-gradient(to right, #0F0F0F, 70%, #2c2c2c); */
-         background-color: #070707;
+        background-image: linear-gradient( -90deg, rgb(5, 64, 92), 2%, #000000);
          font-family: "Raleway", sans-serif;
-         display: grid;
+         display: grid; 
+         
     }  
 
     .logotipo {
@@ -38,7 +38,7 @@
         color: white;
         font-family: "Raleway", sans-serif; 
         font-weight: 300; 
-        font-size: .9rem; 
+        font-size: .8rem; 
         margin-bottom: .4rem;  
         text-align: center;
         
@@ -65,7 +65,7 @@
         display: flex;
         margin-top: -1rem;
         margin-bottom: 1rem;
-        margin-left: 55%;
+        margin-left: 50%;
         
         
         
@@ -74,14 +74,15 @@
 
     .container-login {
         
+        
         background-color:#191919 ; 
         /* text-align: center; */
-        padding: 2rem;  
-        padding-left: .5rem;
+        padding: 1rem;  
+        padding-left: .3rem;
         padding-right: .5rem;
         margin-left: .5rem;
         margin-right: .5rem;
-        margin-top: 18vh;
+        margin-top: 10vh;
         border-radius: .2rem; 
         
     } 
@@ -89,15 +90,15 @@
     .input{
         
         
-        padding: .7rem;
-        padding-right: 4.2rem;  
-        padding-left: 2rem;
-        margin-left: 4vh;
-        margin-right: 6vh;
-        border-radius: .2rem; 
+        padding: .5rem;
+        padding-right: 5.2rem;  
+        padding-left: 1.5rem;
+        margin-left: 9vh;
+        margin-right: 3vh;
+        border-radius: .3rem; 
         border: none; 
         color: #ffffff; 
-        font-size: 1rem; 
+        font-size: .8rem; 
         font-family: "Raleway", sans-serif; 
         /* text-transform: lowercase;  */
         background-color:#0F0F0F; 
@@ -115,6 +116,8 @@
         color: #ffffff7a;
         top: 50%;
         transform: translateY(-50%);
+        visibility: hidden;
+        
     }
 
     .fa-envelope {
@@ -126,7 +129,7 @@
     }
 
     .fa-eye-slash {
-        left: calc(100% - 45px); /* Posicionamento relativo ao lado direito */
+        left: calc(100% - 125px); /* Posicionamento relativo ao lado direito */
     }
     .input-btn{
         width: 60%; 
