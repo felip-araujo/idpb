@@ -1,3 +1,31 @@
+<?php 
+
+session_start();
+
+// Incluir o arquivo de conexão PDO
+require_once '../login/conexao.php';
+
+
+$email = $_POST['email'];
+$senha = $_POST['senha']; 
+
+$query = "SELECT id, nome, email, senha FROM users2 WHERE email=:email AND senha=:senha";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':senha', $senha);
+$stmt->execute();
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($resultado) {
+    $_SESSION['usuario_id'] = $resultado['id'];
+    $_SESSION['usuario_nome'] = $resultado['nome']; 
+    header("Location: index.php");
+} else {
+    header("Location: ../login/login.php?erro_de_login=1");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,3 +57,4 @@
     </script>
 </body>
 </html>
+
