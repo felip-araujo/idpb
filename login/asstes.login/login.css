@@ -9,7 +9,163 @@
 
 
 /* media para smartphone */ 
+@media screen and (max-width: 767px ) {
+    
+    body{
+        
+        /* background-image: linear-gradient(to right, #0F0F0F, 70%, #2c2c2c); */
+         background-color: #070707;
+         font-family: "Raleway", sans-serif;
+         display: grid;
+    }  
 
+    .logotipo {
+        width: 20%; 
+        margin-left: 40%; 
+        margin-top: 1.5rem;
+    } 
+
+    .titulo{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 700; 
+        font-size: 1.5rem; 
+        text-align: center; 
+        margin-top: .5rem;
+    }  
+
+    .subtitulo{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 300; 
+        font-size: .9rem; 
+        margin-bottom: .4rem;  
+        text-align: center;
+        
+    }  
+  
+
+    .cad{
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 600; 
+        font-size: .9rem; 
+        margin-bottom: 0; 
+        text-transform: none;
+        text-decoration: none; 
+        text-decoration: underline; 
+        margin-top: .5rem;
+    } 
+
+    .link{
+        color: white;  
+        font-family: "Raleway", sans-serif; 
+        font-weight: 200; 
+        font-size: .8rem;  
+        display: flex;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        margin-left: 55%;
+        
+        
+        
+    }
+
+
+    .container-login {
+        
+        background-color:#191919 ; 
+        /* text-align: center; */
+        padding: 2rem;  
+        padding-left: .5rem;
+        padding-right: .5rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        margin-top: 18vh;
+        border-radius: .2rem; 
+        
+    } 
+    
+    .input{
+        
+        
+        padding: .7rem;
+        padding-right: 4.2rem;  
+        padding-left: 2rem;
+        margin-left: 4vh;
+        margin-right: 6vh;
+        border-radius: .2rem; 
+        border: none; 
+        color: #ffffff; 
+        font-size: 1rem; 
+        font-family: "Raleway", sans-serif; 
+        /* text-transform: lowercase;  */
+        background-color:#0F0F0F; 
+        margin-bottom: 1rem;
+        
+        
+    }  
+
+    input::placeholder{
+        padding-left: .3rem;
+    }
+
+    .fa-envelope, .fa-lock, .fa-eye-slash {
+        position: absolute;
+        color: #ffffff7a;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .fa-envelope {
+        left: 15px; /* Altere conforme necessário */
+    }
+
+    .fa-lock {
+        left: 15px; /* Altere conforme necessário */
+    }
+
+    .fa-eye-slash {
+        left: calc(100% - 45px); /* Posicionamento relativo ao lado direito */
+    }
+    .input-btn{
+        width: 60%; 
+        text-align: center;
+        padding-top: 0;
+        padding: .5rem; 
+        border-radius: .2rem; 
+        border: none; 
+        background-color: #0374D9; 
+        color: white; 
+        font-size: .9rem; 
+        font-family: "Raleway", sans-serif;  
+        font-weight: 600; 
+        margin-left: 18%;
+        margin-right: 2vh;
+    }  
+
+    .input-btn:hover{
+        width: 90%; 
+        text-align: center;
+        margin-top: -10rem;
+        padding-top: 0;
+        padding: .5rem; 
+        border-radius: .2rem; 
+        border: none; 
+        background-color: #0374D9; 
+        color: white; 
+        font-size: .9rem; 
+        font-family: "Raleway", sans-serif;  
+        font-weight: 600; 
+        margin-left: 2vh;
+        margin-right: 2vh;
+        transition: all ease-in-out .1s;
+    } 
+
+
+    
+    
+}
 
 /* media para computador */
 @media screen and (min-width: 1024px) {
@@ -82,7 +238,7 @@
         margin-right: 60vh;
         margin-top: 12vh;
         border-radius: .8rem; 
-        
+        position: relative;
     }  
 
 
@@ -97,8 +253,8 @@
         padding: .9rem;
         padding-right: .9rem;  
         padding-left: 2rem;
-        margin-left: 8vh;
-        margin-right: 8vh;
+        margin-left: 9vh;
+        margin-right: 11vh;
         border-radius: .5rem; 
         border: none; 
         color: #ffffff; 
@@ -116,28 +272,23 @@
         padding-left: .5rem;
     }
 
-    .fa-envelope  {
-      position: absolute;
-      color: #ffffff7a;
-      top: 51.5%;
-      left: 573px; /* Altere conforme necessário */
-      transform: translateY(-50%);
-    } 
-
-    .fa-lock{
+    .fa-envelope, .fa-lock, .fa-eye-slash {
         position: absolute;
         color: #ffffff7a;
-        top: 60%;
-        left: 573px; /* Altere conforme necessário */
+        top: 53%;
         transform: translateY(-50%);
     }
-    
-    .fa-eye-slash{
-        position: absolute;
-        color: #ffffff7a;
-        top: 60%;
-        left: 930px; /* Altere conforme necessário */
-        transform: translateY(-50%);
+
+    .fa-lock, .fa-eye-slash{
+        top: 65%;
+    }
+
+    .fa-envelope, .fa-lock {
+        left: 140px; /* Altere conforme necessário */
+    }
+
+    .fa-eye-slash {
+        left: calc(100% - 175px); /* Posicionamento relativo ao lado direito */
     }
     .input-btn{
         padding: .7rem; 
