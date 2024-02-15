@@ -7,172 +7,27 @@
     
 } 
 
-
-/* media para smartphone */ 
-@media screen and (max-width: 768px ) {
-    
-    body{
-        
-        background-image: linear-gradient( -90deg, rgb(5, 64, 92), 2%, #000000);
-         font-family: "Raleway", sans-serif;
-         display: grid; 
-         
-    }  
-
-    .logotipo {
-        width: 20%; 
-        margin-left: 40%; 
-        margin-top: 1.5rem;
+/* MEDIA PARA CELULAR */
+@media screen and (max-width:767px) {
+    .logotipo{
+        width: 20%;
     } 
 
-    .titulo{
-        color: white;
-        font-family: "Raleway", sans-serif; 
-        font-weight: 700; 
-        font-size: 1.5rem; 
-        text-align: center; 
-        margin-top: .5rem;
-    }  
+    .container-login{
+        display: grid; 
+        padding: 2rem; 
+        background-color: gray; 
 
-    .subtitulo{
-        color: white;
-        font-family: "Raleway", sans-serif; 
-        font-weight: 300; 
-        font-size: .8rem; 
-        margin-bottom: .4rem;  
-        text-align: center;
-        
-    }  
-  
-
-    .cad{
-        color: white;
-        font-family: "Raleway", sans-serif; 
-        font-weight: 600; 
-        font-size: .9rem; 
-        margin-bottom: 0; 
-        text-transform: none;
-        text-decoration: none; 
-        text-decoration: underline; 
-        margin-top: .5rem;
-    } 
-
-    .link{
-        color: white;  
-        font-family: "Raleway", sans-serif; 
-        font-weight: 200; 
-        font-size: .8rem;  
-        display: flex;
-        margin-top: -1rem;
-        margin-bottom: 1rem;
-        margin-left: 50%;
-        
-        
-        
     }
+}
 
-
-    .container-login {
-        
-        
-        background-color:#191919 ; 
-        /* text-align: center; */
-        padding: 1rem;  
-        padding-left: .3rem;
-        padding-right: .5rem;
-        margin-left: .5rem;
-        margin-right: .5rem;
-        margin-top: 10vh;
-        border-radius: .2rem; 
-        
-    } 
-    
-    .input{
-        
-        
-        padding: .5rem;
-        padding-right: 5.2rem;  
-        padding-left: 1.5rem;
-        margin-left: 9vh;
-        margin-right: 3vh;
-        border-radius: .3rem; 
-        border: none; 
-        color: #ffffff; 
-        font-size: .8rem; 
-        font-family: "Raleway", sans-serif; 
-        /* text-transform: lowercase;  */
-        background-color:#0F0F0F; 
-        margin-bottom: 1rem;
-        
-        
-    }  
-
-    input::placeholder{
-        padding-left: .3rem;
-    }
-
-    .fa-envelope, .fa-lock, .fa-eye-slash {
-        position: absolute;
-        color: #ffffff7a;
-        top: 50%;
-        transform: translateY(-50%);
-        visibility: hidden;
-        
-    }
-
-    .fa-envelope {
-        left: 15px; /* Altere conforme necessário */
-    }
-
-    .fa-lock {
-        left: 15px; /* Altere conforme necessário */
-    }
-
-    .fa-eye-slash {
-        left: calc(100% - 125px); /* Posicionamento relativo ao lado direito */
-    }
-    .input-btn{
-        width: 60%; 
-        text-align: center;
-        padding-top: 0;
-        padding: .5rem; 
-        border-radius: .2rem; 
-        border: none; 
-        background-color: #0374D9; 
-        color: white; 
-        font-size: .9rem; 
-        font-family: "Raleway", sans-serif;  
-        font-weight: 600; 
-        margin-left: 18%;
-        margin-right: 2vh;
-    }  
-
-    .input-btn:hover{
-        width: 90%; 
-        text-align: center;
-        margin-top: -10rem;
-        padding-top: 0;
-        padding: .5rem; 
-        border-radius: .2rem; 
-        border: none; 
-        background-color: #0374D9; 
-        color: white; 
-        font-size: .9rem; 
-        font-family: "Raleway", sans-serif;  
-        font-weight: 600; 
-        margin-left: 2vh;
-        margin-right: 2vh;
-        transition: all ease-in-out .1s;
-    } 
-
-
-    
+/* MEDIA PARA TABLET */
+@media screen and (min-width:768px) and (max-width:1023px) {
     
 }
 
-/* media para computador */
-@media screen and (min-width: 1024px) {
-    
+/* MEDIA PARA DESKTOP */
+@media screen and (min-width:1024px) {
     body{
         
         /* background-image: linear-gradient(to right, #0F0F0F, 70%, #2c2c2c); */
@@ -320,7 +175,5 @@
 
         transition: all ease-in-out .1s;
     } 
-
-   
-} 
+}
 
