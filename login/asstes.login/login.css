@@ -7,13 +7,18 @@
     
 } 
 
+
+/* media para smartphone */ 
+
+
 /* media para computador */
 @media screen and (min-width: 1024px) {
     
     body{
         
         /* background-image: linear-gradient(to right, #0F0F0F, 70%, #2c2c2c); */
-         background-color: #0F0F0F;  
+         background-color: #0F0F0F;   
+         background-image: linear-gradient( -90deg, rgb(5, 64, 92), 2%, #000000); 
          font-family: "Raleway", sans-serif;
     } 
 
@@ -27,7 +32,7 @@
     .titulo{
         color: white;
         font-family: "Raleway", sans-serif; 
-        font-weight: 500; 
+        font-weight: 700; 
         font-size: 2.5rem;
     } 
 
@@ -36,8 +41,23 @@
         font-family: "Raleway", sans-serif; 
         font-weight: 300; 
         font-size: 1.3rem; 
-        margin-bottom: 1.5rem;
-    } 
+        margin-bottom: .4rem; 
+        
+    }  
+
+    .link{
+        margin-top: -2.5rem;
+        text-align: left; 
+        margin-left: 63%;
+        color: white;
+        font-family: "Raleway", sans-serif; 
+        font-weight: 300; 
+        font-size: .9rem; 
+        margin-bottom: 0; 
+        text-decoration:underline; 
+    }
+
+  
 
     .cad{
         color: white;
@@ -52,13 +72,15 @@
 
     
     .container-login {
-        background-color:#191919a1 ; 
+        background-color:#191919 ; 
         text-align: center;
-        padding: 5rem; 
-        margin-left: 50vh;
-        margin-right: 50vh;
+        padding: 4rem;  
+        padding-left: 4rem;
+        padding-right: 4rem;
+        margin-left: 60vh;
+        margin-right: 60vh;
         margin-top: 12vh;
-        border-radius: 1.2rem; 
+        border-radius: .8rem; 
         
     }  
 
@@ -69,7 +91,11 @@
     }
 
     .input{
-        padding: .9rem; 
+        
+        padding-top: 0;;
+        padding: .9rem;
+        padding-right: .9rem;  
+        padding-left: 2rem;
         margin-left: 8vh;
         margin-right: 8vh;
         border-radius: .5rem; 
@@ -77,12 +103,41 @@
         color: #ffffff; 
         font-size: 1rem; 
         font-family: "Raleway", sans-serif; 
-        text-transform: lowercase; 
-        background-color:#0F0F0F;
+        /* text-transform: lowercase;  */
+        background-color:#0F0F0F; 
+        margin-bottom: 1rem;
         
         
+    }  
+
+    input::placeholder{
+        
+        padding-left: .5rem;
+    }
+
+    .fa-envelope  {
+      position: absolute;
+      color: #ffffff7a;
+      top: 51.5%;
+      left: 573px; /* Altere conforme necessário */
+      transform: translateY(-50%);
     } 
+
+    .fa-lock{
+        position: absolute;
+        color: #ffffff7a;
+        top: 60%;
+        left: 573px; /* Altere conforme necessário */
+        transform: translateY(-50%);
+    }
     
+    .fa-eye-slash{
+        position: absolute;
+        color: #ffffff7a;
+        top: 60%;
+        left: 930px; /* Altere conforme necessário */
+        transform: translateY(-50%);
+    }
     .input-btn{
         padding: .7rem; 
         border-radius: .5rem; 
@@ -100,7 +155,7 @@
         padding: .7rem; 
         border-radius: .5rem; 
         border: none; 
-        background-color: #0375d9a8; 
+        background-color: #258eeb; 
         color: white; 
         font-size: 1.2rem; 
         font-family: "Raleway", sans-serif;  
@@ -112,4 +167,5 @@
     } 
 
    
-}
+} 
+
