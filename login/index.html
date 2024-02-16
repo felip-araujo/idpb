@@ -5,30 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="asstes.login/login.css"> 
+    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css"> 
     <link rel="icon" href="/idpb/assets/css/image/main-logo.png">
 
 </head>
 <body>
 
 <div class="container-login">
-<form class="fomulario" action="autenticar.php" method="post"> 
+    <form class="fomulario" action="autenticar.php" method="post"> 
 
-    <img src="\idpb\assets\css\image\main-logo.png" alt="" class="logotipo">
-    <h1 class="titulo">Bem-Vindo!</h1> 
-    <h4 class="subtitulo">Ainda não tem uma conta? <a class="cad" href="../index.php">Cadastre-se</a> </h3>
+        <img src="\idpb\assets\css\image\main-logo.png" alt="" class="logotipo">
+        <h1 class="titulo">Bem-Vindo!</h1> 
+        <h4 class="subtitulo">Ainda não tem uma conta? <a class="cad" href="../index.php">Cadastre-se</a> </h3> 
 
-    <!-- <label class="label" for="email">Email:</label> -->
-    <input class="input" type="email" id="email" name="email" placeholder="Digite o seu E-mail" required > <i class="fa-regular fa-envelope"></i> <br><br>
-    <!-- <label class="label" for="senha">Senha:</label> -->
-    <input class="input" class="input-ico" type="password" id="senha" name="senha" placeholder="Digite sua Senha" required><br><br>
-    <input class="input-btn "type="submit" value="Entrar">
+        <!-- <label class="label" for="email">Email:</label> -->
+        <i class="fa-regular fa-envelope"> </i> <br><br>
+        <input class="input" type="email" id="email" name="email" placeholder="digite o seu e-mail" required >
+        <!-- <label class="label" for="senha">Senha:</label> -->
+        <i class="fa-solid fa-lock"></i>
+        <input class="input" class="input-ico" type="password" id="senha" name="senha" placeholder="digite sua senha" required><br><br>
+        <i class="fa-regular fa-eye-slash" onclick="togglePasswordVisibility()"></i> 
+        <a href="esqueci-senha.html" class="link">Esqueceu a senha?</a>
+        
+    
+        <input class="input-btn "type="submit" value="Entrar">
+    </form>    
 </div>
 
 
-</form>    
-
-<script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+<!-- codigo de importação do font awesome -->
+<script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+<script src="/idpb/login/asstes.login/main.js"></script>
 </body>
 
 </html>

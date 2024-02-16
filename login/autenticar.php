@@ -1,40 +1,31 @@
-<?php 
+<?php
 
 session_start();
 
-// $conexao = require_once "conexao.php"; 
-
-$conexao = new mysqli("108.167.151.34", "evolud85_chris", "vGT{R_A^-E+4", "evolud85_idpb");
-
-// Verifica se a conexão foi estabelecida com sucesso
-if ($conexao->connect_error) {
-    die("Erro de conexão: " . $conexao->connect_error);
-}
-
+// Incluir o arquivo de conexão PDO
+require 'conexao.php';
 
 $email = $_POST['email'];
-$senha = $_POST['senha']; 
+$senha = $_POST['senha'];
 
-$query = "SELECT id, nome FROM users2 WHERE email='$email' AND senha='$senha'";
-$resultado = $conexao->query($query); 
+// Query para verificar se o usuário existe
+$query = "SELECT email, nome FROM users2 WHERE email=:email AND senha=:senha";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':senha', $senha);
+$stmt->execute();
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if($resultado->num_rows == 1){
+if ($resultado) {
+    // Armazenar o email e o nome do usuário na sessão
+    $_SESSION['usuario_email'] = $email;
+    $_SESSION['usuario_nome'] = $resultado['nome']; // Obtendo o nome do usuário do resultado da consulta SQL
 
-    $usuario = $resultado->fetch_assoc();
-    $_SESSION['usuario_id'] = $usuario['id'];
-    $_SESSION['usuario_nome'] = $usuario['nome']; 
-    header("Location: ../numero_celula.html");
-
+    header("Location: ../dashboard/index.php");
 } else {
-    header("Location: login.php?erro_de_login=1");
     
-};
-
-
-
-
-
+    echo "<script>alert('Usuário ou Senha Inválidos')</script>";
+    echo "<script>window.location.href = '../login';</script>";
+}
 
 ?>
-
-
