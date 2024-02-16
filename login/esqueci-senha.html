@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="shortcut icon" href="/idpb/assets/css/image/main-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css">
+    <title>Recuperação de Senha</title> 
+
+    <style>
+
+        .titulo{
+            font-size: 2.2rem;
+        } 
+
+        .subtitulo{
+            margin-top: .2rem;
+            font-size: 1.2rem;
+            text-transform: lowercase; 
+        }
+
+        .input{
+            margin-top: 1rem;
+        } 
+
+        .input-btn{
+            width: 30%;
+            margin-left: 35%;
+            font-size: .9rem;
+        }
+
+        .input-btn:hover{
+            width: 30%;
+            margin-left: 35%;
+            font-size: .9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Recuperação de Senha</h2> 
+
+    <form class="container-login" action="enviar_email_recuperacao.php" method="post">
+        <h1 class="titulo">Recuperação de Senha</h1> 
+        <h4 class="subtitulo">Digite o seu e-mail no campo abaixo:</h4>
+        <input type="email" id="email" name="email" class="input" placeholder="insira o seu e-mail"required>
+        <button type="submit" class="input-btn">Enviar</button>
+    </form>
+</body>
+</html>
