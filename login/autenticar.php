@@ -18,7 +18,7 @@ $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($resultado) {
     $_SESSION['usuario_email'] = $email;
-    header("Location: ../dashboard/index.php");
+    header("Location: /idpb/dashboard/index.php");
 } else {
     header("Location: login.php?erro_de_login=1");
 }
