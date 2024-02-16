@@ -18,8 +18,7 @@
         // Mostrar nome, número da célula e email do usuário
         echo "<p>Nome: " . $_SESSION['usuario_nome'] . "</p>";
         echo "<p>Email: " . $_SESSION['usuario_email'] . "</p>";
-        echo "<p>Número da Célula: " . $_SESSION['Celula'] . "</p>";
-
+        
         // Incluir o arquivo de conexão PDO
         require 'conexao.php';
 
@@ -49,7 +48,7 @@
         if ($resultado_supervisao) {
             echo "<p>Número da Supervisão: " . $resultado_supervisao['Supervisao'] . "</p>"; 
         } else {
-            echo "<p>Número da Supervisão não encontrado.</p>";
+            echo "<p>Não é Supervisor.</p>";
         }
 
         // Buscar número da coordenação
@@ -63,7 +62,7 @@
         if ($resultado_coordenacao) {
             echo "<p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
         } else {
-            echo "<p>Número da Coordenação não encontrado.</p>";
+            echo "<p>Não é Coordenador.</p>";
         }
 
         // Buscar a função do usuário
