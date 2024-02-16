@@ -32,7 +32,7 @@
 
         // Verificar se número da célula foi encontrado
         if ($resultado_celula) {
-            echo "<p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
+            echo "< class='subtitulo p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
             echo "<p>Número da Célula: " . $resultado_celula['Celula'] . "</p>"; 
         } else {
             echo "<p>Número da Célula não encontrado.</p>";
@@ -61,7 +61,7 @@
 
         // Verificar se número da coordenação foi encontrado
         if ($resultado_coordenacao) {
-            echo "< class='subtitulo'p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
+            echo "<'p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
         } else {
             echo "<p>Número da Coordenação não encontrado.</p>";
         }
