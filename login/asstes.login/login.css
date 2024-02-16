@@ -67,7 +67,7 @@
         
         padding-top: 0;;
         padding: .6rem;  
-        margin-left: .5vh;
+        margin-left: .8vh;
         margin-right: .5vh;
         border-radius: .2rem; 
         border: none; 
@@ -233,7 +233,7 @@
         padding-top: 0;;
         padding: .9rem;
         padding-right: .9rem;  
-        padding-left: 2rem;
+        padding-left: 3rem;
         margin-left: 9vh;
         margin-right: 11vh;
         border-radius: .5rem; 
@@ -250,7 +250,7 @@
 
     input::placeholder{
         
-        padding-left: .5rem;
+        padding-left: .2rem;
     }
 
     .fa-envelope, .fa-lock, .fa-eye-slash {
