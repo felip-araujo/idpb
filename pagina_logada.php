@@ -1,28 +1,18 @@
 <?php
 // pagina_logada.php
 
+// Iniciar a sessão
+session_start();
+
+// Incluir o arquivo de conexão PDO
 require 'conexao.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar se o número da célula está presente na solicitação POST
-    if(isset($_POST['Celula'])) {
-        $Celula = $_POST['Celula'];
-    } else {
-        // Se não estiver presente, verificar se está presente na sessão
-        session_start();
-        if(isset($_SESSION['Celula'])) {
-            $Celula = $_SESSION['Celula'];
-        } else {
-            // Se não estiver presente na sessão também, redirecionar para a página anterior ou exibir uma mensagem de erro
-            // Aqui você pode decidir como lidar com essa situação
-            // Por exemplo:
-            header("Location: index.php");
-            exit;
-        }
-    }
+// Verificar se o número da célula está presente na sessão
+if(isset($_SESSION['Celula'])) {
+    $Celula = $_SESSION['Celula'];
 
     // Aqui deve buscar os membros da célula correspondente no banco de dados
-    $query = "SELECT nome_completo FROM membros WHERE Celula = :Celula";
+    $query = "SELECT nome_completo FROM membros WHERE numero_celula = :Celula";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':Celula', $Celula);
     $stmt->execute();
@@ -40,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<input type='submit' value='Enviar Relatório'>";
     echo "</form>";
 } else {
-    echo "Método inválido";
+    // Se não estiver presente na sessão, redirecionar para a página anterior ou exibir uma mensagem de erro
+    // Aqui você pode decidir como lidar com essa situação
+    // Por exemplo:
+    header("Location: index.php");
+    exit;
 }
 ?>
