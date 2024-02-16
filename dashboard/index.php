@@ -10,16 +10,15 @@
 <body>
     <h1>Painel da Liderança</h1>
     <?php 
-
     // Iniciar a sessão
     session_start();
-    require 'conexao.php';
 
     // Verificar se os dados do usuário estão na sessão
     if(isset($_SESSION['usuario_email'])) {
-
-        // Mostrar nome e email do usuário
+        // Mostrar nome, número da célula e email do usuário
+        echo "<p>Nome: " . $_SESSION['usuario_nome'] . "</p>";
         echo "<p>Email: " . $_SESSION['usuario_email'] . "</p>";
+        echo "<p>Número da Célula: " . $_SESSION['Celula'] . "</p>";
 
         // Incluir o arquivo de conexão PDO
         require 'conexao.php';
@@ -34,8 +33,7 @@
 
         // Verificar se número da célula foi encontrado
         if ($resultado_celula) {
-            echo "<p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
-            echo "<p>Número da Célula: " . $resultado_celula['Celula'] . "</p>"; 
+            $_SESSION['Celula'] = $resultado_celula['Celula'];
         } else {
             echo "<p>Número da Célula não encontrado.</p>";
         }
@@ -63,7 +61,7 @@
 
         // Verificar se número da coordenação foi encontrado
         if ($resultado_coordenacao) {
-            echo "<'p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
+            echo "<p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
         } else {
             echo "<p>Número da Coordenação não encontrado.</p>";
         }
@@ -83,16 +81,15 @@
         }
 
         // Adicionar botões
-        echo "<button onclick=\"location.href='http://52.1.203.38/idpb/pagina_logada.php?numero_celula={$resultado_celula['Celula']}'\">Fazer Relatório</button>";
+        echo "<button onclick=\"location.href='pagina_logada.php'\">Fazer Relatório</button>";
         echo "<button onclick=\"location.href='http://127.0.0.1:8050/'\">Visualizar Relatório</button>";
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb'\">Cadastrar Novo Membro</button>";
-
     } else {
-        
-        echo " <script> alert('Usuário não autenticado!'); </script> ";  
-        echo " <script>window.location.href = '../login';</script> ";
+        // Iniciar sessão antes do redirecionamento
+        session_start();
+        echo "<script> alert('Usuário não autenticado!'); </script>";  
+        echo "<script>window.location.href = '../login';</script>";
     }
-
     ?>
 </body>
 </html>
