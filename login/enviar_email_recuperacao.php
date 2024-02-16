@@ -1,14 +1,14 @@
 <?php
 
-require '/wamp64/www/idpb-c/idpb/PHPMailer/src/PHPMailer.php';
-require '/wamp64/www/idpb-c/idpb/PHPMailer/src/SMTP.php';
-require '/wamp64/www/idpb-c/idpb/PHPMailer/src/Exception.php';
+require '/idpb/PHPMailer/src/PHPMailer.php';
+require '/idpb/PHPMailer/src/SMTP.php';
+require '/idpb/PHPMailer/src/Exception.php'; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Receber o email fornecido pelo usuário
+    // Receber o email fornecido pelo usuário 
     $email = $_POST['email'];
     $nome_usuario = 'nome'; 
 
