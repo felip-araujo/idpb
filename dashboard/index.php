@@ -80,7 +80,7 @@
         }
 
         // Adicionar botões
-        echo "<button onclick=\"location.href='fazer_relatorio.php'\">Fazer Relatório</button>";
+        echo "<button onclick=\"location.href='http://52.1.203.38/idpb/pagina_logada.php'\">Fazer Relatório</button>";
         echo "<button onclick=\"location.href='http://127.0.0.1:8050/'\">Visualizar Relatório</button>";
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb'\">Cadastrar Novo Membro</button>";
 
