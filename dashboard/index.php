@@ -7,7 +7,7 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Painel da Liderança</h1>
+    <h1 class="titulo">Painel da Liderança</h1>
     <?php 
 
     // Iniciar a sessão
