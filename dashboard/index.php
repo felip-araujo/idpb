@@ -61,7 +61,7 @@
 
         // Verificar se número da coordenação foi encontrado
         if ($resultado_coordenacao) {
-            echo "<p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
+            echo "< class='label'p>Número da Coordenação: " . $resultado_coordenacao['Coordenacao'] . "</p>"; 
         } else {
             echo "<p>Número da Coordenação não encontrado.</p>";
         }
