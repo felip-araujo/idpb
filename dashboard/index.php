@@ -12,6 +12,7 @@
 
     // Iniciar a sessão
     session_start();
+    require 'conexao.php';
 
     // Verificar se os dados do usuário estão na sessão
     if(isset($_SESSION['usuario_email'])) {
