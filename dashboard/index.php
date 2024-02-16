@@ -32,7 +32,7 @@
 
         // Verificar se número da célula foi encontrado
         if ($resultado_celula) {
-            echo "< class='subtitulo p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
+            echo "<class='subtitulo'p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
             echo "<p>Número da Célula: " . $resultado_celula['Celula'] . "</p>"; 
         } else {
             echo "<p>Número da Célula não encontrado.</p>";
