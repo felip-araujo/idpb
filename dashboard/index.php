@@ -13,10 +13,9 @@
     session_start();
 
     // Verificar se os dados do usuário estão na sessão
-    if(isset($_SESSION['usuario_nome']) && isset($_SESSION['usuario_email'])) {
+    if(isset($_SESSION['usuario_email'])) {
 
         // Mostrar nome e email do usuário
-        echo "<p>Nome: " . $_SESSION['usuario_nome'] . "</p>";
         echo "<p>Email: " . $_SESSION['usuario_email'] . "</p>";
 
         // Incluir o arquivo de conexão PDO
@@ -24,7 +23,7 @@
 
         // Buscar número da célula
         $email = $_SESSION['usuario_email'];
-        $query_celula = "SELECT Celula FROM funcoes WHERE Email=:email";
+        $query_celula = "SELECT Nome, Celula FROM funcoes WHERE Email=:email";
         $stmt_celula = $pdo->prepare($query_celula);
         $stmt_celula->bindParam(':email', $email);
         $stmt_celula->execute();
@@ -32,6 +31,7 @@
 
         // Verificar se número da célula foi encontrado
         if ($resultado_celula) {
+            echo "<p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
             echo "<p>Número da Célula: " . $resultado_celula['Celula'] . "</p>"; 
         } else {
             echo "<p>Número da Célula não encontrado.</p>";
