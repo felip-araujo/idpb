@@ -23,7 +23,11 @@ if ($resultado) {
 
     header("Location: ../dashboard/index.php");
 } else {
-    header("Location: login.php?erro_de_login=1");
+    
+    echo "<script>alert('Usuário não Cadastrado')</script>";
+    echo "<script>window.location.href = '../login';</script>";
+    
+    
 }
 
 ?>
