@@ -24,10 +24,8 @@ if ($resultado) {
     header("Location: ../dashboard/index.php");
 } else {
     
-    echo "<script>alert('Usuário não Cadastrado')</script>";
+    echo "<script>alert('Usuário ou Senha Inválidos')</script>";
     echo "<script>window.location.href = '../login';</script>";
-    
-    
 }
 
 ?>
