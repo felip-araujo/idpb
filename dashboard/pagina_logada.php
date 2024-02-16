@@ -36,4 +36,5 @@ if(isset($_SESSION['Celula'])) {
     header("Location: index.php");
     exit;
 }
+
 ?>
