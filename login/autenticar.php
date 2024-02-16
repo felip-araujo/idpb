@@ -24,8 +24,8 @@ if ($resultado) {
     header("Location: ../dashboard/index.php");
 } else {
     
-    echo "<script>alert('Credenciais Inválidas')</script>";
     echo "<script>window.location.href = '../login';</script>";
+    echo "<script>alert('Usuário ou Senha Inválidos')</script>";
     
 }
 
