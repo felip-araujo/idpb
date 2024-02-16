@@ -79,8 +79,38 @@
             echo "<p>Função não encontrada.</p>";
         }
 
-        // Adicionar botões
-        echo "<button onclick=\"location.href='pagina_logada.php'\">Fazer Relatório</button>";
+        // Criar o botão para gerar relatórios com opções para célula, supervisão e coordenação
+        echo "<form>";
+        echo "<label>Selecione uma opção para gerar o relatório:</label><br>";
+        echo "<select name='tipo_relatorio' id='tipo_relatorio'>";
+        if ($resultado_celula && $resultado_celula['Celula'] !== null) {
+            echo "<option value='celula'>Célula " . $resultado_celula['Celula'] . "</option>";
+        }
+        if ($resultado_supervisao && $resultado_supervisao['Supervisao'] !== null) {
+            echo "<option value='supervisao'>Supervisão " . $resultado_supervisao['Supervisao'] . "</option>";
+        }
+        if ($resultado_coordenacao && $resultado_coordenacao['Coordenacao'] !== null) {
+            echo "<option value='coordenacao'>Coordenação " . $resultado_coordenacao['Coordenacao'] . "</option>";
+        }
+        echo "</select><br>";
+        echo "<button type='button' onclick='gerarRelatorio()'>Gerar Relatório</button>";
+        echo "</form>";
+
+        // JavaScript para redirecionar com base na opção selecionada
+        echo "<script>";
+        echo "function gerarRelatorio() {";
+        echo "  var tipo = document.getElementById('tipo_relatorio').value;";
+        echo "  if (tipo === 'celula') {";
+        echo "    window.location.href = 'gerar_relatorio_celula.php';";
+        echo "  } else if (tipo === 'supervisao') {";
+        echo "    window.location.href = 'gerar_relatorio_supervisao.php';";
+        echo "  } else if (tipo === 'coordenacao') {";
+        echo "    window.location.href = 'gerar_relatorio_coordenacao.php';";
+        echo "  }";
+        echo "}";
+        echo "</script>";
+        
+        // Outros botões
         echo "<button onclick=\"location.href='http://127.0.0.1:8050/'\">Visualizar Relatório</button>";
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb'\">Cadastrar Novo Membro</button>";
     } else {
