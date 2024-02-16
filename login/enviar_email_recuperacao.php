@@ -4,9 +4,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-require '/idpb/PHPMailer/src/PHPMailer.php';
-require '/idpb/PHPMailer/src/SMTP.php';
-require '/idpb/PHPMailer/src/Exception.php'; 
+require 'idpb/PHPMailer/src/PHPMailer.php';
+require 'idpb/PHPMailer/src/SMTP.php';
+require 'idpb/PHPMailer/src/Exception.php'; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
