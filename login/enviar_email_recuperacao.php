@@ -1,45 +1,44 @@
 <?php
-// Verificar se o formulário foi submetido
+
+require '/wamp64/www/idpb-c/idpb/PHPMailer/src/PHPMailer.php';
+require '/wamp64/www/idpb-c/idpb/PHPMailer/src/SMTP.php';
+require '/wamp64/www/idpb-c/idpb/PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Receber o email fornecido pelo usuário
     $email = $_POST['email'];
-    
-    
-    // Função para enviar e-mail de recuperação de senha
-    function enviarEmailRecuperacaoSenha($email, $token) {
-        $assunto = 'Recuperação de Senha';
-        $mensagem = 'Para redefinir sua senha, clique no seguinte link: 
-                     http://seusite.com/redefinir_senha.php?token=' . $token;
-        $headers = 'From: seuemail@seusite.com' . "\r\n" .
-                   'Reply-To: seuemail@seusite.com' . "\r\n" .
-                   'X-Mailer: PHP/' . phpversion();
-    
-        return mail($email, $assunto, $mensagem, $headers);
-    } 
+    $nome_usuario = 'nome'; 
 
-    
-// Função para gerar um token único
-function gerarTokenUnico() {
-    return md5(uniqid(mt_rand(), true));
 }
 
-// Gerar um token único
-$token = gerarTokenUnico();
+$codigo_acesso = 185;
 
-echo $token; // Exemplo de como você pode usar o token
+$mail = new PHPMailer(true);
 
-    
-    // Supondo que você já tenha gerado um token único para o usuário
-    $token = gerarTokenUnico();
-    
-    // Enviar o e-mail de recuperação de senha
-    $email = 'emaildoUsuario@example.com'; // Substitua pelo e-mail do usuário
-    if (enviarEmailRecuperacaoSenha($email, $token)) {
-        echo 'E-mail de recuperação de senha enviado com sucesso.';
-    } else {
-        echo 'Erro ao enviar o e-mail de recuperação de senha.';
-    }
+$mail->isSMTP();
+$mail->Host = 'smtp.titan.email';
+$mail->SMTPAuth = true;
+$mail->Username = 'suporte@sistemaidpb.evoludesign.com.br';
+$mail->Password = '-}*=_X46$ruM-6g';
+$mail->Port = 587; // Porta SMTP padrão
 
-    
+// Configurações adicionais, se necessário 
+
+$mail->setFrom('suporte@sistemaidpb.evoludesign.com.br', 'Suporte IDPB');
+$mail->addAddress($email, $nome_usuario); // Endereço de e-mail do destinatário
+$mail->Subject = 'Recuperação de Senha';
+$mail->Body = 'Seu código de acesso é: ' . $codigo_acesso;
+
+try {
+    $mail->send();
+    echo 'E-mail enviado com sucesso!';
+} catch (Exception $e) {
+    echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
 }
-?>
+
+
+
+?> 
