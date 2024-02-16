@@ -87,7 +87,8 @@
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb'\">Cadastrar Novo Membro</button>";
 
     } else {
-        echo "<script> alert('Usuário não autenticado!'); </script>";
+        echo " <script> alert('Usuário não autenticado!'); </script> ";  
+        echo " <script>window.location.href = '../login';</script> ";
     }
     ?>
 </body>
