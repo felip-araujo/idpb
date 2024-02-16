@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css">
+    
     <title>Dashboard</title>
 </head>
 <body>
-    <h1 class="titulo">Painel da Liderança</h1>
+    <h1>Painel da Liderança</h1>
     <?php 
 
     // Iniciar a sessão
@@ -33,7 +33,7 @@
 
         // Verificar se número da célula foi encontrado
         if ($resultado_celula) {
-            echo "<p class='subtitulo' >Nome: " . $resultado_celula['Nome'] . "</p>"; 
+            echo "<p>Nome: " . $resultado_celula['Nome'] . "</p>"; 
             echo "<p>Número da Célula: " . $resultado_celula['Celula'] . "</p>"; 
         } else {
             echo "<p>Número da Célula não encontrado.</p>";
@@ -87,9 +87,11 @@
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb'\">Cadastrar Novo Membro</button>";
 
     } else {
+        
         echo " <script> alert('Usuário não autenticado!'); </script> ";  
         echo " <script>window.location.href = '../login';</script> ";
     }
+
     ?>
 </body>
 </html>
