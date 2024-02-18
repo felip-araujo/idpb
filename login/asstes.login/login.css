@@ -67,6 +67,10 @@ h4 {
     color: #fff;
 }
 
+input {
+    color-scheme: dark;
+}
+
 label {
     position: absolute;
     color: #ffffff7a;
@@ -101,4 +105,5 @@ button {
     background-color: #258eeb;
     border: none;
     border-radius: .5rem;
+    cursor: pointer;
 }
