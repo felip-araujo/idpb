@@ -5,37 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css"> 
-    <link rel="icon" href="/idpb/assets/css/image/main-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./asstes.login/login.css">
+    <link rel="icon" href="../assets/css/image/main-logo.png">
 
 </head>
 <body>
-
-<div class="container-login">
-    <form class="fomulario" action="autenticar.php" method="post"> 
-
-        <img src="\idpb\assets\css\image\main-logo.png" alt="" class="logotipo">
-        <h1 class="titulo">Bem-Vindo!</h1> 
-        <h4 class="subtitulo">Ainda não tem uma conta? <a class="cad" href="../index.php">Cadastre-se</a> </h3> 
-
-        <!-- <label class="label" for="email">Email:</label> -->
-        <i class="fa-regular fa-envelope"> </i> <br><br>
-        <input class="input" type="email" id="email" name="email" placeholder="digite o seu e-mail" required >
-        <!-- <label class="label" for="senha">Senha:</label> -->
-        <i class="fa-solid fa-lock"></i>
-        <input class="input" class="input-ico" type="password" id="senha" name="senha" placeholder="digite sua senha" required><br><br>
-        <i class="fa-regular fa-eye-slash" onclick="togglePasswordVisibility()"></i> 
-        <a href="esqueci-senha.html" class="link">Esqueceu a senha?</a>
+    <div class="container-wrapper">
+        <div class="container-login">
+            <img src="../assets/css/image/main-logo.png" alt="" class="logotipo">
+            <h1 class="titulo">Bem-Vindo!</h1> 
+            <h4 class="subtitulo">Ainda não tem uma conta? <a class="cad" href="../index.php">Cadastre-se</a></h4>
         
-    
-        <input class="input-btn "type="submit" value="Entrar">
-    </form>    
-</div>
-
-
-<!-- codigo de importação do font awesome -->
-<script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
-<script src="/idpb/login/asstes.login/main.js"></script>
+            <form class="formulario" action="autenticar.php" method="post"> 
+                <div class="input-box">
+                    <label for="email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </label>
+                    <input class="input" type="email" id="email" name="email" placeholder="digite o seu e-mail" required >
+                </div>
+                <div class="input-box">
+                    <label for="senha">
+                        <i class="fa-solid fa-lock"></i>
+                    </label>
+                    <span class="icon password-icon">
+                        <i class="senha-icon fa-regular fa-eye-slash" onclick="togglePasswordVisibility()"></i>
+                    </span>
+                    <input class="input" class="input-ico" type="password" id="senha" name="senha" placeholder="digite sua senha" required>
+                    <a href="esqueci-senha.html" class="link">Esqueceu a senha?</a>
+                </div>
+                <button class="input-btn" type="submit">Entrar</button>
+            </form>    
+        </div>
+    </div>
+    <!-- codigo de importação do font awesome -->
+    <script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+    <script src="./asstes.login/main.js"></script>
 </body>
 
 </html>

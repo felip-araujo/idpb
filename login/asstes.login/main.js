@@ -1,6 +1,6 @@
 function togglePasswordVisibility() {
-    var senhaInput = document.getElementById("senha");
-    var senhaIcon = document.querySelector('.senha-icon');
+    const senhaInput = document.getElementById("senha");
+    const senhaIcon = document.querySelector(".senha-icon");
 
     if (senhaInput.type === "password") {
       senhaInput.type = "text";
