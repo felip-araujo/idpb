@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="stylesheet" href="/..assets">
+    <link rel="stylesheet" href="../idpb/login/asstes.login/login.css">
+    
     
     <title>Dashboard</title>
 </head>
 <body>
     <h1>Painel da Liderança</h1>
+    
     <?php 
     // Iniciar a sessão
     session_start();
