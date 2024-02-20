@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Membros</title> 
-    <link rel="shortcut icon" type="imagex/png" href="/idpb/assets/css/image/main-logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="/assets/css/image/main-logo.png">
     
-    <link rel="stylesheet" href="/idpb-c/idpb/assets/css/style.css">
-    <link rel="stylesheet" href="/idpb/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 
 
