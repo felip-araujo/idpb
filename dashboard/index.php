@@ -103,7 +103,7 @@
         echo "function gerarRelatorio() {";
         echo "  var tipo = document.getElementById('tipo_relatorio').value;";
         echo "  if (tipo === 'celula') {";
-        echo "    window.location.href = 'gerar_relatorio_celula.php';";
+        echo "    window.location.href = 'pagina_logada.php';";
         echo "  } else if (tipo === 'supervisao') {";
         echo "    window.location.href = 'gerar_relatorio_supervisao.php';";
         echo "  } else if (tipo === 'coordenacao') {";
@@ -114,7 +114,7 @@
         
         // Outros botões
         echo "<button onclick=\"location.href='http://127.0.0.1:8050/'\">Visualizar Relatório</button>";
-        echo "<button onclick=\"location.href='http://52.1.203.38/idpb'\">Cadastrar Novo Membro</button>";
+        echo "<button onclick=\"location.href='http://52.1.203.38/idpb/cadastro'\">Cadastrar Novo Membro</button>";
     } else {
         // Iniciar sessão antes do redirecionamento
         session_start();
