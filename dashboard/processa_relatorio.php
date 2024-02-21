@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Preparar e executar a inserção dos dados do relatório
     try {
-        $stmt = $pdo->prepare("INSERT INTO frequencia (Celula, data_relatorio, conversao, evento, nome_completo, presente) VALUES (:Celula, :data_relatorio, :conversao, :evento, :nome_completo, :presente)");
+        $stmt = $pdo->prepare("INSERT INTO frequencia (numero_celula, data_relatorio, conversao, evento, nome_completo, presente) VALUES (:Celula, :data_relatorio, :conversao, :evento, :nome_completo, :presente)");
 
         // Bind do parâmetro fora do loop
         $stmt->bindParam(':Celula', $Celula);
