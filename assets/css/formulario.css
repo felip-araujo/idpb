@@ -24,7 +24,11 @@
 } 
 .btn{
     padding: .8rem; 
+<<<<<<< HEAD
     width: fit-content:50%; 
+=======
+    width: fit-content 50%; 
+>>>>>>> frontend
     border-radius: .4rem;
     border: solid .5px; 
     margin-top: 1.4rem;  

@@ -1,0 +1,12 @@
+.eventos {
+    display: flex;
+    &__evento {
+        width: 100%;
+        text-align: center;
+        img {
+            width: 100%;
+            object-fit: fill;
+            padding-bottom: 8px;
+        }
+    }
+}
