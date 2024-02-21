@@ -1,6 +1,7 @@
 <?php 
 
-echo " teste "
+echo " teste ";
+echo " aqui vai o formulario para troca de senha através de uma requisição SQL ";
 
 
 ?>
