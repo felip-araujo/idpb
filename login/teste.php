@@ -3,7 +3,7 @@ session_start();
 
 require 'conexao.php';
 
-require '/home/bitnami/idpb/PHPMailer/src/PHPMailer.php';
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
 require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
 require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
 
@@ -12,6 +12,7 @@ require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
 // require 'C:\wamp64\www\idpb\PHPMailer\src\Exception.php'; 
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;  
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
