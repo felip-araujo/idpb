@@ -37,8 +37,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->Password = '-}*=_X46$ruM-6g';
         $mail->Port = 587; // Porta SMTP padrão
 
-        // Configurações adicionais, se necessário 
 
+        // Configurações adicionais, se necessário 
         $mail->setFrom('suporte@sistemaidpb.evoludesign.com.br', 'Suporte IDPB');
         $mail->addAddress($email); // Endereço de e-mail do destinatário
         $mail->Subject = 'Recuperacao de Senha'; 
@@ -46,8 +46,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $mail->send();
-    echo "<script>alert('E-mail Enviado')</script>"; 
-    header("Location: validar-codigo.php");
+       
+        echo "<script>alert('E-mail Enviado')</script>"; 
+        header("Location: validar-codigo.php");
 
     } catch (Exception $e) {
         echo "<script>alert('Erro no Envio do E-mail')</script>" . $mail->ErrorInfo;

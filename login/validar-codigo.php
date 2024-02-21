@@ -33,7 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="asstes.login/login.css"> 
     <link rel="stylesheet" href="assets/css/image/main-logo.png">
     <title>Validar Código de Acesso</title>
-</head>
+</head> 
+
+<style>
+
+    
+</style>
 <body> 
 <div class="container-wrapper"> 
     <div class="container-login">
