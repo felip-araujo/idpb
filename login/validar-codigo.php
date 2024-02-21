@@ -21,7 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     } else {
         // Exibe uma mensagem de erro se o código estiver incorreto
-        $erro = "Código incorreto. Por favor, tente novamente.";
+        $erro = '<script>alert("Código incorreto. Por favor, tente novamente.")</script>'; 
+
+        
     }
 }
 ?>
@@ -37,17 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <style>
 
-    
+    .input{
+        margin-top: 0;
+    } 
 </style>
 <body> 
 <div class="container-wrapper"> 
     <div class="container-login">
         <h4 class="cad">Por favor, digite o código de acesso que enviamos para o seu e-mail:</h2>
         <?php if(isset($erro)) { ?>
-            <p style="color: red;"><?php echo $erro; ?></p>
+            <p style="color: red; margin-top: .6rem"><?php echo $erro; ?></p>
         <?php } ?>
         <form class="formulario" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <label class="cad" for="codigo">Código de Acesso:</label><br>
             <input  class="input" type="text" id="codigo" name="codigo"><br><br>
             <input class="button" type="submit" value="Validar">
         </form>
