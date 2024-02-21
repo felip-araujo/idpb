@@ -2,7 +2,7 @@
 require 'conexao.php';
 
 session_start();
-$numero_celula = $_SESSION['numero_celula'];
+$Celula = $_SESSION['Celula'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se 'data_relatorio' está definido em $_POST antes de acessá-lo
@@ -13,19 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $presenca = isset($_POST['presenca']) ? $_POST['presenca'] : array();
 
     // Obter todos os membros da célula para garantir que todos sejam considerados
-    $query = "SELECT nome_completo FROM membros WHERE numero_celula = :numero_celula";
+    $query = "SELECT nome_completo FROM membros WHERE numero_celula = :Celula";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':numero_celula', $numero_celula);
+    $stmt->bindParam(':Celula', $Celula);
     $stmt->execute();
     // Incluir o número da célula na inserção do banco de dados
     $todos_membros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Preparar e executar a inserção dos dados do relatório
     try {
-        $stmt = $pdo->prepare("INSERT INTO frequencia (numero_celula, data_relatorio, conversao, evento, nome_completo, presente) VALUES (:numero_celula, :data_relatorio, :conversao, :evento, :nome_completo, :presente)");
+        $stmt = $pdo->prepare("INSERT INTO frequencia (Celula, data_relatorio, conversao, evento, nome_completo, presente) VALUES (:Celula, :data_relatorio, :conversao, :evento, :nome_completo, :presente)");
 
         // Bind do parâmetro fora do loop
-        $stmt->bindParam(':numero_celula', $numero_celula);
+        $stmt->bindParam(':Celula', $Celula);
         $stmt->bindParam(':data_relatorio', $data_relatorio);
         $stmt->bindParam(':conversao', $conversao);
         $stmt->bindParam(':evento', $evento);

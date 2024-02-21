@@ -34,7 +34,7 @@ if(isset($_SESSION['Celula'])) {
     // Aqui você pode decidir como lidar com essa situação
     // Por exemplo:
     header("Location: index.php");
-    exit;
+    
 }
 
 ?>
