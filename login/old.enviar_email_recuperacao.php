@@ -7,9 +7,14 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validar e-mail do usuário (você pode adicionar mais validações aqui)
     $email = $_POST['email'];  
-    $nome = $_POST['nome']; 
     
     // Lógica para verificar se o e-mail existe no banco de dados
+
+
+
+
+
+
     // Se o e-mail existir, gerar um token aleatório e armazená-lo na sessão
     $token = bin2hex(random_bytes(16)); // Gera um token aleatório de 16 bytes
     
@@ -72,7 +77,3 @@ try {
 } catch (Exception $e) {
     echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
 }
-
-
-
-?> 

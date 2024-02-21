@@ -22,10 +22,11 @@ if ($resultado) {
     $_SESSION['usuario_nome'] = $resultado['nome']; // Obtendo o nome do usuário do resultado da consulta SQL
 
     header("Location: ../dashboard/index.php");
+    
 } else {
     
     echo "<script>alert('Usuário ou Senha Inválidos')</script>";
-    echo "<script>window.location.href = '../login';</script>";
+    echo "<script> window.location.href = '../login';</script>";
 }
 
 ?>

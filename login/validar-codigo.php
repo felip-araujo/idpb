@@ -1,59 +1,52 @@
 <?php
-// validar_token.php
+session_start();
 
-// Verifica se o método de requisição é POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verifica se o token foi enviado
-    if (isset($_POST['token'])) {
-        // Obtém o token enviado pelo formulário
-        $token = $_POST['token'];
+// Verifica se o usuário está logado
+if (!isset($_SESSION['reset_codigo_acesso']) || !isset($_SESSION['reset_email'])) {
+    // Redireciona para a página de login se as variáveis de sessão não estiverem definidas
+    header("Location: index.html");
+    exit();
+}
 
-        // Lógica para verificar o token no banco de dados
-        try {
-            $pdo = new PDO('mysql:host=localhost;dbname=seu_banco_de_dados', 'seu_usuario', 'sua_senha');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Verifica se o formulário foi submetido
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $codigo_digitado = $_POST['codigo'];
+    $codigo_gerado = $_SESSION['reset_codigo_acesso'];
+    $email = $_SESSION['reset_email'];
 
-            // Consulta preparada para verificar se o token existe no banco de dados
-            $stmt = $pdo->prepare("SELECT * FROM tabela_de_tokens WHERE token = :token");
-            $stmt->bindParam(':token', $token);
-            $stmt->execute(); 
-            
-            // Verifica se o token foi encontrado
-            if ($stmt->rowCount() > 0) {
-                // Token válido, redireciona para a página de redefinição de senha
-                header("Location: redefinir_senha.php?token=$token");
-                exit(); 
-            } else {
-                // Token inválido, exibe mensagem de erro
-                $error = "Token inválido. Por favor, verifique o token e tente novamente.";
-            }
-        } catch (PDOException $e) {
-            // Tratar erros de conexão com o banco de dados
-            $error = "Erro ao conectar ao banco de dados: " . $e->getMessage();
-        }
+    // Verifica se o código digitado corresponde ao código gerado
+    if ($codigo_digitado == $codigo_gerado) {
+        // Redireciona para a página de redefinição de senha
+        header("Location: redefinir-senha.php");
+        exit();
     } else {
-        // Se o token não foi enviado, exibe mensagem de erro
-        $error = "Token não recebido. Por favor, forneça o token e tente novamente.";
+        // Exibe uma mensagem de erro se o código estiver incorreto
+        $erro = "Código incorreto. Por favor, tente novamente.";
     }
 }
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validar Token</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="asstes.login/login.css"> 
+    <link rel="stylesheet" href="assets/css/image/main-logo.png">
+    <title>Validar Código de Acesso</title>
 </head>
-<body>
-    <h2>Validar Token</h2>
-    <?php if (isset($error)): ?>
-        <p style="color: red;"><?php echo $error; ?></p>
-    <?php endif; ?>
-    <form method="post" action="">
-        <label for="token">Token:</label>
-        <input type="text" name="token" required>
-        <button type="submit">Validar</button>
-    </form>
+<body> 
+<div class="container-wrapper"> 
+    <div class="container-login">
+        <h4 class="cad">Por favor, digite o código de acesso que enviamos para o seu e-mail:</h2>
+        <?php if(isset($erro)) { ?>
+            <p style="color: red;"><?php echo $erro; ?></p>
+        <?php } ?>
+        <form class="formulario" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label class="cad" for="codigo">Código de Acesso:</label><br>
+            <input  class="input" type="text" id="codigo" name="codigo"><br><br>
+            <input class="button" type="submit" value="Validar">
+        </form>
+    </div>
+</div>
 </body>
 </html>
