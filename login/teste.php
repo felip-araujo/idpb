@@ -3,7 +3,7 @@ session_start();
 
 require 'conexao.php';
 
-require '/idpb/PHPMailer/src/PHPMailer.php';
+require '/home/bitnami/idpb/PHPMailer/src/PHPMailer.php';
 require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
 require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
 
