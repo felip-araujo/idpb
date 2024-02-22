@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verifica se o código digitado corresponde ao código gerado
     if ($codigo_digitado == $codigo_gerado) {
         // Redireciona para a página de redefinição de senha
-        header("Location: redefinir-senha.php");
+        header("Location: redefinir-senha.html");
         exit();
     } else {
         // Exibe uma mensagem de erro se o código estiver incorreto
