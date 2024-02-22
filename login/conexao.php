@@ -13,3 +13,4 @@ try {
     echo "Falha ao conectar ao banco de dados: " . $e->getMessage();
 } 
 ?>
+
