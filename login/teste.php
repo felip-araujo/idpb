@@ -3,13 +3,18 @@ session_start();
 
 require 'conexao.php';
 
-// require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
-// require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
-// require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
+// REFERENCIAS PARA O PHPMAILER AWS PRODUÇÃO //
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
+// REFERENCIAS PARA O PHPMAILER AWS PRODUÇÃO //
 
-  require 'C:\wamp64\www\idpb\PHPMailer\src\PHPMailer.php';
-  require 'C:\wamp64\www\idpb\PHPMailer\src\SMTP.php';
-  require 'C:\wamp64\www\idpb\PHPMailer\src\Exception.php';  
+
+// REFERENCIAS PARA O PHPMAILER LOCAL AMBIENTE DE TESTE //
+// require 'C:\wamp64\www\idpb\PHPMailer\src\PHPMailer.php';
+// require 'C:\wamp64\www\idpb\PHPMailer\src\SMTP.php';
+// require 'C:\wamp64\www\idpb\PHPMailer\src\Exception.php'; 
+// REFERENCIAS PARA O PHPMAILER LOCAL AMBIENTE DE TESTE // 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\SMTP;
