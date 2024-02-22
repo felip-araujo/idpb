@@ -8,13 +8,9 @@
         if($senha1 == $senha2) {
 
             require 'conexao.php';     
-            $query = "SELECT id FROM users2 WHERE email = '$email' "; 
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(':email', $email);
-            $stmt->execute([]);
-            $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            print_r($id);
+            // $query = "UPDATE id FROM users2 WHERE email = '$email' "; 
 
+            $query = " UPDATE users2 SET senha = '$senha2' WHERE id = 1";
             
             
         } else {
