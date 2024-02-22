@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="shortcut icon" href="/idpb/assets/css/image/main-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css">
+    <title>Redefinir Senha</title>
+</head> 
+
+<style>
+    .input{
+        margin-top: .1rem;
+    } 
+
+    #email{
+        margin-bottom: 1.3rem;
+    }
+</style>
+
+<body> 
+    <div class="container-wrapper">
+        <div class="container-login">
+        <form class="formulario" action="redefinir-senha.php" method="post"> 
+                <div class="input-box"> 
+                <label for="email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </label>
+                    <input class="input" type="email" id="email" name="email" placeholder="digite o seu e-mail" required >
+                    <label for="senha">
+                        <i class="fa-solid fa-lock"></i>
+                    </label>
+                    <span class="icon password-icon">
+                        <i class="senha-icon fa-regular fa-eye-slash" onclick="togglePasswordVisibility()"></i>
+                    </span>
+                    <input class="input" class="input-ico" type="password" id="senha1" name="senha1" placeholder="digite a nova senha" required>
+                    <label for="senha">
+                        <i class="fa-solid fa-lock"></i>
+                    </label>
+                    <input class="input" class="input-ico" type="password" id="senha2" name="senha2" placeholder="confirme a nova senha" required>
+                </div>
+                <button class="input-btn" type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body> 
+
+    <script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+    <script src="./asstes.login/main.js"></script>
+</html>

@@ -1,28 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="shortcut icon" href="/idpb/assets/css/image/main-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css">
-    <title>Redefinir Senha</title>
-</head> 
+<?php 
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+        $email = $_POST['email'];
+        $senha1 = $_POST['senha1']; 
+        $senha2 = $_POST['senha2']; 
 
-<style>
-    .input{
-        margin-top: .2rem;
+        if($senha1 == $senha2) {
+
+            require 'conexao.php';      
+            $id_user = "SELECT id FROM users2 WHERE email = `$email`"; 
+            // imprimindo a consulta de forma temporaria 
+            $stmt = $pdo->prepare($id_user);
+
+            // Vincular parâmetros
+            $stmt->bindParam(':email', $email);
+
+            // Executar a consulta
+            $stmt->execute();
+
+            // Verificar se a consulta retornou algum resultado
+            if ($stmt->rowCount() > 0) {
+                // Recuperar o resultado como uma matriz associativa
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                echo "ID do usuário: " . $row["id"];
+            } else {
+                echo "Nenhum resultado encontrado.";
+            }
+            
+        } else {
+            echo "As senhas não coincidem";
+        }
+
     }
-</style>
 
-<body> 
-    <div class="container-wrapper">
-        <div class="container-login">
-            <form action="" class="formulario"> 
-                <input type="text" class="input" placeholder="Digite a nova Senha"> 
-                <input type="text" class="input" placeholder="Confirme a nova Senha">
-                <button class="button">Enviar</button>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
+
+
+?>
+
+
+
+
