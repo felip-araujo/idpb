@@ -12,8 +12,8 @@
     <div class="container-wrapper">
         <div class="container-login">
             <form action="" class="formulario">
-                <input type="text" class="input"> 
-                <input type="text" class="input">
+                <input type="text" class="input" placeholder="Digite a nova Senha"> 
+                <input type="text" class="input" placeholder="Confirme a nova Senha">
                 <button class="button">Enviar</button>
             </form>
         </div>
