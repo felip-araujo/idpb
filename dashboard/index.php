@@ -17,6 +17,7 @@
 
     // Verificar se os dados do usuário estão na sessão
     if(isset($_SESSION['usuario_email'])) {
+        
         // Mostrar nome, número da célula e email do usuário
         echo "<p>Nome: " . $_SESSION['usuario_nome'] . "</p>";
         echo "<p>Email: " . $_SESSION['usuario_email'] . "</p>";
@@ -26,17 +27,23 @@
 
         // Buscar número da célula
         $email = $_SESSION['usuario_email'];
-        $query_celula = "SELECT Nome, Celula FROM funcoes WHERE Email=:email";
+        $query_celula = "SELECT Nome, Celula, Funcao FROM funcoes WHERE Email=:email";
         $stmt_celula = $pdo->prepare($query_celula);
         $stmt_celula->bindParam(':email', $email);
         $stmt_celula->execute();
-        $resultado_celula = $stmt_celula->fetch(PDO::FETCH_ASSOC);
+        $resultado_celula = $stmt_celula->fetch(PDO::FETCH_ASSOC); 
+
+        if($resultado_celula['Funcao'] == null){
+            echo "<script> alert('O Usuário não possui uma função ministerial!') </script>";
+            echo "<script> window.location.href = '../login';</script>";
+        } 
 
         // Verificar se número da célula foi encontrado
         if ($resultado_celula) {
             $_SESSION['Celula'] = $resultado_celula['Celula'];
         } else {
-            echo "<p>Número da Célula não encontrado.</p>";
+            echo "<p>Número da Célula não encontrado.</p>"; 
+
         }
 
         // Buscar número da supervisão
@@ -67,7 +74,7 @@
             echo "<p>Não é Coordenador.</p>";
         }
 
-        // Buscar a função do usuário
+        // Buscar a função do usuário 
         $query_funcao = "SELECT Funcao FROM funcoes WHERE Email=:email";
         $stmt_funcao = $pdo->prepare($query_funcao);
         $stmt_funcao->bindParam(':email', $email);
@@ -84,7 +91,7 @@
         // Criar o botão para gerar relatórios com opções para célula, supervisão e coordenação
         echo "<form>";
         echo "<label>Selecione uma opção para gerar o relatório:</label><br>";
-        echo "<select name='tipo_relatorio' id='tipo_relatorio'>";
+        echo "<select name='tipo_relatorio' id='tipo_relatorio'>"; 
         if ($resultado_celula && $resultado_celula['Celula'] !== null) {
             echo "<option value='celula'>Célula " . $resultado_celula['Celula'] . "</option>";
         }
@@ -115,12 +122,15 @@
         // Outros botões
         echo "<button onclick=\"location.href='http://127.0.0.1:8050/'\">Visualizar Relatório</button>";
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb/cadastro'\">Cadastrar Novo Membro</button>";
+    
     } else {
         // Iniciar sessão antes do redirecionamento
+        
         session_start();
-        echo "<script> alert('Usuário não autenticado!'); </script>";  
+        echo "<script>alert('Usuário não autenticado!')</script>";
         echo "<script>window.location.href = '../login';</script>";
-    }
-    ?>
+    } 
+
+    ?> 
 </body>
 </html>
