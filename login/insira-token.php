@@ -15,7 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['token'])) {
         header('Location: redefinir-senha.php?token=' . $token);
         exit;
     } else {
+
         echo "<script>alert('Token inválido ou expirado. Por favor, verifique seu e-mail novamente.')</script>";
+        
     }
 }
 ?>
