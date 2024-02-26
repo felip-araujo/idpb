@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         $mail->Body = 'Seu código de acesso é: ' . $token;
 
         try {
-            $mail->send();
+            $mail->send(); 
             header("Location: insira-token.php");
         } catch (Exception $e) {
             echo "<script>alert('Erro no Envio do E-mail')</script>" . $mail->ErrorInfo;
