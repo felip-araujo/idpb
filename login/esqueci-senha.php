@@ -3,9 +3,9 @@
 require 'conexao.php';
 
 // REFERENCIAS PARA O PHPMAILER AWS PRODUÇÃO //
-// require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
-// require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
-// require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
+require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
 // REFERENCIAS PARA O PHPMAILER AWS PRODUÇÃO //
 
 // REFERENCIAS PARA O PHPMAILER LOCAL AMBIENTE DE TESTE //
