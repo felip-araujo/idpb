@@ -1,6 +1,6 @@
 <?php
 // Incluindo o arquivo de conexão
-require 'conexao.php';
+require 'conexao.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['token'])) {
     $token = $_POST['token'];
