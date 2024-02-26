@@ -2,10 +2,12 @@
 // Incluindo o arquivo de conexão
 require 'conexao.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['senha2'])) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $senha2 = $_POST['senha2'];
+
 
     // Verificar se o e-mail já está em uso
     $stmt = $pdo->prepare('SELECT id FROM users2 WHERE email = :email');
@@ -15,17 +17,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && isset($_PO
     if ($existeUsuario) {
         echo "<script>alert('Este e-mail já está em uso!')</script>";
     } else {
-        // Gerar hash seguro da senha
-        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-        // Inserir novo usuário no banco de dados
-        $stmt = $pdo->prepare('INSERT INTO users2 (nome, email, senha) VALUES (:nome, :email, :senha)');
-        $stmt->execute(['nome' => $nome, 'email' => $email, 'senha' => $senhaHash]);
+        if ($senha == $senha2) {
+            // Gerar hash seguro da senha
+            $senhaHash = password_hash($senha2, PASSWORD_DEFAULT);
 
-        echo "<script>alert('Conta criada com sucesso!.')</script>";
-        echo "<script>window.location.href = '/idpb/login';</script>";
+            // Inserir novo usuário no banco de dados
+            $stmt = $pdo->prepare('INSERT INTO users2 (nome, email, senha) VALUES (:nome, :email, :senha)');
+            $stmt->execute(['nome' => $nome, 'email' => $email, 'senha' => $senhaHash]);
+
+            echo "<script>alert('Conta criada com sucesso!.')</script>";
+            echo "<script>window.location.href = '/idpb/login';</script>";
+        } else {
+            echo"<script>alert('Senhas não coincidem!')</script>";
+            echo"<script>window.location.href='/idpb/login';</script>";
+        }
     }
 }
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -36,14 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && isset($_PO
     <title>Criar Conta</title>
     <link rel="stylesheet" href="/idpb/login/asstes.login/login.css">
     <link rel="shortcut icon" href="/idpb/assets/images/main-logo.png" type="image/x-icon">
-</head> 
+</head>
 
 <style>
-
-    .input{
+    .input {
         margin-bottom: .5rem;
     }
 
+    #senha2 {
+        margin-top: .9rem;
+    }
 </style>
 
 <body>
@@ -51,12 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && isset($_PO
     <div class="container-wrapper">
         <div class="container-login">
             <img class="logotipo" src="/idpb/assets/images/main-logo.png" alt="">
-            <h2>Criar Conta</h2> 
+            <h2>Criar Conta</h2>
             <h4>Preencha os campos abaixo:</h4>
             <form class="formulario" method="post" action="">
                 <input type="name" id="nome" name="nome" class="input" required placeholder="Nome Completo:  ex.: João da Silva">
                 <input type="email" id="email" name="email" class="input" placeholder="Email: ex.: joao@gmail.com" required>
                 <input type="password" id="senha" name="senha" class="input" placeholder="Crie uma senha" required>
+                <input type="password" id="senha2" name="senha2" class="input" placeholder="Repita a sua senha" required>
                 <input class="button" type="submit" value="Criar Conta">
             </form>
         </div>
@@ -64,5 +79,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && isset($_PO
 
 
 </body>
-
 </html>
