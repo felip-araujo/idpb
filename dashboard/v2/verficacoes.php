@@ -7,7 +7,8 @@ session_start();
         if (isset($_SESSION['usuario_email'])) {
             
             $nome = $_SESSION['usuario_nome']; 
-            $primeiroNome = explode(' ', $nome)[0];
+            $primeiroNome = explode(' ', $nome)[0]; 
+            
         }
 
 
@@ -23,11 +24,14 @@ $resultado_celula = $stmt_celula->fetch(PDO::FETCH_ASSOC);
 if($resultado_celula['Funcao'] == null){
     echo "<script> alert('O Usuário não possui uma função ministerial!') </script>";
     echo "<script> window.location.href = '/idpb/login';</script>";
-} 
+} else{
+    $funcao = $resultado_celula['Funcao'];
+}
 
 // Verificar se número da célula foi encontrado
 if ($resultado_celula) {
-    $_SESSION['Celula'] = $resultado_celula['Celula']; 
+    $_SESSION['Celula'] = $resultado_celula['Celula'];  
+    $numero_celula = $resultado_celula['Celula'];
 } else {
     echo "<p>Número da Célula não encontrado.</p>"; 
 } 

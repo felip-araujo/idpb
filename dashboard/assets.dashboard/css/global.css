@@ -1,42 +1,59 @@
-*{
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif; 
-} 
-
 body {
-    background-image: linear-gradient( to left, rgb(5, 64, 92), .1%, #000000); 
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif; 
+    color: #eee;
+}
+.wrapper {
     display: flex;
+    height: 100vh;
+}
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+}
+.content {
+    flex: 1;
+    padding: 20px; 
+    background-image: linear-gradient( to left, rgb(5, 64, 92), .2%, #000000);
+}
+
+
+.tab-name{
     
     
-}  
+    padding: 10px; 
+    font-weight: 200;
+    text-align: center; 
+    margin-top: 2.5rem;
+}
 
-.container-left{
-    background-color: #333; 
-    padding: 10vh;  
-    padding-bottom: 80%;
-    height: 100%;
-    margin-bottom: 0; 
-    margin-right: 0;
-} 
-
-.dash-area{
-    color: white;
-    width: 90%;  
-    padding: 10vh; 
-    padding-bottom: 87vh;
+.tab-info{
+    padding: 5px; 
+    font-weight: 200;
+    font-size: .9rem; 
+    text-transform: lowercase;
+    text-align: center; 
     
 }
-.container-top{
-    background-color: rgba(2, 23, 33, 0.597); 
-    color: #eee;
-    font-weight: 200;
-    padding: 2rem; 
-    margin: 1.5rem; 
-    border-radius: .8rem;  
+
+.tab {
+    /* background-color: #444; */
+    background-image: linear-gradient(to right, #444, 40%, #44444400);
+    padding: 18px; 
+    font-weight: 500;
+    cursor: pointer; 
+    text-align: left; 
+    margin-top: .8rem;
+}
+
+.tab:hover {
+    background-color: #222;
 } 
 
-h4{
-    font-weight: 300;
+a{
+    
+    color: #eee;
+    text-decoration: none;
 }
