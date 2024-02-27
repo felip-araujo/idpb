@@ -1,12 +1,17 @@
+<?php
+// Iniciar a sessão
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Presença dos Membros da Célula <?php echo isset($_GET['celula']) ? $_GET['celula'] : ''; ?></title>
+    <title>Presença dos Membros da Célula <?php echo isset($_SESSION['Celula']) ? $_SESSION['Celula'] : ''; ?></title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
-<h2>Presença dos Membros da Célula <?php echo isset($_GET['celula']) ? $_GET['celula'] : ''; ?></h2>
+<h2>Presença dos Membros da Célula <?php echo isset($_SESSION['Celula']) ? $_SESSION['Celula'] : ''; ?></h2>
 
 <table>
     <tr>
@@ -16,13 +21,10 @@
     </tr>
 
     <?php
-    // Iniciar a sessão
-    session_start();
-    
-    // Verificar se o parâmetro celula está presente na URL
-    if(isset($_GET['celula'])) {
+    // Verificar se o número da célula está presente na sessão
+    if(isset($_SESSION['Celula'])) {
         // Armazenar o número da célula na variável $numero_celula
-        $numero_celula = $_GET['celula'];
+        $numero_celula = $_SESSION['Celula'];
 
         // Incluir o arquivo de conexão
         include 'conexao.php';
@@ -57,7 +59,7 @@
             echo "Erro ao executar a consulta: " . $e->getMessage();
         }
     } else {
-        echo "<tr><td colspan='3'>Número da célula não encontrado na URL.</td></tr>";
+        echo "<tr><td colspan='3'>Número da célula não encontrado na sessão.</td></tr>";
     }
     ?>
 
