@@ -120,7 +120,7 @@
         echo "</script>";
         
         // Outros botões
-        echo "<button onclick=\"location.href='http://127.0.0.1:8050/'\">Visualizar Relatório</button>";
+        echo "<button onclick=\"location.href='http://52.1.203.38//idpb/graficos/presenca.php'\">Visualizar Relatório</button>";
         echo "<button onclick=\"location.href='http://52.1.203.38/idpb/cadastro'\">Cadastrar Novo Membro</button>";
     
     } else {
