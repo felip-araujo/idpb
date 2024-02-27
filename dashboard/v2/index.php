@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,43 +10,19 @@
     <title>Bem-Vindo</title>
 </head>
 
-<body >
-    <div class="container-top">
-        <?php
-        session_start();
+<body> 
+    <?php include_once 'verficacoes.php'; ?>
+    <div class="container-left"> 
+        <a href="/idpb/login" class="nome">sair</a>
+        <h4 class="nome"> <?= $primeiroNome; ?> </h4>    
 
-        if (isset($_SESSION['usuario_email'])) 
-        {
-            echo "<h2> Seja bem-vindo,  " . $_SESSION['usuario_nome'] . "</h2>";
-        } 
-
-        require '/conexao.php';
-
-        // Buscar número da célula
-        $email = $_SESSION['usuario_email'];
-        $query_celula = "SELECT Nome, Celula, Funcao FROM funcoes WHERE Email=:email";
-        $stmt_celula = $pdo->prepare($query_celula);
-        $stmt_celula->bindParam(':email', $email);
-        $stmt_celula->execute();
-        $resultado_celula = $stmt_celula->fetch(PDO::FETCH_ASSOC); 
-
-        if($resultado_celula['Funcao'] == null){
-            echo "<script> alert('O Usuário não possui uma função ministerial!') </script>";
-            echo "<script> window.location.href = '../login';</script>";
-        } 
-
-        // Verificar se número da célula foi encontrado
-        if ($resultado_celula) {
-            $_SESSION['Celula'] = $resultado_celula['Celula'];
-        } else {
-            echo "<p>Número da Célula não encontrado.</p>"; 
-
-        }
-
-        ?>
-
-
+    </div> 
+    <div class="dash-area">  
+        <h2>Painel da Liderança</h2>
+        <div class="container-top">ola</div>    
+        <div class="container-top">ola</div>    
     </div>
+      
 </body>
 
 </html>
