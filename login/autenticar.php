@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
             $_SESSION['usuario_nome'] = $usuario['nome'];
             $_SESSION['usuario_email'] = $email; 
 
-            echo "<script>window.location.href = '/idpb/dashboard';</script>";
-            // echo "<script>window.location.href = '/idpb/dashboard/v2';</script>";
+            // echo "<script>window.location.href = '/idpb/dashboard';</script>";
+            echo "<script>window.location.href = '/idpb/dashboard/v2';</script>";
         } 
 
         echo "<script>alert('Senha incorreta.')</script>";

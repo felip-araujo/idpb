@@ -6,14 +6,37 @@
 } 
 
 body {
-    background-image: linear-gradient( to left, rgb(5, 64, 92), .1%, #000000);
+    background-image: linear-gradient( to left, rgb(5, 64, 92), .1%, #000000); 
+    display: flex;
+    
+    
+}  
+
+.container-left{
+    background-color: #333; 
+    padding: 10vh;  
+    padding-bottom: 80%;
+    height: 100%;
+    margin-bottom: 0; 
+    margin-right: 0;
 } 
+
+.dash-area{
+    color: white;
+    width: 90%;  
+    padding: 10vh; 
+    padding-bottom: 87vh;
+    
+}
 .container-top{
     background-color: rgba(2, 23, 33, 0.597); 
-    color: #eee; 
-    font-size: .8rem;
+    color: #eee;
     font-weight: 200;
     padding: 2rem; 
     margin: 1.5rem; 
     border-radius: .8rem;  
+} 
+
+h4{
+    font-weight: 300;
 }
