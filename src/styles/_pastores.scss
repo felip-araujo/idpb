@@ -1,19 +1,27 @@
 .pastores {
     display: block;
     padding-bottom: 40px;
-    img {
-        margin-right: 24px;
-        object-fit: cover;
-        width: 300px;
-        height: 400px;
-        border-radius: 5px;
-    }
-
+    
     &__descricao {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+        
         p {
             padding-bottom: 24px;
         }
-
+        
+        img {
+            margin-right: 24px;
+            object-fit: cover;
+            width: 300px;
+            height: 400px;
+            border-radius: 5px;
+        }
     }
+    
+
 }
