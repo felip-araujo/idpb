@@ -10,29 +10,43 @@
 </head>
 
 <body>
-<?php include_once 'verficacoes.php'; ?>
+    <?php include_once 'verficacoes.php'; ?> 
 
-<div class="wrapper">
-    <div class="sidebar" id="sidebar">
-        <!-- Aba da Dashboard -->
-        <div class="tab-name"> <?= $primeiroNome," ▸ ", $funcao; ?> </div>  
-        <div onclick="sairDiv()" class="tab"> <a href="/idpb/login/">Sair</a> </div> 
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <!-- Aba da Dashboard -->
+            <div class="tab-name"> <?= $primeiroNome, " ▸ ", $funcao; ?> </div>
+            <div onclick="sairDiv()" class="tab"><a href="/idpb/login">Sair</a> </div>
+            <div onclick="" class="tab"><a href="">Configurações</a> </div>
+        </div>
+
+        <!-- Botão de alternância -->
+        <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div>
+
+        <!-- Conteúdo -->
+        <div class="content" id="content">
+            <!-- Aqui vai o conteúdo da dashboard -->
+            <h1>Bem-vindo, <?= $primeiroNome; ?>! </h1>
+            <p>Vamos começar...</p>
+
+            <div class="area1" id="area1">
+                <div onclick="irCadastro()" class="content-btn" id="btns">Cadastrar membro de célula </div>
+                <div onclick="irRelatorio()" class="content-btn" id="btns">Gerar novo relatório</div>
+                <div onclick="verRelatorio()" class="content-btn" id="btns">Visualizar relatório</div>
+            </div>
+
+            <div class="area1" id="area1">
+                <div class="content-gap" id="lideranca"> lideranca </div>
+                <div class="content-gap" id="supervisão"> supervisão </div>
+                <div class="content-gap" id="coordenacao"> coordenacao </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Botão de alternância -->
-    <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div> 
 
-    <!-- Conteúdo -->
-    <div class="content" id="content">
-        <!-- Aqui vai o conteúdo da dashboard -->
-        <h1>Bem-vindo, <?= $primeiroNome; ?>! </h1>
-        <p>Vamos começar...</p>
-    </div>
-</div>
-
-    
     <script src="/idpb/dashboard/assets.dashboard/js/main.js"></script>
-  
+
 </body>
 
 </html>

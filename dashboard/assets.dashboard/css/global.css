@@ -78,4 +78,36 @@ a{
     
     color: #eee;
     text-decoration: none;
+} 
+
+.area1{
+    display: flex;
+    
+} 
+
+.content-btn{
+    background-color: #258eeb;
+    padding: 3vh; 
+    margin-right: 1rem ; 
+    border-radius: .5rem;
+    font-weight: 600;
+}
+
+.content-btn:hover{
+    background-color: #edb62b;
+    color: #222;
+    padding: 3vh; 
+    font-weight: 600;
+    margin-right: 1rem ; 
+    border-radius: .5rem; 
+
+    transition: all ease-in-out .3s;
+}
+
+.content-gap {
+    margin-top: 1rem; 
+    margin-right: 1rem;
+    padding: 20vh; 
+    background-color: #22222256;
+    border-radius: .5rem;
 }

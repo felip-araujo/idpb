@@ -34,7 +34,22 @@ if ($resultado_celula) {
     $numero_celula = $resultado_celula['Celula'];
 } else {
     echo "<p>Número da Célula não encontrado.</p>"; 
-} 
+}  
+
+
+// JavaScript para redirecionar com base na opção selecionada
+echo "<script>";
+echo "function gerarRelatorio() {";
+echo "  var tipo = document.getElementById('tipo_relatorio').value;";
+echo "  if (tipo === 'celula') {";
+echo "    window.location.href = 'pagina_logada.php';";
+echo "  } else if (tipo === 'supervisao') {";
+echo "    window.location.href = 'gerar_relatorio_supervisao.php';";
+echo "  } else if (tipo === 'coordenacao') {";
+echo "    window.location.href = 'gerar_relatorio_coordenacao.php';";
+echo "  }";
+echo "}";
+echo "</script>";
 
 
 ?>

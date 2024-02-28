@@ -92,7 +92,7 @@
         echo "<form>";
         echo "<label>Selecione uma opção para gerar o relatório:</label><br>";
         echo "<select name='tipo_relatorio' id='tipo_relatorio'>"; 
-        if ($resultado_celula && $resultado_celula['Celula'] !== null) {
+        if ($resultado_celula && $resultado_celula['Celula'] !== null) { 
             echo "<option value='celula'>Célula " . $resultado_celula['Celula'] . "</option>";
         }
         if ($resultado_supervisao && $resultado_supervisao['Supervisao'] !== null) {
