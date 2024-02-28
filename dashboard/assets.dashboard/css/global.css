@@ -9,14 +9,34 @@ body {
     height: 100vh;
 }
 .sidebar {
-    width: 200px;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente escondido */
     background-color: #333;
-    color: #fff;
+    transition: left 0.3s ease;
 }
 .content {
     flex: 1;
     padding: 20px; 
     background-image: linear-gradient( to left, rgb(5, 64, 92), .2%, #000000);
+    transition: margin-left 0.3s ease;
+}
+.sidebar.active {
+    left: 0; /* Mostrado */
+}
+.content.active {
+    margin-left: 250px; /* Ajuste de margem para o conteúdo quando a sidebar está visível */
+}
+.toggle-btn {
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
 }
 
 
@@ -30,6 +50,8 @@ body {
 }
 
 .tab-info{
+    
+    margin-top: -.5rem;
     padding: 5px; 
     font-weight: 200;
     font-size: .9rem; 

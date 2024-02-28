@@ -10,25 +10,29 @@
 </head>
 
 <body>
-    <?php include_once 'verficacoes.php'; ?>
+<?php include_once 'verficacoes.php'; ?>
 
-    <div class="wrapper">
-        
-        <div class="sidebar">
-            <!-- Aba da Dashboard -->
-            <div class="tab-name"> <?= $primeiroNome; ?> </div>  
-            <div class="tab-info"> <?= $numero_celula, " | ", $funcao; ?> </div>  
-            <div class="tab"> <a href="/idpb/login/">Sair</a> </div> 
-            
-        </div>
-
-        <!-- Conteúdo -->
-        <div class="content">
-            <!-- Aqui vai o conteúdo da dashboard -->
-            <h1>Bem-vindo, <?= $primeiroNome; ?>! </h1>
-            <p>Vamos começar...</p>
-        </div>
+<div class="wrapper">
+    <div class="sidebar" id="sidebar">
+        <!-- Aba da Dashboard -->
+        <div class="tab-name"> <?= $primeiroNome," ▸ ", $funcao; ?> </div>  
+        <div onclick="sairDiv()" class="tab"> <a href="/idpb/login/">Sair</a> </div> 
     </div>
+
+    <!-- Botão de alternância -->
+    <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div> 
+
+    <!-- Conteúdo -->
+    <div class="content" id="content">
+        <!-- Aqui vai o conteúdo da dashboard -->
+        <h1>Bem-vindo, <?= $primeiroNome; ?>! </h1>
+        <p>Vamos começar...</p>
+    </div>
+</div>
+
+    
+    <script src="/idpb/dashboard/assets.dashboard/js/main.js"></script>
+  
 </body>
 
 </html>
