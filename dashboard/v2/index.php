@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/idpb/dashboard/assets.dashboard/css/global.css">
+    <!-- <link rel="stylesheet" href="/idpb/dashboard/assets.dashboard/css/global.css"> -->
     <link rel="shortcut icon" href="/idpb/assets/css/image/main-logo.png" type="image/x-icon">
     <title>Painel da Liderança</title>
 </head>
 
 <body>
-    <?php include_once 'verficacoes.php'; ?> 
+    <?php include_once 'verficacoes.php'; ?>
 
     <div class="wrapper">
         <div class="sidebar" id="sidebar">
@@ -26,8 +26,10 @@
         <!-- Conteúdo -->
         <div class="content" id="content">
             <!-- Aqui vai o conteúdo da dashboard -->
-            <h1>Bem-vindo, <?= $primeiroNome; ?>! </h1>
-            <p>Vamos começar...</p>
+            <div class="ident" id="ident">
+                <h1 class="saudacao">Bem-vindo, <?= $primeiroNome; ?>! </h1>
+                <p class="p-saudacao">Vamos começar...</p>
+            </div>
 
             <div class="area1" id="area1">
                 <div onclick="irCadastro()" class="content-btn" id="btns">Cadastrar membro de célula </div>
