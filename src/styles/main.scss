@@ -11,7 +11,7 @@ a {
 	text-decoration: none;
 }
 
-@mixin title($font-size: 3em) {
+@mixin title($font-size: 64px) {
     font-family: variaveis.$font-family_2;
     font-weight: 300;
     font-size: $font-size;
@@ -21,16 +21,32 @@ a {
 	@include title;
     color: variaveis.$color_2;
 
-    
-
 	&--medium {
-		@include title;
+		@include title(48px);
 		margin-bottom: 24px; 
 	}
 
 	&--small {
-		font-size: 1.2em;
+		font-size: 20px;
 		margin-bottom: 8px;
+	}
+
+	@media (max-width: 768px) {
+		&--medium {
+			font-size: 32px;
+		}
+
+		&--small {
+			font-size: 16px;
+		}
+	}
+}
+
+.text {
+	font-size: 16px;
+
+	@media (max-width: 768px) {
+		font-size: 14px;
 	}
 }
 

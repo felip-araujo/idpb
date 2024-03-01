@@ -5,6 +5,7 @@
     &__descricao {
         display: grid;
         grid-template-columns: 1fr 2fr;
+        gap: 24px;
 
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
@@ -15,7 +16,7 @@
         }
         
         img {
-            margin-right: 24px;
+            margin: 0 auto;
             object-fit: cover;
             width: 300px;
             height: 400px;

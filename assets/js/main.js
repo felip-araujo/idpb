@@ -1,10 +1,12 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const viewportHeight = window.innerHeight;
+    const viewportCalc = viewportHeight - 120;
 
-    window.addEventListener("scroll", function () {
+    // alteraFundoDaHeader
+    window.addEventListener("scroll", function() {
         const scrollPosition = window.scrollY;
         
-        if (scrollPosition > viewportHeight) {
+        if (scrollPosition > viewportCalc) {
             fixHeader();
         } else {
             unfixHeader();
