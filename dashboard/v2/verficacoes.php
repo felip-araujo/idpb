@@ -24,7 +24,7 @@ $resultado_celula = $stmt_celula->fetch(PDO::FETCH_ASSOC);
 if (!$resultado_celula){
     echo " erro ";
 } else {
-    var_dump($resultado_celula);
+    // var_dump($resultado_celula);
 }
 
 //Verificar se o  usuário tem uma função
