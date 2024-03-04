@@ -21,13 +21,14 @@
         </div>
 
         <!-- Botão de alternância -->
-        <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div>
+        <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div> 
+        <div class="fotoperfil" id="fotoperfil"> <img src="<?= $link_foto ?>" alt=""></div>
 
         <!-- Conteúdo -->
         <div class="content" id="content">
             <!-- Aqui vai o conteúdo da dashboard -->
             <div class="ident" id="ident">
-                <h1 class="saudacao">Bem-vindo, <?= $primeiroNome; ?>! </h1>
+                <h1 class="saudacao">Bem-vindo, <?= $primeiroNome?>! </h1>
                 <p class="p-saudacao">Vamos começar...</p>
             </div>
 
