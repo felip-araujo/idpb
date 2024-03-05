@@ -29,13 +29,30 @@ body {
 .content.active {
     margin-left: 250px; /* Ajuste de margem para o conteúdo quando a sidebar está visível */
 }
+
 .toggle-btn {
-    color: #fff;
-    cursor: pointer;
-    padding: 10px;
+    color: #fff; 
+    font-size: 1.6rem; 
+    font-weight: 200;
+    cursor: pointer; 
+    size: 25px;
+    padding: 15px;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 85px;
+    z-index: 999;
+} 
+
+.toggle-btn:hover {
+    color:#edb62b;  
+    font-size: 1.6rem; 
+    font-weight: 200;
+    cursor: pointer; 
+    size: 25px;
+    padding: 15px;
+    position: absolute;
+    top: 10px;
+    right: 85px;
     z-index: 999;
 }
 
@@ -117,7 +134,8 @@ a{
     padding: .5rem;  
     margin-bottom: 1rem; 
     margin-right: 5rem; 
-    border-bottom: solid 1px #eee;
+    border-bottom: solid 1px #eee; 
+     
     
 } 
 
@@ -125,11 +143,30 @@ a{
     margin-top: -1rem;
 }
 
-.fotoperfil {
-    
- width: 50%;
+.tab-foto {
 
-} 
+    width: 30px; /* largura desejada */
+    height: 30px; /* mantém a proporção da imagem */ 
+    margin: 0 auto; /* centraliza horizontalmente */
+    margin-top: 15px; 
+    margin-bottom: -45px;
+    display: flex;  
+}   
+
+.tab-foto-2 { 
+    width: 40px; /* largura desejada */
+    height: 40px; /* mantém a proporção da imagem */ 
+    margin-top: 20px;
+    margin-left: 95%;
+    margin-bottom: 22px;
+    display: inline-flex;   
+    position: absolute;
+
+}
+
+img {
+    border-radius: 25px;
+}
 
 
 

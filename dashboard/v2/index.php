@@ -14,15 +14,19 @@
 
     <div class="wrapper">
         <div class="sidebar" id="sidebar">
-            <!-- Aba da Dashboard -->
+            <!-- Aba da Dashboard --> 
+            <!-- <div class="tab-foto"><img src="" alt=""></div> --> 
+            <div class="tab-foto"><img src="<?= $link_foto ?>" alt=""></div>
             <div class="tab-name"> <?= $primeiroNome, " ▸ ", $funcao; ?> </div>
             <div onclick="sairDiv()" class="tab"><a href="/idpb/login">Sair</a> </div>
             <div onclick="" class="tab"><a href="">Configurações</a> </div>
+            <div onclick="" class="tab"><a href="upload_foto.php">Alterar foto</a> </div>
         </div>
 
         <!-- Botão de alternância -->
-        <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div> 
-        <div class="fotoperfil" id="fotoperfil"> <img src="<?= $link_foto ?>" alt=""></div>
+        <div class="tab-foto-2"><img src="<?= $link_foto ?>" alt=""></div>
+        <div class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</div>  
+        
 
         <!-- Conteúdo -->
         <div class="content" id="content">

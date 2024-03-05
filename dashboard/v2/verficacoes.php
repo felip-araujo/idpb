@@ -31,10 +31,11 @@ $stmtfoto->bindParam(':id', $id_string);
 if ($stmtfoto->execute()) {
     $resultado_foto = $stmtfoto->fetch(PDO::FETCH_ASSOC);
     if ($resultado_foto) {
-        $link_foto = $resultado_foto['foto']; 
-        // echo 'link foto ' . $link_foto; 
+        $link_foto = $resultado_foto['foto'];  
+        $link_foto = explode("C:\wamp64\www", $link_foto);  
+        $link_foto = $link_foto[1];
     } else {
-        echo ' sem link ';
+        exit();
     }
 }
 
