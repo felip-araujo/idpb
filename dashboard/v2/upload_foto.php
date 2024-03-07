@@ -6,7 +6,7 @@ if (isset($_FILES['imagem'])) {
     $nome_arquivo = uniqid('perfil') . '_' . $_FILES['imagem']['name'];
     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $diretorio . $nome_arquivo)) {
 
-        echo 'movido';
+
         $caminho_imagem = $diretorio . $nome_arquivo;
         $sql = "UPDATE users2 SET foto = :foto WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -14,12 +14,14 @@ if (isset($_FILES['imagem'])) {
         $stmt->bindParam(':foto', $caminho_imagem);
 
         if ($stmt->execute()) {
-            echo 'Link da imagem inserido no banco de dados';
+            echo '<script>alert("Imagem enviada!");</script>';
+            echo '<script>window.location.href="../v2";</script>';
+            // echo 'Link da imagem inserido no banco de dados';
         } else {
-            echo 'erro ao inserir o link da imagem no banco de dados';
+            echo '<script>alert("Erro ao enviar!");</script>';
         }
     } else {
-        echo ' erro ao mover o arquivo para o diretorio uploads';
+        echo '<script>alert("Erro ao mover a imagem!");</script>';
     }
 }
 
@@ -33,16 +35,30 @@ if (isset($_FILES['imagem'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload de Imagem de Perfil</title>
+    <link rel="stylesheet" href="/idpb/login/asstes.login/login.css">
+    <link rel="shortcut icon" href="/idpb/assets/images/main-logo.png" type="image/x-icon">
+    <title>Alterar foto de Perfil</title>
 </head>
 
 <body>
-    <h1>Upload de Imagem de Perfil</h1>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="imagem">Selecione uma imagem:</label><br>
-        <input type="file" id="imagem" name="imagem" accept="image/*"><br>
-        <input type="submit" value="Enviar">
-    </form>
+    <div class="container-wrapper">
+        <div class="container-login">
+
+            <h2 class="cad">Upload de Imagem de Perfil</h2>
+            <form class="formulario" action="" method="post" enctype="multipart/form-data">
+                <h4>Selecione uma imagem</h4>
+                <input type="file" class="input" id="imagem" name="imagem" accept="image/*"><br>
+                <input type="submit" class="button" value="Enviar">
+            </form>
+
+            <form action="remover-foto.php" method="GET">
+                <input type="hidden" name="id" value="<?= $id_string; ?> "> <!-- Substitua "123" pelo ID do usuário -->
+                <input type="hidden" name="remover_imagem" value="1">
+                <input class="button" type="submit" value="Remover imagem atual">
+            </form>
+
+        </div>
+    </div>
 </body>
 
 </html>

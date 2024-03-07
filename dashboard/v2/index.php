@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/idpb/dashboard/assets.dashboard/css/global.css">
+    <!-- <link rel="stylesheet" href="/idpb/dashboard/assets.dashboard/css/global.css"> -->
     <link rel="shortcut icon" href="/idpb/assets/css/image/main-logo.png" type="image/x-icon">
     <title>Painel da Liderança</title>
 </head>
@@ -20,7 +20,7 @@
             <div class="tab-name"> <?= $primeiroNome, " ▸ ", $funcao; ?> </div>
             <div onclick="sairDiv()" class="tab"><a href="/idpb/login">Sair</a> </div>
             <div onclick="" class="tab"><a href="">Configurações</a> </div>
-            <div onclick="" class="tab"><a href="upload_foto.php">Alterar foto</a> </div>
+            <div onclick="" class="tab"><a href="upload_foto.php">Alterar/Remover Foto</a> </div>
         </div>
 
         <!-- Botão de alternância -->
