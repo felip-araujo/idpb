@@ -17,7 +17,7 @@
             <!-- Aba da Dashboard --> 
             <!-- <div class="tab-foto"><img src="" alt=""></div> --> 
             <div class="tab-foto"><img src="<?= $link_foto ?>" alt=""></div>
-            <div class="tab-name"> <?= $primeiroNome, " ▸ ", $funcao; ?> </div>
+            <div class="tab-name"> <?= $primeiroNome, " ▸ " ?> </div>
             <div onclick="sairDiv()" class="tab"><a href="/idpb/login">Sair</a> </div>
             <div onclick="" class="tab"><a href="">Configurações</a> </div>
             <div onclick="" class="tab"><a href="upload_foto.php">Alterar/Remover Foto</a> </div>
