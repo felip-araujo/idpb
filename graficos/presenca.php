@@ -31,7 +31,7 @@ session_start();
 
         try {
             // Consulta SQL para recuperar os nomes, datas e presença dos relatórios para a célula especificada
-            $sql = "SELECT data_relatorio, nome_completo, presente FROM frequencia WHERE numero_celula = ? ORDER BY data_relatorio";
+            $sql = "SELECT data_relatorio, nome_completo, presente FROM frequencia WHERE numero_celula = '70' ORDER BY data_relatorio";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$numero_celula]);
 

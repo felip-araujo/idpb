@@ -1,0 +1,27 @@
+/* Usando Flexbox para organizar os gráficos lado a lado */
+.graficos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permite que os itens mudem de linha conforme necessário */
+}
+
+/* Estilos base para cada gráfico */
+.grafico {
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos específicos para o gráfico de sexo */
+.grafico-sexo {
+    flex: 1; /* Isso permite que o gráfico cresça para ocupar espaço disponível */
+    min-width: 250px; /* Mínimo de largura para garantir legibilidade */
+    max-width: 25%; /* Ajuste para garantir que caiba lado a lado em telas maiores */
+}
+
+/* Estilos específicos para o gráfico de ministério */
+.grafico-ministerio {
+    flex: 1; /* Isso permite que o gráfico cresça para ocupar espaço disponível */
+    min-width: 250px; /* Mínimo de largura para garantir legibilidade */
+    max-width: 65%; /* Ajuste para garantir que caiba lado a lado em telas maiores */
+}
