@@ -23,6 +23,12 @@ $stmtMinisterio = $pdo->prepare($sqlMinisterio);
 $stmtMinisterio->execute();
 $dadosMinisterio = $stmtMinisterio->fetchAll(PDO::FETCH_ASSOC);
 
+// Consulta SQL para contar o número de membros na célula com o número '70'
+$sqlTotalMembros = "SELECT COUNT(*) AS total FROM membros WHERE numero_celula = '70'";
+$stmtTotalMembros = $pdo->query($sqlTotalMembros); // Corrigido de $sql para $sqlTotalMembros
+$totalMembros = $stmtTotalMembros->fetchColumn(); // Corrigido de $stmt para $stmtTotalMembros
+
+
 $ministerioLabels = [];
 $ministerioData = [];
 foreach ($dadosMinisterio as $linha) {
@@ -44,11 +50,19 @@ foreach ($dadosMinisterio as $linha) {
         <div class="grafico grafico-sexo">
             <canvas id="graficoSexo"></canvas>
         </div>
+
         <div class="grafico grafico-ministerio">
             <canvas id="graficoMinisterio"></canvas>
         </div>
-    </div>
+    
+        <div class="grafico grafico-total-membros">
+            <div class="card-title">Total de Membros</div>
+            <div class="card-value">
+                <?php echo $totalMembros; ?>
+            </div>
+        </div>
 
+    </div>
     <script>
         // Gráfico por Sexo
         new Chart(document.getElementById('graficoSexo'), {
