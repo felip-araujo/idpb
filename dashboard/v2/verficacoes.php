@@ -12,26 +12,23 @@ if (isset($_SESSION['usuario_email'])) {
 
 
 
-//Busca e verificação na tabela usuarios_funcoes 
-    //-> 1 busca do id na tabela de usuarios
-        $qr01 = "SELECT id_usuario FROM usuarios where nome =:nome "; 
-        $stqr1 = $pdo->prepare($qr01); 
-        $stqr1->bindParam(':nome', $nome); 
-        $stqr1->execute(); 
-        $id_sis = $stqr1->fetch(PDO::FETCH_ASSOC); 
-        $id_sistema = implode(',', $id_sis);
+// //Busca e verificação na tabela usuarios_funcoes 
+//     //-> 1 busca do id na tabela de usuarios
+//         $qr01 = "SELECT id_usuario FROM usuarios where nome =:nome "; 
+//         $stqr1 = $pdo->prepare($qr01); 
+//         $stqr1->bindParam(':nome', $nome); 
+//         $stqr1->execute(); 
+//         $id_sis = $stqr1->fetch(PDO::FETCH_ASSOC); 
+//         $id_sistema = implode(',', $id_sis);
 
-    // -> 2 verifica qual a função do id na tabela usuarios_funcoes  
-        $qrfunc = "SELECT id_funcao from usuarios_funcoes where id_usuario =:id"; 
-        $stfunc = $pdo->prepare($qrfunc); 
-        $stfunc->bindParam(':id', $id_sistema); 
-        $stfunc->execute(); 
-        $result_func = $stfunc->fetch(PDO::FETCH_ASSOC);
-        var_dump($result_func);
+//     // -> 2 verifica qual a função do id na tabela usuarios_funcoes  
+//         $qrfunc = "SELECT id_funcao from usuarios_funcoes where id_usuario =:id"; 
+//         $stfunc = $pdo->prepare($qrfunc); 
+//         $stfunc->bindParam(':id', $id_sistema); 
+//         $stfunc->execute(); 
+//         $result_func = $stfunc->fetch(PDO::FETCH_ASSOC);
+//         var_dump($result_func);
     
-
-
-
 
 //Buscar o Id da tabela Users2
 $email = $_SESSION['usuario_email'];
