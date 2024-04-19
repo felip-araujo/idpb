@@ -40,7 +40,7 @@
                 case 3: 
                     echo "dashboard do coordenador {com switch}";
                     break;
-                case 4:  
+                case 4:   
                     echo "dashboard do coordenador {com switch}"; 
                     echo '<script>window.location.href="../dashboard/v2/pastor-dashboard.php"</script>'; 
                     $_SESSION['autenticado'] = true;
