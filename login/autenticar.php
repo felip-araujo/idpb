@@ -25,7 +25,9 @@
             $busca_funcao->execute();
             $resultado_funcao = $busca_funcao->fetchAll(PDO::FETCH_ASSOC);
             $funcao_usuario = $resultado_funcao[0]['id_funcao']; 
+            
             $_SESSION['funcao_usuario'] = $funcao_usuario;
+            $_SESSION['id'] = $id_usuario;
 
           
             switch ($funcao_usuario) {

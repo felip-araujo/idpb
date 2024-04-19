@@ -3,15 +3,15 @@
 require 'conexao.php';
 
 // REFERENCIAS PARA O PHPMAILER AWS PRODUÇÃO //
-require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
-require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
-require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
+// require '/home/bitnami/htdocs/idpb/PHPMailer/src/PHPMailer.php';
+// require '/home/bitnami/htdocs/idpb/PHPMailer/src/SMTP.php'; 
+// require '/home/bitnami/htdocs/idpb/PHPMailer/src/Exception.php';
 // REFERENCIAS PARA O PHPMAILER AWS PRODUÇÃO //
 
 // REFERENCIAS PARA O PHPMAILER LOCAL AMBIENTE DE TESTE //
-// require 'C:\wamp64\www\idpb\PHPMailer\src\PHPMailer.php';
-// require 'C:\wamp64\www\idpb\PHPMailer\src\SMTP.php';
-// require 'C:\wamp64\www\idpb\PHPMailer\src\Exception.php';
+require 'C:\wamp64\www\idpb\PHPMailer\src\PHPMailer.php';
+require 'C:\wamp64\www\idpb\PHPMailer\src\SMTP.php';
+require 'C:\wamp64\www\idpb\PHPMailer\src\Exception.php';
 // REFERENCIAS PARA O PHPMAILER LOCAL AMBIENTE DE TESTE // 
 
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $email = $_POST['email'];
 
     // Verificar se o e-mail existe no banco de dados
-    $stmt = $pdo->prepare('SELECT id FROM users2 WHERE email = :email');
+    $stmt = $pdo->prepare('SELECT id_usuario FROM usuarios WHERE email = :email');
     $stmt->execute(['email' => $email]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         $expiracao = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
         // Atualizar o token de segurança e a data de expiração no banco de dados
-        $stmt = $pdo->prepare('UPDATE users2 SET token = :token, token_expira_em = :expiracao WHERE id = :id');
-        $stmt->execute(['token' => $token, 'expiracao' => $expiracao, 'id' => $usuario['id']]);
+        $stmt = $pdo->prepare('UPDATE usuarios SET token = :token, token_expira_em = :expiracao WHERE id_usuario = :id');
+        $stmt->execute(['token' => $token, 'expiracao' => $expiracao, 'id' => $usuario['id_usuario']]);
 
         $mail = new PHPMailer(true);
         $mail->isSMTP();
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->send(); 
             header("Location: insira-token.php");
         } catch (Exception $e) {
-            echo "<script>alert('Erro no Envio do E-mail')</script>" . $mail->ErrorInfo;
+            echo $mail->ErrorInfo ;
         }
     } else {
 

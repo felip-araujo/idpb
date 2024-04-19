@@ -77,7 +77,9 @@
             <a class="navbar-brand" href="/idpb/login"><i class="fa-solid fa-right-from-bracket"></i></a>
         </nav>
 
-        <div class="container-fluid">
+        <div class="container-fluid"> 
+
+            <h2> <?php echo $_SESSION['funcao_usuario']; ?></h2>
             <h2>Bem-vindo à sua Dashboard </h2>
             <p>Aqui você pode gerenciar tudo!</p>
         </div>
