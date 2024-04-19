@@ -1,46 +1,52 @@
-<?php
+<?php 
+    session_start();
+    if(isset($_POST['entrar'])) {
+        require 'conexao.php';
 
-session_start();
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];  
 
-// Incluir o arquivo de conexão PDO
-require 'conexao.php';
+        $busca = $pdo->prepare("SELECT id_usuario, nome, email, senha FROM usuarios where email = :email");
+        $busca->bindParam(':email', $email);
+        $busca->execute(); 
+        $resultado_usuario =  $busca->fetchAll(PDO::FETCH_ASSOC);
+
+        $id_usuario = $resultado_usuario[0]['id_usuario']; 
+        // var_dump($id_usuario);
+
+        if(password_verify($senha, $resultado_usuario[0]['senha'])){
+            echo ("pasou na verificação"); 
+            $busca_funcao = $pdo->prepare("SELECT * FROM usuarios_funcoes WHERE id_usuario = :id_usuario");
+            $busca_funcao->bindParam(':id_usuario', $id_usuario);
+            $busca_funcao->execute();
+            $resultado_funcao = $busca_funcao->fetchAll(PDO::FETCH_ASSOC);
+            $funcao_usuario = $resultado_funcao[0]['id_funcao']; 
+            $_SESSION['funcao_usuario'] = $funcao_usuario;
+            // var_dump('A função do usuario é ' . $funcao_usuario); 
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['senha'])) {
-    
-    
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    // Buscar usuário pelo e-mail
-    $stmt = $pdo->prepare('SELECT nome, id, senha FROM users2 WHERE email = :email');
-    $stmt->execute(['email' => $email]); 
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($usuario) {
-        // Verificar se a senha fornecida corresponde ao hash armazenado no banco de dados
-        if (password_verify($senha, $usuario['senha'])) {
-            // A senha está correta, logar o usuário
-            // Aqui você pode redirecionar o usuário para a página de perfil, por exemplo  
+            switch ($funcao_usuario) {
+                case 1:
+                    echo "dashboard do líder {com switch}";
+                    break; 
+                case 2: 
+                    echo "dashboard do supervisor {com switch}";
+                    break; 
+                case 3: 
+                    echo "dashboard do coordenador {com switch}";
+                    break;
+                case 4:  
+                    echo "dashboard do coordenador {com switch}";
+                    break;
+            }
             
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            $_SESSION['usuario_email'] = $email; 
 
-            // echo "<script>window.location.href = '/idpb/dashboard';</script>";
-            echo "<script>window.location.href = '/idpb/dashboard/v2';</script>";
-        } 
-
-        echo "<script>alert('Senha incorreta.')</script>";
-        echo "<script>window.location.href = '/idpb/login';</script>";
-
+            
         } else {
-            // A senha está incorreta
-            echo "<script>alert('Combinação de e-mail/senha inválida.')</script>";
-            echo "<script>window.location.href = '/idpb/login';</script>";
-        } 
-    } else {
-        // Usuário não encontrado
-        echo "<script>alert('Nenhum usuário encontrado com o e-mail fornecido.')</script>";
-    }
+            echo "<script>alert('Combinação de Email/Senha Incorretos')</script>";
+            echo '<script>window.location.href="../login"</script>';
+        }
+    } 
+
 
 ?>
