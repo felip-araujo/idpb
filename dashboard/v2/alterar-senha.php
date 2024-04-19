@@ -15,10 +15,14 @@ if(isset($_POST['enviar'])) {
     $stmt->execute(); 
     $result_stmt = $stmt->fetchAll(PDO::FETCH_ASSOC); 
     
-    if($result_stmt > 0){
-        $mensagem = 'usuario encontrado';
+    $emaildb = $result_stmt[0]['email'];
+
+    if (!$emailfornecido == $emaildb) {
+        $mensagemErro = "Usuario não encontrado no banco de dados"; 
+        echo $mensagemErro;
     } else {
-        $mensagem = 'usuario nao encontrado';
+        $mensagemSucess = "Usuario econtrado!"; 
+        echo $mensagemSucess;
     }
 
 
@@ -42,7 +46,13 @@ if(isset($_POST['enviar'])) {
 </div>
     
 <div class="container">
-    <div class="alert alert-warning"> <?php $mensagem ?></div>
+    
+    <div class="alert alert-sucess"> <p><?php echo $mensagemSucess ?></p>  </div>
+    <div class="alert alert-danger"><p><?php echo $mensagemErro ?></p></div>
+        
+    ?>
+
+
     <form action="" method="post">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" placeholder="seuemail@mail.com">
