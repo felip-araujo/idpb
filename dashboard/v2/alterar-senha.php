@@ -47,6 +47,9 @@ if(isset($_POST['enviar'])) {
     
 <div class="container">
     
+    <?php 
+
+    ?>
     <div class="alert alert-sucess"> <p><?php echo $mensagemSucess ?></p>  </div>
     <div class="alert alert-danger"><p><?php echo $mensagemErro ?></p></div>
         
