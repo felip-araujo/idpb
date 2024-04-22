@@ -33,9 +33,11 @@
             switch ($funcao_usuario) {
                 case 1:
                     echo "dashboard do líder {com switch}"; 
+                    echo '<script>window.location.href="../dashboard/v2/lider-dashboard"</script>'; 
                     break; 
                 case 2: 
                     echo "dashboard do supervisor {com switch}";
+                    echo '<script>window.location.href="../dashboard/v2/supervisor-dashboard"</script>'; 
                     break; 
                 case 3: 
                     echo "dashboard do coordenador {com switch}";
