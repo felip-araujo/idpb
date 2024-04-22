@@ -13,7 +13,6 @@ INSERT INTO Coordenacao_X (Numero_Coordenacao, Descricao) VALUES
 (3, 'coordenacao dos adultos');
 
 
-
 -- Inserir dados em Usuarios_X
 INSERT INTO Usuarios_X (Email, Senha, Nome, Numero_Celula, Numero_Supervisao, Numero_Coordenacao) VALUES
 ('Chrisdynamus@gmail.com', SHA2('senha123', 256), 'Christopher Filipe Rodrigues dos Santos', 09, 14, 3),
