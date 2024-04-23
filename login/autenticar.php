@@ -13,7 +13,7 @@
 
         $id_usuario = $resultado_usuario[0]['ID_Usuario'];  
         $nome = $resultado_usuario[0]['Nome'];
-        // var_dump($id_usuario);
+        
 
         if(password_verify($senha, $resultado_usuario[0]['Senha'])){
             
@@ -26,25 +26,28 @@
             $resultado_funcao = $busca_funcao->fetchAll(PDO::FETCH_ASSOC);
             $funcao_usuario = $resultado_funcao[0]['ID_Funcao']; 
             
+
             $_SESSION['funcao_usuario'] = $funcao_usuario;
-            $_SESSION['id'] = $id_usuario;
+            $_SESSION['id'] = $id_usuario; 
+            $_SESSION['nome'] = $resultado_usuario[0]['Nome'];
 
           
             switch ($funcao_usuario) {
                 case 1:
-                    echo "dashboard do líder {com switch}"; 
-                    echo '<script>window.location.href="../dashboard/v2/lider-dashboard"</script>'; 
+                    // echo "dashboard do líder {com switch}"; 
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
                     break; 
                 case 2: 
                     echo "dashboard do supervisor {com switch}";
-                    echo '<script>window.location.href="../dashboard/v2/supervisor-dashboard"</script>'; 
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
                     break; 
                 case 3: 
                     echo "dashboard do coordenador {com switch}";
+                    
                     break;
                 case 4:   
                     echo "dashboard do coordenador {com switch}"; 
-                    echo '<script>window.location.href="../dashboard/v2/pastor-dashboard.php"</script>'; 
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
                     $_SESSION['autenticado'] = true;
                     break;
                 case null:

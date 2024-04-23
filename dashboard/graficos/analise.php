@@ -44,23 +44,27 @@ foreach ($dadosMinisterio as $linha) {
     <title>Análise de Membros da Célula 70</title>
     <link rel="stylesheet" href="estilos.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="graficos-container">
-        <div class="grafico grafico-sexo">
-            <canvas id="graficoSexo"></canvas>
-        </div>
-
-        <div class="grafico grafico-ministerio">
-            <canvas id="graficoMinisterio"></canvas>
-        </div>
-    
-        <div class="grafico grafico-total-membros">
-            <div class="card-title">Total de Membros</div>
-            <div class="card-value">
-                <?php echo $totalMembros; ?>
+<body> 
+    <div class="container w-50">
+        <div class="graficos-container">
+            <div class="grafico grafico-sexo">
+                <canvas id="graficoSexo"></canvas>
             </div>
-        </div>
+    
+            <div class="grafico grafico-ministerio">
+                <canvas id="graficoMinisterio"></canvas>
+            </div>
+        
+            <div class="grafico grafico-total-membros">
+                <div class="card-title">Total de Membros</div>
+                <div class="card-value">
+                    <?php echo $totalMembros; ?>
+                </div>
+            </div>
+    </div>
 
     </div>
     <script>

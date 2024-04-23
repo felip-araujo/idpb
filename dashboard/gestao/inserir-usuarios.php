@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 require 'conexao.php';
 try {
     // Consultas para buscar os dados
@@ -116,9 +116,15 @@ if (isset($_POST['enviar'])) {
     <title>Inserir Usuários</title>
 </head>
 
-<body>
-    <div class="container">
-        <h2 class="form-label text-center" style="margin-top: 1rem;">Inserir Usuários</h2>
+<style>
+    body{
+        background-color: #818181;
+    }
+</style>
+
+<body> 
+
+    <div class="container"> 
 
         <div> <?php if (isset($_SESSION['mensagem'])) {
                     echo $_SESSION['mensagem'];
@@ -127,10 +133,10 @@ if (isset($_POST['enviar'])) {
                 } ?> </div>
 
         <form action="" method="POST">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label ">Email</label>
             <input type="email" class="form-control" name="email" id="email">
 
-            <label for="" class="form-label">Senha</label>
+            <label for="" class="form-label ">Senha</label>
             <div class="input-group">
                 <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
                 <span class="input-group-text">
@@ -139,10 +145,10 @@ if (isset($_POST['enviar'])) {
             </div>
 
 
-            <label for="" class="form-label">Nome Completo:</label>
+            <label for="" class="form-label ">Nome Completo:</label>
             <input type="text" class="form-control" name="nome" id="nome">
 
-            <label for="num_celula" class="form-label">Número Célula</label>
+            <label for="num_celula" class="form-label ">Número Célula</label>
             <select name="num_celula" id="num_celula" class="form-control">
                 <?php foreach ($celulas as $celula) {
                     echo "<option value='{$celula['Numero_Celula']}'>{$celula['Numero_Celula']}</option>";
@@ -150,14 +156,14 @@ if (isset($_POST['enviar'])) {
 
             </select>
 
-            <label for="" class="form-label">Número Supervisão</label>
+            <label for="" class="form-label ">Número Supervisão</label>
             <select name="num_supervisao" id="num_s" class="form-control">
                 <?php foreach ($supervisoes as $supervisao) {
                     echo "<option value='{$supervisao['Numero_Supervisao']}'>{$supervisao['Numero_Supervisao']}</option>";
                 } ?>
             </select>
 
-            <label for="" class="form-label">Número Coordenação</label>
+            <label for="" class="form-label ">Número Coordenação</label>
             <select name="num_coord" id="num_coord" class="form-control">
                 <?php foreach ($coordenacoes as $coordenacao) {
                     echo "<option value='{$coordenacao['Numero_Coordenacao']}'>{$coordenacao['Numero_Coordenacao']}</option>";
@@ -165,7 +171,7 @@ if (isset($_POST['enviar'])) {
                 ?>
             </select>
 
-            <label for="" class="form-label">Função do Usuário</label>
+            <label for="" class="form-label ">Função do Usuário</label>
             <select name="funcao_usuario" id="funcao_usuario" class="form-control">
                 <?php foreach ($funcoes as $funcao) {
                     echo "<option value='{$funcao['Nome_Funcao']}'>{$funcao['Nome_Funcao']}</option>";
