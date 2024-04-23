@@ -23,7 +23,7 @@ if (isset($_POST['enviar'])) {
     $busca_id->bindParam(':nome', $usuario, PDO::PARAM_STR);
     $busca_id->execute();
     $retorno_id = $busca_id->fetch(PDO::FETCH_ASSOC);
-    $id_usuario = $retorno_id['ID_Usuario'];
+    $id_usuario = $retorno_id['ID_Usuario']; 
 
     $busca_id_funcao = $pdo->prepare("SELECT ID_Funcao FROM Funcoes_X WHERE Nome_Funcao = :nova_funcao");
     $busca_id_funcao->bindParam(':nova_funcao', $nova_funcao, PDO::PARAM_STR);
