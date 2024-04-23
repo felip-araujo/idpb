@@ -63,7 +63,7 @@ if ($stmtfoto->execute()) {
 
 // Buscar dados da tabela funções 
 $email = $_SESSION['usuario_email'];
-$query_celula = "SELECT nome FROM old_funcoes WHERE Email=:email";
+$query_celula = "SELECT nome FROM USUARIO_X WHERE Email=:email";
 $stmt_celula = $pdo->prepare($query_celula);
 $stmt_celula->bindParam(':email', $email);
 $stmt_celula->execute();
