@@ -33,7 +33,7 @@ if (isset($_POST['enviar'])) {
 
     $alterar = $pdo->prepare("UPDATE Usuario_Funcoes_X SET ID_Funcao = :id_funcao WHERE ID_Usuario = :id_usuario");
     $alterar->bindParam(':id_funcao', $id_funcao);
-    $alterar->bindParam(':id_usuario', $id_usuario);
+    $alterar->bindParam(':id_usuario', $id_usuario); 
 
     if ($alterar->execute()) {
 
