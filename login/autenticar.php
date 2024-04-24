@@ -38,17 +38,17 @@
                     echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
                     break; 
                 case 2: 
-                    echo "dashboard do supervisor {com switch}";
+                    // echo "dashboard do coordenador {com switch}";
                     echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
                     break; 
                 case 3: 
-                    echo "dashboard do coordenador {com switch}";
-                    
+                    // echo "dashboard do coordenador {com switch}";
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
                     break;
                 case 4:   
-                    echo "dashboard do coordenador {com switch}"; 
-                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
-                    $_SESSION['autenticado'] = true;
+                    // echo "dashboard do pastor {com switch}"; 
+                    // echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
+                    // $_SESSION['autenticado'] = true;
                     break;
                 case null:
                     echo "<script>alert('O usuário não possui função ministerial!')</script>";

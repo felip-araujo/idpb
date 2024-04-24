@@ -1,3 +1,107 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require 'conexao.php';
+try {
+    // Consultas para buscar os dados
+    $celulas = $pdo->query("SELECT Numero_Celula FROM Celulas_X")->fetchAll(PDO::FETCH_ASSOC);
+    $supervisoes = $pdo->query("SELECT Numero_Supervisao FROM Supervisao_X")->fetchAll(PDO::FETCH_ASSOC);
+    $coordenacoes = $pdo->query("SELECT Numero_Coordenacao FROM Coordenacao_X")->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro na base de dados: " . $e->getMessage());
+}
+
+
+try {
+    $funcoes = $pdo->query("SELECT ID_Funcao, Nome_Funcao FROM Funcoes_X ")->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro na base de dados: " . $e->getMessage());
+}
+
+
+if (isset($_POST['enviar'])) {
+
+    $email = $_POST['email'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografando a senha
+    $nome = $_POST['nome'];
+    $num_celula = $_POST['num_celula'];
+    $num_supervisao = $_POST['num_supervisao'];
+    $num_coord = $_POST['num_coord'];
+    $funcao_usuario = $_POST['funcao_usuario'];
+}
+
+$qremail = $pdo->prepare("SELECT Email FROM Usuarios_X where Email = :email");
+$qremail->bindParam(':email', $email);
+$qremail->execute();
+$retorno = $qremail->fetchAll(PDO::FETCH_ASSOC);
+
+if (isset($_POST['enviar'])) {
+
+    $email = $_POST['email'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $nome = $_POST['nome'];
+    $num_celula = $_POST['num_celula'];
+    $num_supervisao = $_POST['num_supervisao'];
+    $num_coord = $_POST['num_coord'];
+    $funcao_usuario = $_POST['funcao_usuario'];
+
+    $qremail = $pdo->prepare("SELECT Email FROM Usuarios_X where Email = :email");
+    $qremail->bindParam(':email', $email);
+    $qremail->execute();
+    $retorno = $qremail->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!empty($retorno)) {
+        $_SESSION['mensagem'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Este usuário já foi cadastrado!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+    } else {
+        $stmt = $pdo->prepare("INSERT INTO Usuarios_X (Email, Senha, Nome, Numero_Celula, Numero_Supervisao, Numero_Coordenacao) 
+                                   VALUES (:email, :senha, :nome, :num_celula, :num_supervisao, :num_coord)");
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':senha', $senha);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':num_celula', $num_celula, PDO::PARAM_INT);
+        $stmt->bindParam(':num_supervisao', $num_supervisao, PDO::PARAM_INT);
+        $stmt->bindParam(':num_coord', $num_coord, PDO::PARAM_INT);
+
+        $stmt->execute();
+        $ultimoID = $pdo->lastInsertId();
+
+        $qr_id_func = $pdo->prepare("SELECT ID_Funcao FROM Funcoes_X WHERE Nome_Funcao = :funcao_usuario");
+        $qr_id_func->bindParam(':funcao_usuario', $funcao_usuario);
+        $qr_id_func->execute();
+        $id_funcao_result = $qr_id_func->fetch(PDO::FETCH_ASSOC);
+        $id_funcao = $id_funcao_result['ID_Funcao'];
+
+        $inserir_funcao = $pdo->prepare("INSERT INTO Usuario_Funcoes_X (ID_Usuario, ID_Funcao) VALUES (:ultimoID, :id_funcao)");
+        $inserir_funcao->bindParam(':ultimoID', $ultimoID, PDO::PARAM_INT);
+        $inserir_funcao->bindParam(':id_funcao', $id_funcao, PDO::PARAM_INT);
+
+        if ($inserir_funcao->execute()) {
+            $_SESSION['mensagem'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Usuário cadastrado com sucesso!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+        } else {
+            $_SESSION['mensagem'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Erro ao cadastrar a função do usuário no Banco de Dados, contate o Administrador.
+                    <button type="button" the "btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+        }
+    }
+}
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

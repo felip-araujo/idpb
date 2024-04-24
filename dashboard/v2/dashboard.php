@@ -1,6 +1,8 @@
 <?php
+
 session_start();
 require '../conexao.php';
+
 
 if (!isset($_SESSION['autenticado'])) {
     echo "<script>alert('Usuário não autenticado, faça login!')</script>";
@@ -30,9 +32,6 @@ if ($hora_atual < 12) {
 } else {
     $saudacao = "Boa noite";
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +123,11 @@ if ($hora_atual < 12) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php include '../gestao/inserir-usuarios.php' ?>
+                    <?php
+                    // ob_start();
+                    include_once '../gestao/inserir-usuarios.php';
+                    // ob_end_flush();
+                    ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -142,7 +145,11 @@ if ($hora_atual < 12) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php include '../gestao/alterar-funcao.php' ?>
+                    <?php 
+                    // ob_start();
+                     include_once '../gestao/alterar-funcao.php';
+                    //  include '../gestao/backend/processar_alterar_funcao.php';
+                    // ob_end_flush(); ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -172,13 +179,13 @@ if ($hora_atual < 12) {
         <div class="container-fluid">
 
 
-            <div> 
+            <div>
                 <?php if (isset($_SESSION['mensagem'])) {
-                        echo $_SESSION['mensagem'];
-                        // Limpe a mensagem depois de exibi-la para não aparecer novamente após o refresh
-                        unset($_SESSION['mensagem']);
-                    } ?> 
-                </div>
+                    echo $_SESSION['mensagem'];
+                    // Limpe a mensagem depois de exibi-la para não aparecer novamente após o refresh
+                    unset($_SESSION['mensagem']);
+                } ?>
+            </div>
 
             <h3 style="font-weight: 700; margin-top: .9rem;"><?php echo $saudacao . ', ' . $primeiro_nome . '!'; ?> </h3>
             <p>Aqui você pode gerenciar tudo!</p>
@@ -222,7 +229,33 @@ if ($hora_atual < 12) {
         }
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                e.preventDefault(); // Impede o envio padrão do formulário
+
+                var formData = $(this).serialize(); // Serializa os dados do formulário
+
+                $.ajax({
+                    type: "POST",
+                    url: "alterar-funcao.php",
+                    data: formData,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.message) {
+                            alert(response.message); // Mostra uma mensagem de sucesso
+                        } else if (response.error) {
+                            alert(response.error); // Mostra uma mensagem de erro
+                        }
+                    },
+                    error: function() {
+                        alert('Erro na comunicação com o servidor.');
+                    }
+                });
+            });
+        });
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
