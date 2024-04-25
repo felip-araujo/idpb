@@ -124,9 +124,7 @@ if ($hora_atual < 12) {
                 </div>
                 <div class="modal-body">
                     <?php
-                    // ob_start();
-                    include_once '../gestao/inserir-usuarios.php';
-                    // ob_end_flush();
+                    // include('../gestao/alterar-funcao.html');
                     ?>
                 </div>
                 <div class="modal-footer">
@@ -141,15 +139,11 @@ if ($hora_atual < 12) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Cadastrar Membro</h5>
+                    <h5 class="modal-title" id="modalLabel">Alterar Funcão de Membro</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php 
-                    // ob_start();
-                     include_once '../gestao/alterar-funcao.php';
-                    //  include '../gestao/backend/processar_alterar_funcao.php';
-                    // ob_end_flush(); ?>
+                    <?php include('../gestao/alterar-funcao.html') ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -177,15 +171,6 @@ if ($hora_atual < 12) {
         </nav>
 
         <div class="container-fluid">
-
-
-            <div>
-                <?php if (isset($_SESSION['mensagem'])) {
-                    echo $_SESSION['mensagem'];
-                    // Limpe a mensagem depois de exibi-la para não aparecer novamente após o refresh
-                    unset($_SESSION['mensagem']);
-                } ?>
-            </div>
 
             <h3 style="font-weight: 700; margin-top: .9rem;"><?php echo $saudacao . ', ' . $primeiro_nome . '!'; ?> </h3>
             <p>Aqui você pode gerenciar tudo!</p>
@@ -230,32 +215,6 @@ if ($hora_atual < 12) {
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('form').submit(function(e) {
-                e.preventDefault(); // Impede o envio padrão do formulário
-
-                var formData = $(this).serialize(); // Serializa os dados do formulário
-
-                $.ajax({
-                    type: "POST",
-                    url: "alterar-funcao.php",
-                    data: formData,
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.message) {
-                            alert(response.message); // Mostra uma mensagem de sucesso
-                        } else if (response.error) {
-                            alert(response.error); // Mostra uma mensagem de erro
-                        }
-                    },
-                    error: function() {
-                        alert('Erro na comunicação com o servidor.');
-                    }
-                });
-            });
-        });
-        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
