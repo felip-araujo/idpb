@@ -40,76 +40,12 @@ if ($hora_atual < 12) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painél do Líder IDPB</title>
+    <title>Sistema IDPB</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-
-    <link rel="icon" href="../assets/css/image/main-logo.png">
-    <style>
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            font-family: 'Raleway', sans-serif;
-            /* Evitar scroll horizontal */
-        }
-
-        /* Estilos da sidebar */
-        .sidebar {
-            height: 100%;
-            width: 0%;
-            /* Sidebar inicialmente oculta */
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: width 0.5s;
-            /* Animar a largura */
-            padding-top: 2rem;
-            /* Altura da navbar */
-            color: white;
-        }
-
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: color 0.3s;
-        }
-
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        /* Estilos do conteúdo principal */
-        .main {
-            transition: margin-left 0.5s;
-            /* Animar a margem esquerda */
-            padding: 0;
-            margin-left: 0rem;
-            /* Inicialmente sem margem */
-        }
-
-        /* Estilos da navbar para mantê-la no topo */
-        .navbar {
-            margin-bottom: 0;
-            background-image: linear-gradient(to left, rgb(5, 64, 92), .1%, #000000);
-            /* Remover margem */
-        }
-    </style>
+    <link rel="icon" href="/idpb/assets/images/main-logo.png">
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
 <body>
@@ -198,22 +134,7 @@ if ($hora_atual < 12) {
             </div>
         </div>
     </div>
-
-
-
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.querySelector(".main").style.marginLeft = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.querySelector(".main").style.marginLeft = "0";
-        }
-    </script>
-
+    <script src="./assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

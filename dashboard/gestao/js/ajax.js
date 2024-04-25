@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $.ajax({
         url: '../gestao/backend/busca.php',
@@ -24,6 +23,7 @@ $(document).ready(function () {
         }
     });
 });
+
 
 $(document).ready(function () {
     $('#alterar-funcao').submit(function (e) {
