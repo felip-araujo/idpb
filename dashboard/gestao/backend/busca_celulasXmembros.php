@@ -8,7 +8,7 @@ try {
     $table = '<table class="table table-dark rounded">';
     $table .= '<thead style="margin-bottom: .5rem;">';
     $table .=  '<tr>';
-    $table .=    '<th scope="col">Número:</th>';
+    $table .=    '<th scope="col">Número da Célula:</th>';
     $table .=    '<th scope="col">Nome do Líder:</th>';
     $table .=    '<th scope="col">Descrição:</th>';
     $table .=  '</tr>';

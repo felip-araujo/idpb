@@ -24,3 +24,20 @@ $(document).ready(function() {
             });
     });
 }); 
+
+$(document).ready(function() {
+    $('#linkCelulas').click(function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do link
+        $('#loadingIcon').show(); // Mostra o ícone de carregamento
+        // Carrega o conteúdo e depois esconde o ícone de carregamento
+        $('#conteudoCelulas').load('../gestao/celulas.html', function() {
+            $('#loadingIcon').hide(); // Esconde o ícone de carregamento
+        });
+        $('#fecharTabelaCelulas').show();
+            $(document).on('click', '#fecharTabelaCelulas', function() {
+                // Esconde o contêiner que tem a tabela de membros
+                $('#conteudoCelulas').empty(); // Remove o conteúdo ou
+                //$('#conteudoMembros').hide(); // Apenas esconde o contêiner, dependendo da preferência
+            });
+    });
+}); 

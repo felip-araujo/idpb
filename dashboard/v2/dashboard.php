@@ -86,9 +86,9 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         <a class="" style="font-weight: 200; margin-top: 1rem; color: #edb62b;"> <?php echo $_SESSION['nome_funcao']; ?></a>
         <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem; margin-top: .8rem;" href="#"> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
         <a id="linkMembros" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-user"></i> Membros</a>
-        <a id="" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Células</a>
-        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"><i class="fa-solid fa-user"></i> Relatórios</a>
-        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-gear"></i> Suporte</a>
+        <a id="linkCelulas" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Celulas</a>
+        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-chart-bar"></i> Relatórios</a>
+        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-receipt"></i></i> Suporte</a>
         <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-gear"></i> Configurações</a>
     </div>
 
@@ -109,10 +109,10 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             <div class="container d-fluid text-left " style="padding: 1rem;">
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meuModal">
-                    Cadastrar novo membro
+                    Cadastrar novo membro na liderança
                 </button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alterar_funcao_membro">
-                    Alterar Função de Membro
+                    Alterar Função de Membro da liderança
                 </button>
                 <a href=""><button class="btn btn-outline-dark">Criar ou Alterar Funções</button></a>
             </div>
@@ -120,9 +120,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
                 <i class="fa fa-spinner fa-spin"></i>
             </div>
             
-
-            <div class="container" id="conteudoMembros">
-            </div>
+            <div class="container" id="conteudoMembros"></div>
+            <div class="container" id="conteudoCelulas"></div>
             <div class="container-fluid">
                 <div class="row" style="background-color: #999; padding: 1rem;">
                     <div class="col-sm text-light rounded" style="background-color:#222; margin-left:.5rem; margin-right:.5rem;">

@@ -72,7 +72,7 @@ $(document).ready(function(){
             $('#responseCelulas').html("<p>Ocorreu um erro ao tentar carregar os dados.</p>")
         }
     })
-})
+}) 
 
 $(document).ready(function() {
     $("#exportarCSV").click(function() {
