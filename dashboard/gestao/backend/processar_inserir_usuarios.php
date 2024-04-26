@@ -8,7 +8,7 @@ $num_supervisao = $_POST['num_supervisao'] ?? null;
 $num_coordenacao = $_POST['num_coordenacao'] ?? null;
 $funcao_usuario = $_POST['selecionar_Funcao'] ?? null;
 
-if ($email && $senha && $nome && $$num_celula && $num_supervisao && $num_coordenacao && $funcao_usuario) {
+if ($email && $senha && $nome && $num_celula && $num_supervisao && $num_coordenacao && $funcao_usuario) {
     try {
 
         $qremail = $pdo->prepare("SELECT Email FROM Usuarios_X where Email = :email");

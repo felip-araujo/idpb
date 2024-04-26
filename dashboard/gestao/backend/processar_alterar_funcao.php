@@ -10,9 +10,9 @@ if($id_usuario && $function_select){
         $add_new_funcao->bindParam(':function_select', $function_select);
         $add_new_funcao->execute();
         if($add_new_funcao->rowCount() >= 1){
-            echo '<p class="alert alert-success">Nova nova função cadastrada com sucesso!</p>'; 
+            echo '<p class="alert alert-success">Função de usuário alterada com sucesso!</p>'; 
         } else {
-            echo '<p class="alert alert-danger">Erro ao cadastrar nova função!</p>';
+            echo '<p class="alert alert-danger">Erro ao alterar função de usuario!</p>';
         }
 
     } catch(PDOException $e){

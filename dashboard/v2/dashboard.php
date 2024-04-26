@@ -1,39 +1,32 @@
 <?php
-
 session_start();
 require '../conexao.php';
-
-
-if (!isset($_SESSION['autenticado'])) {
+if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo "<script>alert('Usuário não autenticado, faça login!')</script>";
     echo '<script>window.location.href="/idpb/login"</script>';
-}
-
-$busca_funcao = $pdo->prepare("SELECT Nome_Funcao FROM Funcoes_X WHERE ID_Funcao = :funcao_usuario ");
-$busca_funcao->bindParam(':funcao_usuario', $_SESSION['funcao_usuario']);
-$busca_funcao->execute();
-$return_funcao = $busca_funcao->fetch(PDO::FETCH_ASSOC);
-$nome_funcao = $return_funcao['Nome_Funcao'];
-$_SESSION['nome_funcao'] = $nome_funcao;
-
-$nome_completo = $_SESSION['nome'];
-$partes_do_nome = explode(' ', $nome_completo);
-$primeiro_nome = $partes_do_nome[0];
-
-
-date_default_timezone_set('America/Manaus');
-$hora_atual = date("H");
-
-
-if ($hora_atual < 12) {
-    $saudacao = "Bom dia";
-} elseif ($hora_atual < 18) {
-    $saudacao = "Boa tarde";
 } else {
-    $saudacao = "Boa noite";
+    $busca_funcao = $pdo->prepare("SELECT Nome_Funcao FROM Funcoes_X WHERE ID_Funcao = :funcao_usuario ");
+    $busca_funcao->bindParam(':funcao_usuario', $_SESSION['funcao_usuario']);
+    $busca_funcao->execute();
+    $return_funcao = $busca_funcao->fetch(PDO::FETCH_ASSOC);
+    $nome_funcao = $return_funcao['Nome_Funcao'];
+    $_SESSION['nome_funcao'] = $nome_funcao;
+
+    $nome_completo = $_SESSION['nome'];
+    $partes_do_nome = explode(' ', $nome_completo);
+    $primeiro_nome = $partes_do_nome[0];
+    date_default_timezone_set('America/Manaus');
+    $hora_atual = date("H");
+
+    if ($hora_atual < 12) {
+        $saudacao = "Bom dia";
+    } elseif ($hora_atual < 18) {
+        $saudacao = "Boa tarde";
+    } else {
+        $saudacao = "Boa noite";
+    }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -60,7 +53,7 @@ if ($hora_atual < 12) {
                 </div>
                 <div class="modal-body">
                     <?php
-                    // include('../gestao/alterar-funcao.html');
+                    include('../gestao/inserir-usuarios.html');
                     ?>
                 </div>
                 <div class="modal-footer">
@@ -90,11 +83,13 @@ if ($hora_atual < 12) {
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="" style="font-size: ; margin-top: 1rem; color: #edb62b;"> <?php echo $_SESSION['nome_funcao']; ?></a>
-        <a href="#">Dashboard</a>
-        <a href="#">Relatórios</a>
-        <!-- <a href="#">Análises</a> -->
-        <a href="#">Configurações</a>
+        <a class="" style="font-weight: 200; margin-top: 1rem; color: #edb62b;"> <?php echo $_SESSION['nome_funcao']; ?></a>
+        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem; margin-top: .8rem;" href="#"> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
+        <a id="linkMembros" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-user"></i> Membros</a>
+        <a id="" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Células</a>
+        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"><i class="fa-solid fa-user"></i> Relatórios</a>
+        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-gear"></i> Suporte</a>
+        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-gear"></i> Configurações</a>
     </div>
 
     <div class="main">
@@ -103,7 +98,7 @@ if ($hora_atual < 12) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- <a class="navbar-brand"><i><img src="/idpb/assets/css/image/main-logo.png" class="w-25 d-fluid" alt=""></i> </a> -->
-            <a class="navbar-brand" href="/idpb/login"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a class="navbar-brand" href="../gestao/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
         </nav>
 
         <div class="container-fluid">
@@ -121,25 +116,30 @@ if ($hora_atual < 12) {
                 </button>
                 <a href=""><button class="btn btn-outline-dark">Criar ou Alterar Funções</button></a>
             </div>
+            <div id="loadingIcon" style=" display: none; color:#222;" class="text-center">
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+            
 
-        </div>
-        <div class="container-fluid">
-            <div class="row" style="background-color: #999; padding: 1rem;">
-                <div class="col-sm text-light rounded" style="background-color:#222; margin-left:.5rem; margin-right:.5rem;">
-                    <?php include_once '../graficos/analise.php' ?>
-                </div>
-                <div class="col-sm text-light rounded" style="background-color:#444; margin-left:.5rem; margin-right:.5rem;">
-                    2
+            <div class="container" id="conteudoMembros">
+            </div>
+            <div class="container-fluid">
+                <div class="row" style="background-color: #999; padding: 1rem;">
+                    <div class="col-sm text-light rounded" style="background-color:#222; margin-left:.5rem; margin-right:.5rem;">
+                        <?php include_once '../graficos/analise.php' ?>
+                    </div>
+                    <div class="col-sm text-light rounded" style="background-color:#444; margin-left:.5rem; margin-right:.5rem;">
+                        2
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="./assets/js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./assets/js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
 
 </body>
 

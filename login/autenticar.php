@@ -17,8 +17,7 @@
 
         if(password_verify($senha, $resultado_usuario[0]['Senha'])){
             
-            $autenticado = true;
-            $_SESSION['autenticado'] = $autenticado;
+            
         
             $busca_funcao = $pdo->prepare("SELECT * FROM Usuario_Funcoes_X WHERE ID_Usuario = :id_usuario");
             $busca_funcao->bindParam(':id_usuario', $id_usuario); 

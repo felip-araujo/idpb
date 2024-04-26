@@ -62,7 +62,7 @@ $(document).ready(function(){
 
         $.ajax({
             url:'../gestao/backend/processar_inserir_usuarios.php',
-            type:'POST',
+            type:"POST",
             data: formData, 
             success:function(response){
                 $('#responseDiv').html(response);
