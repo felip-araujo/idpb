@@ -1,0 +1,56 @@
+/* CSS para os gráficos */
+.graficos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permite que os itens mudem de linha conforme necessário */
+}
+
+/* Estilos base para cada gráfico */
+.grafico {
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos específicos para o gráfico de sexo */
+.grafico-sexo {
+    flex: 1; /* Isso permite que o gráfico cresça para ocupar espaço disponível */
+    min-width: 250px; /* Mínimo de largura para garantir legibilidade */
+    max-width: 25%; /* Ajuste para garantir que caiba lado a lado em telas maiores */
+}
+
+/* Estilos específicos para o gráfico de ministério */
+.grafico-ministerio {
+    flex: 1; /* Isso permite que o gráfico cresça para ocupar espaço disponível */
+    min-width: 250px; /* Mínimo de largura para garantir legibilidade */
+    max-width: 65%; /* Ajuste para garantir que caiba lado a lado em telas maiores */
+}
+
+/* Estilos específicos para o cartão de total de membros */
+.grafico-total-membros {
+    flex: 1; /* Isso permite que o gráfico cresça para ocupar espaço disponível */
+    min-width: 250px; /* Mínimo de largura para garantir legibilidade */
+    max-width: 25%; /* Ajuste para garantir que caiba lado a lado em telas maiores */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin: 10px; /* Espaçamento entre os cartões */
+    clear: both; /* Garante que o cartão seja exibido abaixo de todos os outros elementos */
+}
+
+/* Estilos específicos para o título do cartão */
+.grafico-total-membros .card-title {
+    font-size: 25px; /* Tamanho do título reduzido */
+    color: #333;
+}
+
+/* Estilos específicos para o valor do cartão */
+.grafico-total-membros .card-value {
+    font-size: 40px; /* Tamanho do valor reduzido */
+    color: #007bff;
+    margin-top: 10px; /* Espaçamento entre o título e o valor */
+    text-align: center; /* Alinha o valor centralmente */
+}
+

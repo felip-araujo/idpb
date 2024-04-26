@@ -1,46 +1,64 @@
-<?php
+<?php 
+    session_start();
+    if(isset($_POST['entrar'])) {
+        require 'conexao.php';
 
-session_start();
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];  
 
-// Incluir o arquivo de conexão PDO
-require 'conexao.php';
+        $busca = $pdo->prepare("SELECT ID_Usuario, Nome, Email, Senha FROM Usuarios_X where Email = :email");
+        $busca->bindParam(':email', $email);
+        $busca->execute(); 
+        $resultado_usuario =  $busca->fetchAll(PDO::FETCH_ASSOC);
 
+        $id_usuario = $resultado_usuario[0]['ID_Usuario'];  
+        $nome = $resultado_usuario[0]['Nome'];
+        
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['senha'])) {
-    
-    
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    // Buscar usuário pelo e-mail
-    $stmt = $pdo->prepare('SELECT nome, id, senha FROM users2 WHERE email = :email');
-    $stmt->execute(['email' => $email]); 
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($usuario) {
-        // Verificar se a senha fornecida corresponde ao hash armazenado no banco de dados
-        if (password_verify($senha, $usuario['senha'])) {
-            // A senha está correta, logar o usuário
-            // Aqui você pode redirecionar o usuário para a página de perfil, por exemplo  
+        if(password_verify($senha, $resultado_usuario[0]['Senha'])){
             
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            $_SESSION['usuario_email'] = $email; 
+            
+        
+            $busca_funcao = $pdo->prepare("SELECT * FROM Usuario_Funcoes_X WHERE ID_Usuario = :id_usuario");
+            $busca_funcao->bindParam(':id_usuario', $id_usuario); 
+            $busca_funcao->execute();
+            $resultado_funcao = $busca_funcao->fetchAll(PDO::FETCH_ASSOC);
+            $funcao_usuario = $resultado_funcao[0]['ID_Funcao']; 
+            
 
-            // echo "<script>window.location.href = '/idpb/dashboard';</script>";
-            echo "<script>window.location.href = '/idpb/dashboard/v2';</script>";
-        } 
+            $_SESSION['funcao_usuario'] = $funcao_usuario;
+            $_SESSION['id'] = $id_usuario; 
+            $_SESSION['nome'] = $resultado_usuario[0]['Nome'];
 
-        echo "<script>alert('Senha incorreta.')</script>";
-        echo "<script>window.location.href = '/idpb/login';</script>";
-
+          
+            switch ($funcao_usuario) {
+                case 1:
+                    // echo "dashboard do líder {com switch}"; 
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
+                    break; 
+                case 2: 
+                    // echo "dashboard do coordenador {com switch}";
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
+                    break; 
+                case 3: 
+                    // echo "dashboard do coordenador {com switch}";
+                    echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
+                    break;
+                case 4:   
+                    // echo "dashboard do pastor {com switch}"; 
+                    // echo '<script>window.location.href="../dashboard/v2/dashboard.php"</script>'; 
+                    // $_SESSION['autenticado'] = true;
+                    break;
+                case null:
+                    echo "<script>alert('O usuário não possui função ministerial!')</script>";
+                    echo '<script>window.location.href="/idpb/login"</script>';
+            }
+            
         } else {
-            // A senha está incorreta
-            echo "<script>alert('Combinação de e-mail/senha inválida.')</script>";
-            echo "<script>window.location.href = '/idpb/login';</script>";
-        } 
-    } else {
-        // Usuário não encontrado
-        echo "<script>alert('Nenhum usuário encontrado com o e-mail fornecido.')</script>";
-    }
+            echo "<script>alert('Combinação de Email/Senha Incorretos')</script>";
+            echo '<script>window.location.href="../login"</script>';
+        }
+    } 
+
 
 ?>

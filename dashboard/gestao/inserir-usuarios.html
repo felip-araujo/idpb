@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Inclusão do CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+    <title>Inserir Usuários</title>
+</head>
+
+<body>
+    <div id="responseDiv"></div>
+    <div class="container">
+        <form action="" method="POST" id="inserirUsuarios">
+            <label for="email" class="form-label ">Email</label>
+            <input type="email" class="form-control" name="email" id="email">
+
+            <label for="" class="form-label ">Senha</label>
+            <div class="input-group">
+                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
+                <span class="input-group-text">
+                    <i class="fa fa-eye" id="togglePassword"></i>
+                </span>
+            </div>
+
+            <label for="" class="form-label ">Nome Completo:</label>
+            <input type="text" class="form-control" name="nome" id="nome">
+
+            <label for="num_celula" class="form-label">Número da Célula</label>
+            <select name="num_celula" id="num_celula" class="form-control">
+                <option>Selecione uma célula</option>
+            </select>
+
+            <label for="num_supervisao" class="form-label">Número da Supervisão</label>
+            <select name="num_supervisao" id="num_supervisao" class="form-control">
+                <option>Selecione uma supervisao</option>
+            </select>
+
+            <label for="num_coordenacao" class="form-label">Número da Coordenação</label>
+            <select name="num_coordenacao" id="num_coordenacao" class="form-control">
+                <option>Selecione uma coordenação</option>
+            </select>
+
+            <label for="" class="form-label">Função do Usuário</label>
+            <select name="selecionar_Funcao" id="selecionar_Funcao" class="form-control">
+                <option>Selecione uma coordenação</option>
+            </select>
+
+            <br><button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function (e) {
+        // Alternar entre visualizar e ocultar a senha
+        const password = document.getElementById('senha');
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Alternar o ícone
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../gestao/js/ajax-2-inserirusers.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- Inclusão do JavaScript do Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</html>
