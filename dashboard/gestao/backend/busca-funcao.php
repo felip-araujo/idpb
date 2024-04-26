@@ -13,6 +13,6 @@ try {
 
 
 } catch (PDOException $e) {
-    echo "<option> Erro ao carregar usuários " . $e->getMessage() . "</option>";  
+    echo "<option> Erro ao carregar usuários " . $e->getMessage() . "</option>";   
 }
 ?>
