@@ -81,6 +81,24 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         </div>
     </div>
 
+    <!-- Modal 3 -->
+    <div class="modal fade" id="inserir_funcao_membro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Inserir Funcão de Membro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php include('../gestao/inserir-nova-funcao-em-usuario.html') ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a class="" style="font-weight: 200; margin-top: 1rem; color: #edb62b;"> <?php echo $_SESSION['nome_funcao']; ?></a>
@@ -114,12 +132,15 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alterar_funcao_membro">
                     Alterar Função de Membro da liderança
                 </button>
-                <a href=""><button class="btn btn-outline-dark">Criar ou Alterar Funções</button></a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inserir_funcao_membro">
+                    Inserir nova Função para Membro da Liderança
+                </button>
+               
             </div>
             <div id="loadingIcon" style=" display: none; color:#222;" class="text-center">
                 <i class="fa fa-spinner fa-spin"></i>
             </div>
-            
+
             <div class="container" id="conteudoMembros"></div>
             <div class="container" id="conteudoCelulas"></div>
             <div class="container-fluid">

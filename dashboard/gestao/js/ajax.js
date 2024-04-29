@@ -3,10 +3,10 @@ $(document).ready(function () {
         url: '../gestao/backend/busca.php',
         type: 'GET',
         success: function (response) {
-            $('#userSelect').html(response);
+            $('.userSelect').html(response);
         },
         error: function () {
-            $('#userSelect').html('<option>Erro ao carregar dados! </option>');
+            $('.userSelect').html('<option>Erro ao carregar dados! </option>');
         }
     });
 });
@@ -16,10 +16,10 @@ $(document).ready(function () {
         url: '../gestao/backend/busca-funcao.php',
         type: 'GET',
         success: function (response) {
-            $('#function_Select').html(response);
+            $('.function_Select').html(response);
         },
         error: function () {
-            $('#function_Select').html('<option>Erro ao carregar funcoes! </option>');
+            $('.function_Select').html('<option>Erro ao carregar funcoes! </option>');
         }
     });
 });
@@ -59,6 +59,25 @@ $(document).ready(function(){
     })
 })
 
+//Função para INSERIR UMA NOVA FUNÇÃO NA LIDERANÇA 
+$(document).ready(function () {
+    $('#inserirFuncao').submit(function (e) {
+        e.preventDefault();
+        var formData = $(this).serialize();;
+        // console.log(formData);
+
+        $.ajax({
+            url: '../gestao/backend/processar_inserir_funcao.php',
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                $('#responseInserirFuncao').html(response)
+            }, error: function () {
+                $('#responseInserirFuncao').html('Erro ao enviar solicitação')
+            }
+        });
+    });
+});
 
 //funcao para pegar os dados de celulas em tabela e exibir em 'celulas.html'
 $(document).ready(function(){
