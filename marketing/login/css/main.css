@@ -1,0 +1,31 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+h4{
+    font-weight: 300; 
+    font-size: 1.3rem;
+}
+
+.container-fluid{
+    margin-top: 10rem;
+}
+
+#cont-login{
+    background-color: #eee;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-radius: .5rem;
+} 
+
+.form-label {
+    margin-bottom: .4rem;
+}
+#main-logo{
+    width: 15%; 
+    display: flex;
+} 
+
+.log{
+    text-align: center;
+}
