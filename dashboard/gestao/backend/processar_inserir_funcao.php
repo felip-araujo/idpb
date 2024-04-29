@@ -3,9 +3,8 @@ include './conexao.php';
 $id_usuario = $_POST['id_usuario'] ?? NULL;
 $function_select = $_POST['function_select'] ?? NULL;
 
-if ($id_usuario && $function_select) {
-    try {
-        $insert_new_funcao = $pdo->prepare("INSERT INTO Usuario_Funcoes_X (ID_Usuario, ID_Funcao) VALUES (:id_usuario, :function_select) ");
+try{
+    $insert_new_funcao = $pdo->prepare("INSERT INTO Usuario_Funcoes_X (ID_Usuario, ID_Funcao) VALUES (:id_usuario, :function_select) ");
         $insert_new_funcao->bindParam(':id_usuario', $id_usuario);
         $insert_new_funcao->bindParam(':function_select', $function_select);
 
@@ -32,4 +31,5 @@ if ($id_usuario && $function_select) {
     </button>
   </div>';
     }
-}
+
+

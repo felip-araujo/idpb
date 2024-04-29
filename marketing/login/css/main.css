@@ -1,5 +1,10 @@
 *{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+    
+} 
+
+body{
+    background-color: #eee;
 }
 
 h4{
@@ -9,23 +14,9 @@ h4{
 
 .container-fluid{
     margin-top: 10rem;
-}
-
-#cont-login{
-    background-color: #eee;
-    padding-top: 1.8rem;
-    padding-bottom: 1.8rem;
-    border-radius: .5rem;
 } 
 
-.form-label {
-    margin-bottom: .4rem;
-}
-#main-logo{
-    width: 15%; 
-    display: flex;
-} 
-
-.log{
-    text-align: center;
+#container {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
 }

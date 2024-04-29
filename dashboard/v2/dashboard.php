@@ -1,10 +1,15 @@
 <?php
 session_start();
 require '../conexao.php';
+
+
 if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo "<script>alert('Usuário não autenticado, faça login!')</script>";
     echo '<script>window.location.href="/idpb/login"</script>';
-} else {
+} else { 
+
+     
+
     $busca_funcao = $pdo->prepare("SELECT Nome_Funcao FROM Funcoes_X WHERE ID_Funcao = :funcao_usuario ");
     $busca_funcao->bindParam(':funcao_usuario', $_SESSION['funcao_usuario']);
     $busca_funcao->execute();
@@ -63,24 +68,6 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         </div>
     </div>
 
-    <!-- Modal 2 -->
-    <div class="modal fade" id="alterar_funcao_membro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Alterar Funcão de Membro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <?php include('../gestao/alterar-funcao.html') ?>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Modal 3 -->
     <div class="modal fade" id="inserir_funcao_membro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -129,9 +116,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meuModal">
                     Cadastrar novo membro na liderança
                 </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alterar_funcao_membro">
-                    Alterar Função de Membro da liderança
-                </button>
+        
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inserir_funcao_membro">
                     Inserir nova Função para Membro da Liderança
                 </button>
