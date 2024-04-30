@@ -1,22 +1,110 @@
-*{
-    font-family: 'Raleway', sans-serif; 
-    
-} 
-
-body{
-    background-color: #eee;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
 
-h4{
-    font-weight: 300; 
-    font-size: 1.3rem;
+body {
+    background-image: linear-gradient( to left, rgb(5, 64, 92), .1%, #000000);
 }
 
-.container-fluid{
-    margin-top: 10rem;
-} 
+.container-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-#container {
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem;
+.container-login{
+    display: block;
+    max-width: 400px;
+    padding: 2em;
+    width: 100%;
+    margin: 8px;
+    border-radius: .6rem;
+    background-color:#191919;
+    color: #fff;
+    text-align: center;
+}
+
+.logotipo {
+    width: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+.cad {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+}
+
+.formulario {
+    margin-top: 2rem;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input {
+    padding: 10px 8px 10px 40px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: #0F0F0F;
+    color: #fff;
+}
+
+input {
+    color-scheme: dark;
+}
+
+label {
+    position: absolute;
+    color: #ffffff7a;
+    margin-top: 8px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.password-icon {
+    position: absolute;
+    color: #ffffff7a;
+    margin-top: 8px;
+    right: 4%;
+    cursor: pointer;
+}
+
+.link {
+    color: #fff;
+    align-self: flex-end;
+    text-decoration: none;
+    font-size: .8rem;
+    float: right;
+    padding: 8px;
+}
+
+button, .button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    font-size: 1rem; 
+    font-weight:600 ;
+    color: white;
+    background-color: #258eeb;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
 }

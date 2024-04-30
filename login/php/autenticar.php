@@ -58,11 +58,11 @@ if (isset($_POST['entrar'])) {
 
                 case null:
                     echo "<script>alert('O usuário não possui função ministerial!')</script>";
-                    echo '<script>window.location.href="/idpb/login"</script>';
+                    echo '<script>window.location.href="/idpb/login/"</script>';
             }
             
         } else {
             echo "<script>alert('Combinação de Email/Senha Incorretos')</script>";
-            echo '<script>window.location.href="../login"</script>';
+            echo '<script>window.location.href="/idpb/login"</script>';
         }
     } 

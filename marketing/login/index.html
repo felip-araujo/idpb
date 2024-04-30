@@ -12,58 +12,48 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Acessar > Site IDPB</title>
+<link rel="shortcut icon" href="/idpb/assets/images/f_logo.svg" type="image/x-icon">
+    <title>Acessar ¬ Site IDPB</title>
 </head>
 
-<body>
+<body class="table-dark">
 
-    <div class="container-fluid text-center">
+    <div class="container-wrapper">
         <div class="row">
-            <div class="col-sm">   
-                
-            </div>
             <div class="col-sm ">   
-                <div id="container" class="container table-dark rounded">
-                    <form action="">
-                        <img class="img w-50 text-left" style="margin-top: -3rem;" src="./css/image/logo_branca_fundo-transparente.png" alt=""><br>
-                        <h4 class="text-center" style="font-weight: 400; margin-top: -3rem;"> Acesse o Painél de Gerenciamento</h4>
-                        <div class="form-group text-left">
-                            <label for="" class="form-label text-left">Email:</label>
-                            <input type="email" class="form-control"> <br>
-                            <label for="" class="form-label ">Senha:</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
-                                <span class="input-group-text">
-                                    <i class="fa fa-eye" id="togglePassword"></i>
-                                </span>
-                            </div>
-                            <br><input type="checkbox" name="" id=""> Me mantenha conectado <br>
-                            <button class="btn btn-primary">Acessar</button>
+                <div id="container" class="containerrounded">
+                    <form action="" class="container-login">
+                        <img class="logotipo" src="/idpb/assets/images/f_logo.svg" alt=""><br>
+                        <h4 class="text-center" style="font-weight: 300; font-size: 1.2rem;">Painél de Gerenciamento</h4>
+                        <div class="input-box">
+                            <label for="email">
+                                <i class="fa-regular fa-envelope"></i>
+                            </label>
+                            <input class="input" type="email" id="email" name="email" placeholder="digite o seu e-mail" required >
+                        </div>
+                        <div class="input-box">
+                            <label for="senha">
+                                <i class="fa-solid fa-lock"></i>
+                            </label>
+                            <span class="icon password-icon">
+                                <i class="senha-icon fa-regular fa-eye-slash" onclick="togglePasswordVisibility()"></i>
+                            </span>
+                            <input class="input" class="input-ico" type="password" id="senha" name="senha" placeholder="digite sua senha" required>
+                            <a href="" class="link">Esqueceu a senha?</a> <br>
+                            <br> <input type="checkbox" name="" id=""> Me mantenha conectado.
+                            <button class="input-btn" type="submit" name="entrar">Acessar</button>
+                        </div>
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="col-sm">   
-                
             </div>
         </div>
     </div>
 
 </body>
-<script>
-    document.getElementById('togglePassword').addEventListener('click', function (e) {
-        // Alternar entre visualizar e ocultar a senha
-        const password = document.getElementById('senha');
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-
-        // Alternar o ícone
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
-    });
-</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>
+
 
 </html>

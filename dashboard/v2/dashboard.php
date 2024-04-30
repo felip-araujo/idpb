@@ -1,35 +1,11 @@
 <?php
 session_start();
 require './php/conexao.php';
-
-
 if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo "<script>alert('Usuário não autenticado, faça login!')</script>";
     echo '<script>window.location.href="/idpb/login"</script>';
-} else { 
-
-     
-
-    $busca_funcao = $pdo->prepare("SELECT Nome_Funcao FROM Funcoes_X WHERE ID_Funcao = :funcao_usuario ");
-    $busca_funcao->bindParam(':funcao_usuario', $_SESSION['funcao_usuario']);
-    $busca_funcao->execute();
-    $return_funcao = $busca_funcao->fetch(PDO::FETCH_ASSOC);
-    $nome_funcao = $return_funcao['Nome_Funcao'];
-    $_SESSION['nome_funcao'] = $nome_funcao;
-
-    $nome_completo = $_SESSION['nome'];
-    $partes_do_nome = explode(' ', $nome_completo);
-    $primeiro_nome = $partes_do_nome[0];
-    date_default_timezone_set('America/Manaus');
-    $hora_atual = date("H");
-
-    if ($hora_atual < 12) {
-        $saudacao = "Bom dia";
-    } elseif ($hora_atual < 18) {
-        $saudacao = "Boa tarde";
-    } else {
-        $saudacao = "Boa noite";
-    }
+} else {
+    require '../v2/php/saud.php';
 }
 ?>
 <!DOCTYPE html>
@@ -42,7 +18,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="icon" href="/idpb/assets/images/main-logo.png">
+    <link rel="icon" href="/idpb/assets/images/f_logo.svg">
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
@@ -145,7 +121,6 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
