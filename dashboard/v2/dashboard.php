@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../conexao.php';
+require './php/conexao.php';
 
 
 if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
