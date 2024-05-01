@@ -23,6 +23,8 @@ try {
     exit;
 }
 
+$mensagem = ""; // Inicializa a variável para mensagens de sucesso ou erro
+
 // Checa se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
@@ -35,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(5, $_POST['motivos_oracao']);
         $stmt->bindParam(6, $_POST['outras_observacoes']);
         $stmt->execute();
-        echo "Relatório adicionado com sucesso!";
+        $mensagem = "Relatório adicionado com sucesso!";
     } catch (PDOException $e) {
-        echo "Erro ao inserir dados: " . $e->getMessage();
+        $mensagem = "Erro ao inserir dados: " . $e->getMessage();
     }
 }
 ?>
