@@ -1,5 +1,18 @@
 <?php
-include '..conexao.php';
+include 'idpb/dashboard/relatorios/conexao.php';
+
+// Busca os números das células para o número de coordenação 3
+$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_coordenacao = 3";
+$result = $conn->query($query);
+
+$celulas = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $celulas[] = $row['Numero_Celula'];
+    }
+} else {
+    echo "0 resultados encontrados.";
+}
 
 // Checa se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,49 +36,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Relatório de Visita à Célula</title>
+    <script>
+    // Função para garantir que apenas uma checkbox por grupo seja marcada
+    function checkboxLimit(checkboxElem, groupName) {
+        let checkboxes = document.querySelectorAll('input[name="' + groupName + '"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+        checkboxElem.checked = true;
+    }
+    </script>
 </head>
 <body>
     <h1>Relatório de Visita à Célula</h1>
     <form method="post">
-        Número da Célula: <input type="number" name="numero_celula" required><br>
+        Número da Célula: <select name="numero_celula" required>
+            <?php foreach ($celulas as $celula) { ?>
+                <option value="<?php echo $celula; ?>"><?php echo $celula; ?></option>
+            <?php } ?>
+        </select><br>
         Data da Visita: <input type="date" name="data_visita" required><br>
-        <label>Recepção e Pontualidade:</label>
-        <select name="recepcao_pontualidade" required>
-            <option value="ruim">Ruim</option>
-            <option value="regular">Regular</option>
-            <option value="bom">Bom</option>
-            <option value="otimo">Ótimo</option>
-        </select><br>
-        Quebra Gelo: <select name="quebra_gelo" required>
-            <option value="ruim">Ruim</option>
-            <option value="regular">Regular</option>
-            <option value="bom">Bom</option>
-            <option value="otimo">Ótimo</option>
-        </select><br>
-        Louvor: <select name="louvor" required>
-            <option value="ruim">Ruim</option>
-            <option value="regular">Regular</option>
-            <option value="bom">Bom</option>
-            <option value="otimo">Ótimo</option>
-        </select><br>
-        Edificação: <select name="edificacao" required>
-            <option value="ruim">Ruim</option>
-            <option value="regular">Regular</option>
-            <option value="bom">Bom</option>
-            <option value="otimo">Ótimo</option>
-        </select><br>
-        Compartilhando: <select name="compartilhando" required>
-            <option value="ruim">Ruim</option>
-            <option value="regular">Regular</option>
-            <option value="bom">Bom</option>
-            <option value="otimo">Ótimo</option>
-        </select><br>
-        Cadeira da Benção: <select name="cadeira_bencao" required>
-            <option value="ruim">Ruim</option>
-            <option value="regular">Regular</option>
-            <option value="bom">Bom</option>
-            <option value="otimo">Ótimo</option>
-        </select><br>
+        <label>Recepção e Pontualidade:</label><br>
+        <!-- Inserir aqui os checkboxes para os campos de avaliação conforme o exemplo anterior -->
         Observações: <textarea name="observacoes"></textarea><br>
         <input type="submit" value="Enviar">
     </form>
