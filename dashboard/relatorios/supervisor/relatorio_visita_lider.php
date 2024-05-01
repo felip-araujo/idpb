@@ -1,16 +1,8 @@
 <?php
-// Habilitar a exibição de erros
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 // Caminho absoluto para o arquivo de conexão
 require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
 
-// Verificar se a conexão foi estabelecida
-if (!isset($pdo)) {
-    die('Falha ao carregar a conexão com o banco de dados.');
-}
 
 // Busca os números das células para o número de supervisão 14 na tabela Usuarios_X
 $query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
