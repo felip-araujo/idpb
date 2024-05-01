@@ -45,8 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Relatório de Visita à Célula</title>
@@ -63,7 +61,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Relatório de Visita à Célula</h1>
     <form method="post">
-        Número da Célula: <input type="number" name="numero_celula" required><br>
+        Número da Célula: <select name="numero_celula" required>
+            <?php foreach ($celulas as $celula) { ?>
+                <option value="<?php echo $celula['Numero_Celula']; ?>">
+                    <?php echo $celula['Numero_Celula']; ?>
+                </option>
+            <?php } ?>
+
         Data da Visita: <input type="date" name="data_visita" required><br>
 
         <div>
