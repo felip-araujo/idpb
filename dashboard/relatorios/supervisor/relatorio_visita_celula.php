@@ -13,7 +13,7 @@ if (!isset($pdo)) {
 }
 
 // Busca os números das células para o número de coordenação 3
-$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_coordenacao = 3";
+$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
 try {
     $stmt = $pdo->query($query);
     $celulas = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +59,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php } ?>
         </select><br>
         Data da Visita: <input type="date" name="data_visita" required><br>
-        <!-- Campos de checkbox e o resto do formulário aqui -->
+        
+        <!-- Adicionando campos de checkbox -->
+        <fieldset>
+            <legend>Recepção e Pontualidade:</legend>
+            <label><input type="radio" name="recepcao_pontualidade" value="ruim" required>Ruim</label>
+            <label><input type="radio" name="recepcao_pontualidade" value="regular" required>Regular</label>
+            <label><input type="radio" name="recepcao_pontualidade" value="bom" required>Bom</label>
+            <label><input type="radio" name="recepcao_pontualidade" value="otimo" required>Ótimo</label>
+        </fieldset>
+
+        <!-- Repita o bloco acima para cada categoria de avaliação -->
+        
+        Observações: <textarea name="observacoes"></textarea><br>
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>
+
