@@ -1,11 +1,16 @@
 <?php
-// Incluindo o arquivo de conexão que está no diretório pai
-include '../conexao.php';
-
 // Habilitar a exibição de erros
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// Caminho absoluto para o arquivo de conexão
+include '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
+
+// Verificar se a conexão foi estabelecida
+if (!isset($pdo)) {
+    die('Falha ao carregar a conexão com o banco de dados.');
+}
 
 // Busca os números das células para o número de coordenação 3
 $query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_coordenacao = 3";
