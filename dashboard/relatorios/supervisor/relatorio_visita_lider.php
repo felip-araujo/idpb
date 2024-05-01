@@ -1,6 +1,11 @@
 <?php
 include 'idpb/dashboard/relatorios/conexao.php';
 
+// Busca os números das células para o número de supervisão especificado
+$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
+$result = $conn->query($query);
+$celulas = $result->fetch_all(MYSQLI_ASSOC);
+
 // Checa se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Prepara a inserção no banco de dados
@@ -27,7 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Relatório de Visita ao Líder</h1>
     <form method="post">
-        Número da Célula: <input type="number" name="numero_celula" required><br>
+        Número da Célula: <select name="numero_celula" required>
+            <?php foreach ($celulas as $celula) { ?>
+                <option value="<?php echo $celula['Numero_Celula']; ?>"><?php echo $celula['Numero_Celula']; ?></option>
+            <?php } ?>
+        </select><br>
         Nome do Líder: <input type="text" name="nome_lider" required><br>
         Data da Visita: <input type="date" name="data_visita" required><br>
         Necessidades Detectadas: <textarea name="necessidades_detectadas" required></textarea><br>
