@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Caminho absoluto para o arquivo de conexão
-include 'conexao.php';
+include './conexao.php';
 
 // Verificar se a conexão foi estabelecida
 if (!isset($pdo)) {
