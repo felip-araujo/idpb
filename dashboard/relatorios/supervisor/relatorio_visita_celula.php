@@ -49,31 +49,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Relatório de Visita à Célula</title>
+    <script>
+    // Função para garantir que apenas uma checkbox por categoria seja marcada
+    function checkboxLimit(checkBox, group) {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][name="' + group + '"]');
+        checkboxes.forEach((item) => {
+            if (item !== checkBox) item.checked = false;
+        });
+    }
+    </script>
 </head>
 <body>
     <h1>Relatório de Visita à Célula</h1>
     <form method="post">
-        Número da Célula: <select name="numero_celula" required>
-            <?php foreach ($celulas as $celula) { ?>
-                <option value="<?php echo $celula['Numero_Celula']; ?>"><?php echo $celula['Numero_Celula']; ?></option>
-            <?php } ?>
-        </select><br>
+        Número da Célula: <input type="number" name="numero_celula" required><br>
         Data da Visita: <input type="date" name="data_visita" required><br>
-        
-        <!-- Adicionando campos de checkbox -->
-        <fieldset>
-            <legend>Recepção e Pontualidade:</legend>
-            <label><input type="radio" name="recepcao_pontualidade" value="ruim" required>Ruim</label>
-            <label><input type="radio" name="recepcao_pontualidade" value="regular" required>Regular</label>
-            <label><input type="radio" name="recepcao_pontualidade" value="bom" required>Bom</label>
-            <label><input type="radio" name="recepcao_pontualidade" value="otimo" required>Ótimo</label>
-        </fieldset>
 
-        <!-- Repita o bloco acima para cada categoria de avaliação -->
-        
+        <div>
+            <strong>Recepção e Pontualidade:</strong><br>
+            <label><input type="checkbox" name="recepcao_pontualidade" value="ruim" onclick="checkboxLimit(this, 'recepcao_pontualidade')">Ruim</label>
+            <label><input type="checkbox" name="recepcao_pontualidade" value="regular" onclick="checkboxLimit(this, 'recepcao_pontualidade')">Regular</label>
+            <label><input type="checkbox" name="recepcao_pontualidade" value="bom" onclick="checkboxLimit(this, 'recepcao_pontualidade')">Bom</label>
+            <label><input type="checkbox" name="recepcao_pontualidade" value="otimo" onclick="checkboxLimit(this, 'recepcao_pontualidade')">Ótimo</label>
+        </div>
+
+        <!-- Repita a estrutura acima para cada categoria de avaliação -->
+        <div>
+            <strong>Quebra-gelo:</strong><br>
+            <label><input type="checkbox" name="quebra_gelo" value="ruim" onclick="checkboxLimit(this, 'quebra_gelo')">Ruim</label>
+            <label><input type="checkbox" name="quebra_gelo" value="regular" onclick="checkboxLimit(this, 'quebra_gelo')">Regular</label>
+            <label><input type="checkbox" name="quebra_gelo" value="bom" onclick="checkboxLimit(this, 'quebra_gelo')">Bom</label>
+            <label><input type="checkbox" name="quebra_gelo" value="otimo" onclick="checkboxLimit(this, 'quebra_gelo')">Ótimo</label>        </div>
+
+        <div>
+            <strong>Louvor:</strong><br>
+            <label><input type="checkbox" name="louvor" value="ruim" onclick="checkboxLimit(this, 'louvor')">Ruim</label>
+            <label><input type="checkbox" name="louvor" value="regular" onclick="checkboxLimit(this, 'louvor')">Regular</label>
+            <label><input type="checkbox" name="louvor" value="bom" onclick="checkboxLimit(this, 'louvor')">Bom</label>
+            <label><input type="checkbox" name="louvor" value="otimo" onclick="checkboxLimit(this, 'louvor')">Ótimo</label>        </div>
+
+        <div>
+            <strong>Edificação:</strong><br>
+            <label><input type="checkbox" name="edificacao" value="ruim" onclick="checkboxLimit(this, 'edificacao')">Ruim</label>
+            <label><input type="checkbox" name="edificacao" value="regular" onclick="checkboxLimit(this, 'edificacao')">Regular</label>
+            <label><input type="checkbox" name="edificacao" value="bom" onclick="checkboxLimit(this, 'edificacao')">Bom</label>
+            <label><input type="checkbox" name="edificacao" value="otimo" onclick="checkboxLimit(this, 'edificacao')">Ótimo</label>        </div>
+
+        <div>
+            <strong>Compartilhando:</strong><br>
+            <label><input type="checkbox" name="compartilhando" value="ruim" onclick="checkboxLimit(this, 'compartilhando')">Ruim</label>
+            <label><input type="checkbox" name="compartilhando" value="regular" onclick="checkboxLimit(this, 'compartilhando')">Regular</label>
+            <label><input type="checkbox" name="compartilhando" value="bom" onclick="checkboxLimit(this, 'compartilhando')">Bom</label>
+            <label><input type="checkbox" name="compartilhando" value="otimo" onclick="checkboxLimit(this, 'compartilhando')">Ótimo</label>        </div>
+
+        <div>
+            <strong>Cadeira da Bênção:</strong><br>
+            <label><input type="checkbox" name="cadeira_da_bencao" value="ruim" onclick="checkboxLimit(this, 'cadeira_da_bencao')">Ruim</label>
+            <label><input type="checkbox" name="cadeira_da_bencao" value="regular" onclick="checkboxLimit(this, 'cadeira_da_bencao')">Regular</label>
+            <label><input type="checkbox" name="cadeira_da_bencao" value="bom" onclick="checkboxLimit(this, 'cadeira_da_bencao')">Bom</label>
+            <label><input type="checkbox" name="cadeira_da_bencao" value="otimo" onclick="checkboxLimit(this, 'cadeira_da_bencao')">Ótimo</label>        </div>
+
         Observações: <textarea name="observacoes"></textarea><br>
         <input type="submit" value="Enviar">
     </form>
 </body>
 </html>
-
