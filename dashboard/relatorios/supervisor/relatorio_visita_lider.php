@@ -1,5 +1,11 @@
 <?php
-include 'idpb/dashboard/relatorios/conexao.php';
+
+// Habilitar a exibição de erros
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
 
 // Busca os números das células para o número de supervisão especificado
 $query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
