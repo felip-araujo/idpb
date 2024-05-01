@@ -12,7 +12,7 @@ if (!isset($pdo)) {
     die('Falha ao carregar a conexão com o banco de dados.');
 }
 
-// Busca os números das células para o número de coordenação 3
+// Busca os números das células para o número de supervisão 14
 $query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
 try {
     $stmt = $pdo->query($query);
@@ -21,6 +21,7 @@ try {
     echo "Erro ao executar consulta: " . $e->getMessage();
     exit;
 }
+
 
 // Checa se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
