@@ -6,7 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar dados do formulário
     $numeroCelula = $_POST['numero_celula'];
     $dataVisita = $_POST['data_visita'];
-    // Coletar dados do formulário
     $recepcaoPontualidade = $_POST['Recepcao_Pontualidade'] ?? null;
     $quebraGelo = $_POST['Quebra_Gelo'] ?? null;
     $louvor = $_POST['Louvor'] ?? null;
@@ -15,11 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cadeiraBencao = $_POST['Cadeira_Bencao'] ?? null;
     $observacoes = $_POST['observacoes'];
 
-    $stmt = $pdo->prepare("INSERT INTO Relatorio_Supervisao (Recepcao_Pontualidade, Quebra_Gelo, Louvor, Edificacao, Compartilhando, Cadeira_Bencao, Observacoes) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$recepcaoPontualidade, $quebraGelo, $louvor, $edificacao, $compartilhando, $cadeiraBencao, $observacoes]);
+    // Prepare a consulta SQL
+    $stmt = $pdo->prepare("INSERT INTO Relatorio_Supervisao (Numero_Celula, Data_Visita, Recepcao_Pontualidade, Quebra_Gelo, Louvor, Edificacao, Compartilhando, Cadeira_Bencao, Observacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
-
-    // Executar a consulta
+    // Tente executar a consulta
     try {
         $stmt->execute([$numeroCelula, $dataVisita, $recepcaoPontualidade, $quebraGelo, $louvor, $edificacao, $compartilhando, $cadeiraBencao, $observacoes]);
         echo "Relatório adicionado com sucesso!";
