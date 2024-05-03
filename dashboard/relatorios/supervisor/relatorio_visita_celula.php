@@ -34,7 +34,7 @@ try {
 <body>
     <div class="container">
         <h1>Relatório de Visita à Célula</h1>
-        <form method="post" action="processa_relatorio.php"> <!-- Substitua 'processa_relatorio.php' pelo seu script de processamento -->
+        <form method="post" action="processa_relatorio.php"> 
             <div class="mb-3">
                 <label for="numero_celula" class="form-label">Selecione a Célula:</label>
                 <select name="numero_celula" id="numero_celula" class="form-select" required>
@@ -53,18 +53,26 @@ try {
 
             <!-- Avaliações com checkboxes -->
             <?php
-            $categorias = ['Recepção e Pontualidade', 'Quebra-gelo', 'Louvor', 'Edificação', 'Compartilhando', 'Cadeira da Bênção'];
-            foreach ($categorias as $categoria) {
+                $categorias = [
+                'Recepcao_Pontualidade' => 'Recepção e Pontualidade', 
+                'Quebra_Gelo' => 'Quebra-gelo', 
+                'Louvor' => 'Louvor', 
+                'Edificacao' => 'Edificação', 
+                'Compartilhando' => 'Compartilhando', 
+                'Cadeira_Bencao' => 'Cadeira da Bênção'
+            ];
+            foreach ($categorias as $key => $label) {
                 echo "<div class='mb-3'>
-                        <strong>$categoria:</strong><br>";
+                        <strong>$label:</strong><br>";
                 foreach (['ruim', 'regular', 'bom', 'otimo'] as $avaliacao) {
                     echo "<label class='btn btn-outline-primary'>
-                            <input type='radio' name='".strtolower(str_replace(' ', '_', $categoria))."' value='$avaliacao'> $avaliacao
-                          </label>";
+                            <input type='radio' name='$key' value='$avaliacao'> $avaliacao
+                        </label>";
                 }
                 echo "</div>";
             }
             ?>
+
 
             <div class="mb-3">
                 <label for="observacoes" class="form-label">Observações:</label>
