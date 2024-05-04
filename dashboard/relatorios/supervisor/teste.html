@@ -3,66 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Velocímetro com D3.js</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <style>
-    /* Estilos para o velocímetro */
-    .gauge {
-      width: 200px;
-      height: 200px;
-    }
-
-    .needle {
-      stroke: red;
-      stroke-width: 2;
-      fill: none;
-    }
-  </style>
+  <title>Velocímetro com Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <svg class="gauge"></svg>
+  <canvas id="velocimetro"></canvas>
 
   <script>
-    // Dados para o velocímetro (faixa de 0 a 180)
-    var data = 90;
+    var ctx = document.getElementById('velocimetro').getContext('2d');
 
-    // Configuração do velocímetro
-    var width = 200;
-    var height = 200;
-    var radius = Math.min(width, height) / 2;
-
-    var svg = d3.select('.gauge')
-                .attr('width', width)
-                .attr('height', height)
-                .append('g')
-                .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
-
-    var arc = d3.arc()
-                .innerRadius(0)
-                .outerRadius(radius - 20)
-                .startAngle(-Math.PI / 2)
-                .endAngle(Math.PI / 2);
-
-    svg.append('path')
-       .attr('d', arc)
-       .style('fill', '#ddd');
-
-    var needle = d3.line()
-                   .x(function(d) { return d.x; })
-                   .y(function(d) { return d.y; });
-
-    var needleData = [
-      { x: 0, y: -10 },
-      { x: -5, y: 0 },
-      { x: 5, y: 0 },
-      { x: 0, y: -10 }
-    ];
-
-    svg.append('path')
-       .attr('class', 'needle')
-       .attr('d', needle(needleData))
-       .attr('transform', 'rotate(' + ((data / 180) * 180 - 90) + ')');
-
+    var velocimetro = new Chart(ctx, {
+      type: 'radialGauge',
+      data: {
+        labels: ['Min', 'Max'],
+        datasets: [{
+          data: [0, 180],
+          backgroundColor: ['transparent', 'transparent'],
+          borderColor: ['#ccc', '#ccc'],
+          borderWidth: 10
+        }, {
+          data: [90],
+          backgroundColor: 'red',
+          borderColor: 'red',
+          borderWidth: 5
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          r: {
+            angleLines: {
+              display: false
+            },
+            ticks: {
+              display: false,
+              suggestedMin: 0,
+              suggestedMax: 180
+            },
+            grid: {
+              color: '#ccc',
+              lineWidth: 1,
+              circular: true
+            },
+            pointLabels: {
+              fontSize: 12,
+              fontColor: 'black'
+            }
+          }
+        }
+      }
+    });
   </script>
 </body>
 </html>
