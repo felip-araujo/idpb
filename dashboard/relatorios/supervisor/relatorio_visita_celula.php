@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 // Caminho absoluto para o arquivo de conexão
 require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
 
-// Verificar se a conexão foi estabelecida
+// Verificar se a conexão foi estabelecida 
 if (!isset($pdo)) {
     die('Falha ao carregar a conexão com o banco de dados.');
 }

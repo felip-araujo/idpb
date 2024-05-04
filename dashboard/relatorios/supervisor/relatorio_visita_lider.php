@@ -1,38 +1,14 @@
 <?php
-
-// Caminho absoluto para o arquivo de conexão
 require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
 
-
-// Busca os números das células para o número de supervisão 14 na tabela Usuarios_X
-$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
+// Busca os líderes da supervisão na view criada
+$query = "SELECT DISTINCT Numero_Celula, Nome_Lider FROM ViewCelulasInfo WHERE Numero_Coordenacao = 14";
 try {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
-    $celulas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $lideres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    echo "Erro ao executar consulta: " . $e->getMessage();
-    exit;
-}
-
-$mensagem = ""; // Inicializa a variável para mensagens de sucesso ou erro
-
-// Checa se o formulário foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    try {
-        // Prepara a inserção no banco de dados usando a conexão PDO
-        $stmt = $pdo->prepare("INSERT INTO Relatorio_Supervisao_2 (Numero_Celula, Nome_Lider, Data_Visita, Necessidades_Detectadas, Motivos_Oracao, Outras_Observacoes) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bindParam(1, $_POST['numero_celula']);
-        $stmt->bindParam(2, $_POST['nome_lider']);
-        $stmt->bindParam(3, $_POST['data_visita']);
-        $stmt->bindParam(4, $_POST['necessidades_detectadas']);
-        $stmt->bindParam(5, $_POST['motivos_oracao']);
-        $stmt->bindParam(6, $_POST['outras_observacoes']);
-        $stmt->execute();
-        $mensagem = "Relatório adicionado com sucesso!";
-    } catch (PDOException $e) {
-        $mensagem = "Erro ao inserir dados: " . $e->getMessage();
-    }
+    die("Erro ao executar consulta: " . $e->getMessage());
 }
 ?>
 
@@ -41,43 +17,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Relatório de Visita ao Líder</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#numero_celula').change(function() {
-            var numeroCelula = $(this).val();
-            if (numeroCelula) {
-                $.ajax({
-                    url: 'getLider.php',
-                    type: 'POST',
-                    data: {numero_celula: numeroCelula},
-                    success: function(response) {
-                        $('#nome_lider').val(response);
-                    }
-                });
-            } else {
-                $('#nome_lider').val(''); // Limpar o campo se nenhuma célula for selecionada
-            }
-        });
-    });
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Relatório de Visita ao Líder</h1>
-    <form method="post">
-        Número da Célula: <select name="numero_celula" id="numero_celula" required>
-            <?php foreach ($celulas as $celula) { ?>
-                <option value="<?php echo $celula['Numero_Celula']; ?>">
-                    <?php echo $celula['Numero_Celula']; ?>
-                </option>
-            <?php } ?>
-        </select><br>
-        Nome do Líder: <input type="text" name="nome_lider" id="nome_lider" required readonly><br>
-        Data da Visita: <input type="date" name="data_visita" required><br>
-        Necessidades Detectadas: <textarea name="necessidades_detectadas" required></textarea><br>
-        Motivos de Oração: <textarea name="motivos_oracao" required></textarea><br>
-        Outras Observações: <textarea name="outras_observacoes"></textarea><br>
-        <input type="submit" value="Enviar">
-    </form>
+    <div class="container">
+        <h1>Relatório de Visita ao Líder</h1>
+        <form method="post" action="processa_relatorio_2.php">
+            <div class="mb-3">
+                <label for="numero_celula" class="form-label">Selecione o Líder:</label>
+                <select name="numero_celula" id="numero_celula" class="form-select" required>
+                    <?php foreach ($lideres as $lider) { ?>
+                        <option value="<?php echo $lider['Numero_Celula']; ?>">
+                            <?php echo $lider['Nome_Lider']; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="necessidades_detectadas" class="form-label">Necessidades Detectadas:</label>
+                <textarea name="necessidades_detectadas" id="necessidades_detectadas" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="motivos_oracao" class="form-label">Motivos de Oração:</label>
+                <textarea name="motivos_oracao" id="motivos_oracao" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="outras_observacoes" class="form-label">Outras Observações:</label>
+                <textarea name="outras_observacoes" id="outras_observacoes" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
