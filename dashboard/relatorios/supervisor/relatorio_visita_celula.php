@@ -13,7 +13,7 @@ if (!isset($pdo)) {
 }
 
 // Busca os números das células para a coordenação 14 na tabela Usuarios_X
-$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Coordenacao = 3";
+$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
 try {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
