@@ -1,3 +1,17 @@
+<?php
+require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
+
+// Busca os líderes da supervisão na view criada
+$query = "SELECT DISTINCT Numero_Celula, Nome_Lider FROM ViewCelulasInfo WHERE Numero_Supervisao = 14";
+try {
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $lideres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro ao executar consulta: " . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
