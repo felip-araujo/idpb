@@ -25,13 +25,14 @@ try {
         <form method="post" action="processa_relatorio_2.php">
             <div class="mb-3">
                 <label for="numero_celula" class="form-label">Selecione o Líder:</label>
-                <select name="numero_celula" id="numero_celula" class="form-select" required>
+                <select name="lider_info" id="lider_info" class="form-select" required>
                     <?php foreach ($lideres as $lider) { ?>
-                        <option value="<?php echo $lider['Numero_Celula']; ?>">
+                        <option value="<?php echo $lider['Numero_Celula'] . '|' . $lider['Nome_Lider']; ?>">
                             <?php echo $lider['Nome_Lider']; ?>
                         </option>
                     <?php } ?>
                 </select>
+
             </div>
 
             <div class="mb-3">
