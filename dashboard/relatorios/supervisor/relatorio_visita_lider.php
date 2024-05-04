@@ -1,17 +1,3 @@
-<?php
-require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
-
-// Busca os líderes da supervisão na view criada
-$query = "SELECT DISTINCT Numero_Celula, Nome_Lider FROM ViewCelulasInfo WHERE Numero_Supervisao = 14";
-try {
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-    $lideres = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erro ao executar consulta: " . $e->getMessage());
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +10,7 @@ try {
         <h1>Relatório de Visita ao Líder</h1>
         <form method="post" action="processa_relatorio_2.php">
             <div class="mb-3">
-                <label for="numero_celula" class="form-label">Selecione o Líder:</label>
+                <label for="lider_info" class="form-label">Selecione o Líder:</label>
                 <select name="lider_info" id="lider_info" class="form-select" required>
                     <?php foreach ($lideres as $lider) { ?>
                         <option value="<?php echo $lider['Numero_Celula'] . '|' . $lider['Nome_Lider']; ?>">
@@ -32,7 +18,11 @@ try {
                         </option>
                     <?php } ?>
                 </select>
+            </div>
 
+            <div class="mb-3">
+                <label for="data_visita" class="form-label">Data da Visita:</label>
+                <input type="date" name="data_visita" id="data_visita" class="form-control" required>
             </div>
 
             <div class="mb-3">
