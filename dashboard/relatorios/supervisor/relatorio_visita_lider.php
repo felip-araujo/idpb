@@ -2,7 +2,7 @@
 require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
 
 // Busca os líderes da supervisão na view criada
-$query = "SELECT DISTINCT Numero_Celula, Nome_Lider FROM ViewCelulasInfo WHERE Numero_Supervisao = 14";
+$query = "SELECT DISTINCT Numero_Celula, Nome_Lider FROM ViewCelulasInfo WHERE Numero_Coordenacao = 3";
 try {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
