@@ -5,7 +5,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo "<script>alert('Usuário não autenticado, faça login!')</script>";
     echo '<script>window.location.href="/idpb/login"</script>';
 } else {
-    require '../v2/php/saud.php';
+    
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" href="/idpb/assets/images/f_logo.svg">
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/main.css"> 
+    
 </head>
 
 <body>
@@ -63,8 +64,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="" style="font-weight: 200; margin-top: 1rem; color: #edb62b;"> <?php echo $_SESSION['nome_funcao']; ?></a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> 
+        <p class="text-center font-italic" style="font-size:smaller; margin-top: 1rem" > <?php include './php/saud.php'; ?> </p>
         <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem; margin-top: .8rem;" href="#"> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
         <a id="linkMembros" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-user"></i> Membros</a>
         <a id="linkCelulas" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Celulas</a>
@@ -116,7 +117,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/main.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
