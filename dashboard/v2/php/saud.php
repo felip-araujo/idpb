@@ -2,10 +2,10 @@
 
 include 'conexao.php';
 try {
-    
-    
 
-    $qr1 = $pdo->prepare( 
+
+
+    $qr1 = $pdo->prepare(
         "SELECT Funcoes_X.Nome_Funcao
         FROM Usuario_Funcoes_X
         INNER JOIN Funcoes_X ON Usuario_Funcoes_X.ID_Funcao = Funcoes_X.ID_Funcao
@@ -13,32 +13,14 @@ try {
     );
     $qr1->bindParam(':id_usuario', $_SESSION['id']);
     $qr1->execute();
-    $rt = $qr1->fetchAll(PDO::FETCH_COLUMN); 
+    $rt = $qr1->fetchAll(PDO::FETCH_COLUMN);
 
     foreach ($rt as $key => $value) {
         $funcoes = $value . ' ● ';
         echo $funcoes;
     }
-    
-
-
-} catch(PDOException $e){
- 
+} catch (PDOException $e) {
 }
-
-// echo get_debug_type($rt);
-
-// if(is_array($rt)){
-//     echo "é uma array";
-// } else {
-//     echo "nao é uma array";
-// }
-
-// echo $_SESSION['id'];
-// echo $_SESSION['nome'];
-// echo $_SESSION['funcao_usuario'];
-
-
 
 $nome_completo = $_SESSION['nome'];
 $partes_do_nome = explode(' ', $nome_completo);

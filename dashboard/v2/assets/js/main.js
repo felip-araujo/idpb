@@ -1,3 +1,15 @@
+let sidebarOpen = true; // variável para controlar se a sidebar está aberta ou fechada
+
+function toggleNav() {
+    if (sidebarOpen) {
+        closeNav();
+        sidebarOpen = false;
+    } else {
+        openNav();
+        sidebarOpen = true;
+    }
+}
+
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
     document.querySelector(".main").style.marginLeft = "250px";
@@ -7,6 +19,10 @@ function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.querySelector(".main").style.marginLeft = "0";
 }
+
+// Adicione um evento de clique ao elemento que o usuário usará para abrir/fechar a sidebar
+document.getElementById("toggleSidebarBtn").addEventListener("click", toggleNav);
+
 
 $(document).ready(function() {
     $('#linkMembros').click(function(e) {

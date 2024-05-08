@@ -76,7 +76,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
 
     <div class="main">
         <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" onclick="openNav()">
+            <button class="navbar-toggler" type="button" id="toggleSidebarBtn" onclick="openNav()">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- <a class="navbar-brand"><i><img src="/idpb/assets/css/image/main-logo.png" class="w-25 d-fluid" alt=""></i> </a> -->
