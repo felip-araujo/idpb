@@ -1,10 +1,6 @@
 <?php
-
 include 'conexao.php';
 try {
-
-
-
     $qr1 = $pdo->prepare(
         "SELECT Funcoes_X.Nome_Funcao
         FROM Usuario_Funcoes_X
@@ -14,6 +10,7 @@ try {
     $qr1->bindParam(':id_usuario', $_SESSION['id']);
     $qr1->execute();
     $rt = $qr1->fetchAll(PDO::FETCH_COLUMN);
+
 
     foreach ($rt as $key => $value) {
         $funcoes = $value . ' ● ';

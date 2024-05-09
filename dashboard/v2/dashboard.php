@@ -6,8 +6,9 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo '<script>window.location.href="/idpb/login"</script>';
 } else {
     
-}
+} 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

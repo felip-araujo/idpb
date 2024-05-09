@@ -57,3 +57,36 @@ $(document).ready(function() {
             });
     });
 }); 
+
+$(document).ready(function() {
+    $.ajax({
+        url: 'processar_notificacoes.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.success) {
+                showNotification(response.message, 'info');
+                if (response.data) {
+                    // Se houver dados na resposta, você pode fazer algo com eles
+                    console.log(response.data);
+                }
+            } else {
+                showNotification(response.message, 'danger');
+            }
+        },
+        error: function(xhr, status, error) {
+            showNotification('Erro ao carregar notificações.', 'danger');
+            console.error(xhr.responseText);
+        }
+    });
+});
+
+function showNotification(message, type) {
+    var alertClass = 'alert-' + type;
+    var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">'
+                   + message
+                   + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+                   + '</div>';
+    $('.floating-alerts').append(alertHtml);
+    $('.floating-alerts .alert').last().alert();
+}
