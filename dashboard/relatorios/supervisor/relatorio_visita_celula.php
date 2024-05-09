@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 // Habilitar a exibição de erros
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -13,9 +15,10 @@ if (!isset($pdo)) {
 }
 
 // Busca os números das células para a coordenação 14 na tabela Usuarios_X
-$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = 14";
+$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = :id";
 try {
     $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id', $_SESSION['id']);
     $stmt->execute();
     $celulas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
