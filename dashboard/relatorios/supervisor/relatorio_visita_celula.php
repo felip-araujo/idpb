@@ -1,24 +1,23 @@
 <?php
 
 session_start();
-// Habilitar a exibição de erros
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+include 'conexao.php';
 
-// Caminho absoluto para o arquivo de conexão
-require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
 
-// Verificar se a conexão foi estabelecida 
-if (!isset($pdo)) {
-    die('Falha ao carregar a conexão com o banco de dados.');
+$busca_num_supervisao = $pdo->prepare("SELECT * FROM Usuarios_X WHERE ID_Usuario = :id_usuario "); 
+$busca_num_supervisao->bindParam(':id_usuario', $_SESSION['id']); 
+$busca_num_supervisao->execute();
+$resultados = $busca_num_supervisao->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($resultados as $key => $value) {
+    $num_supervisao = $value['Numero_Supervisao'];
 }
 
+
 // Busca os números das células para a coordenação 14 na tabela Usuarios_X
-$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = :id";
+$query = "SELECT DISTINCT Numero_Celula FROM Usuarios_X WHERE Numero_Supervisao = $num_supervisao";
 try {
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':id', $_SESSION['id']);
     $stmt->execute();
     $celulas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {

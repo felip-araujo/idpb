@@ -1,5 +1,5 @@
 <?php
-require '/opt/bitnami/apache/htdocs/idpb/dashboard/relatorios/conexao.php';
+require './conexao.php';
 
 // Busca os líderes da supervisão na view criada
 $query = "SELECT DISTINCT Numero_Celula, Nome_Lider FROM ViewCelulasInfo WHERE Numero_Supervisao = 14";
@@ -22,7 +22,7 @@ try {
 <body>
     <div class="container">
         <h1>Relatório de Visita ao Líder</h1>
-        <form method="post" action="processa_relatorio_2.php">
+        <form method="post" action="processa_relatorio_lider.php">
             <div class="mb-3">
                 <label for="lider_info" class="form-label">Selecione o Líder:</label>
                 <select name="lider_info" id="lider_info" class="form-select" required>
