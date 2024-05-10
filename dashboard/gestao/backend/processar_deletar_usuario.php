@@ -34,5 +34,7 @@ try {
             echo "Erro na Solicitação!";
         }
     }
-} catch (PDOException $e) {
+} catch (PDOException $e) { 
 }
+
+

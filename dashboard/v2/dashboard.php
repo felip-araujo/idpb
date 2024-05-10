@@ -26,6 +26,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
 
 <body>
 
+    <?php include_once './php/teste-notificacao.php' ?>
+
     <!-- Modal -->
     <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">

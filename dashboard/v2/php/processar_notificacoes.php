@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './dashboard/v2/php/conexao.php';
+include 'conexao.php';
 
 try {
     $busca_funcao_adm = $pdo->prepare("SELECT * FROM Usuario_Funcoes_X WHERE ID_Usuario = :id_solicitante AND ID_Funcao = 6");
@@ -65,3 +65,5 @@ try {
 // Retornar a resposta como JSON
 header('Content-Type: application/json');
 echo json_encode($response);
+
+

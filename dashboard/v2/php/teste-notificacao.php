@@ -39,8 +39,6 @@
     $('.floating-alerts .alert').last().alert();
   }
 
-  // Exemplo de uso
-  showNotification('Sua mensagem foi enviada com sucesso.', 'success');
 </script>
 </body>
 </html>
