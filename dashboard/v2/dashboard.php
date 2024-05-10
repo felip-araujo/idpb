@@ -5,8 +5,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo "<script>alert('Usuário não autenticado, faça login!')</script>";
     echo '<script>window.location.href="/idpb/login"</script>';
 } else {
-    
-} 
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +19,15 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" href="/idpb/assets/images/f_logo.svg">
-    <link rel="stylesheet" href="./assets/css/main.css"> 
-    
+    <link rel="stylesheet" href="./assets/css/main.css">
+
 </head>
+
+
 
 <body>
 
-    <?php include_once './php/teste-notificacao.php' ?>
+
 
     <!-- Modal -->
     <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -67,8 +68,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> 
-        <p class="text-center font-italic" style="font-size:smaller; margin-top: 1rem" > <?php include './php/saud.php'; ?> </p>
+        <a href="javascript:void(0)" class="closebtn" style="font-size: medium;" onclick="closeNav()">×</a>
+        <p class="text-center font-italic" style="font-size:small; margin-top: 1rem"> <?php include './php/saud.php'; ?> </p>
         <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem; margin-top: .8rem;" href="#"> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
         <a id="linkMembros" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-user"></i> Membros</a>
         <a id="linkCelulas" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Celulas</a>
@@ -87,20 +88,19 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         </nav>
 
         <div class="container-fluid">
-
             <h3 style="font-weight: 700; margin-top: .9rem;"><?php echo $saudacao . ', ' . $primeiro_nome . '!'; ?> </h3>
             <p>Aqui você pode gerenciar tudo!</p>
-
+            
             <div class="container d-fluid text-left " style="padding: 1rem;">
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meuModal">
                     Cadastrar novo membro na liderança
                 </button>
-        
+
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inserir_funcao_membro">
                     Inserir nova Função para Membro da Liderança
                 </button>
-               
+
             </div>
             <div id="loadingIcon" style=" display: none; color:#222;" class="text-center">
                 <i class="fa fa-spinner fa-spin"></i>
@@ -108,10 +108,11 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
 
             <div class="container" id="conteudoMembros"></div>
             <div class="container" id="conteudoCelulas"></div>
+            <div class="container" id="solicitacoes"></div>
             <div class="container-fluid">
                 <div class="row" style="background-color: #999; padding: 1rem;">
                     <div class="col-sm text-light rounded" style="background-color:#222; margin-left:.5rem; margin-right:.5rem;">
-                        <?php include_once '../graficos/analise.php' ?>
+                    <?php include './php/teste-notificacao.php' ?>
                     </div>
                     <div class="col-sm text-light rounded" style="background-color:#444; margin-left:.5rem; margin-right:.5rem;">
                         2
@@ -120,7 +121,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="./assets/js/main.js"></script> 
+        <script src="./assets/js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

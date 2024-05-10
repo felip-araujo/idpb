@@ -24,70 +24,73 @@ function closeNav() {
 document.getElementById("toggleSidebarBtn").addEventListener("click", toggleNav);
 
 
-$(document).ready(function() {
-    $('#linkMembros').click(function(e) {
+$(document).ready(function () {
+    $('#linkMembros').click(function (e) {
         e.preventDefault(); // Previne o comportamento padrão do link
         $('#loadingIcon').show(); // Mostra o ícone de carregamento
         // Carrega o conteúdo e depois esconde o ícone de carregamento
-        $('#conteudoMembros').load('../gestao/membros.html', function() {
+        $('#conteudoMembros').load('../gestao/membros.html', function () {
             $('#loadingIcon').hide(); // Esconde o ícone de carregamento
         });
         $('#fecharTabelaMembros').show();
-            $(document).on('click', '#fecharTabelaMembros', function() {
-                // Esconde o contêiner que tem a tabela de membros
-                $('#conteudoMembros').empty(); // Remove o conteúdo ou
-                //$('#conteudoMembros').hide(); // Apenas esconde o contêiner, dependendo da preferência
-            });
+        $(document).on('click', '#fecharTabelaMembros', function () {
+            // Esconde o contêiner que tem a tabela de membros
+            $('#conteudoMembros').empty(); // Remove o conteúdo ou
+            //$('#conteudoMembros').hide(); // Apenas esconde o contêiner, dependendo da preferência
+        });
     });
-}); 
+});
 
-$(document).ready(function() {
-    $('#linkCelulas').click(function(e) {
+$(document).ready(function () {
+    $('#linkCelulas').click(function (e) {
         e.preventDefault(); // Previne o comportamento padrão do link
         $('#loadingIcon').show(); // Mostra o ícone de carregamento
         // Carrega o conteúdo e depois esconde o ícone de carregamento
-        $('#conteudoCelulas').load('../gestao/celulas.html', function() {
+        $('#conteudoCelulas').load('../gestao/celulas.html', function () {
             $('#loadingIcon').hide(); // Esconde o ícone de carregamento
         });
         $('#fecharTabelaCelulas').show();
-            $(document).on('click', '#fecharTabelaCelulas', function() {
-                // Esconde o contêiner que tem a tabela de membros
-                $('#conteudoCelulas').empty(); // Remove o conteúdo ou
-                //$('#conteudoMembros').hide(); // Apenas esconde o contêiner, dependendo da preferência
-            });
+        $(document).on('click', '#fecharTabelaCelulas', function () {
+            // Esconde o contêiner que tem a tabela de membros
+            $('#conteudoCelulas').empty(); // Remove o conteúdo ou
+            //$('#conteudoMembros').hide(); // Apenas esconde o contêiner, dependendo da preferência
+        });
     });
-}); 
+});
+
+function abrirSolicitacoes() {
+
+    $('#solicitacoes').load('../gestao/solicitacoes.html', function () {
+    })
+}
 
 function showNotification(message, type) {
     var alertClass = 'alert-' + type;
     var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">'
-                   + message
-                   + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
-                   + '<button type="button" class="btn btn-success">Ver</button>'
-                   + '</div>';
+        + message
+        + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+        + '<button type="button" onclick="abrirSolicitacoes()" style="margin-left: .4rem;" class="btn btn-primary">Analisar</button>'
+        + '</div>';
     $('.floating-alerts').append(alertHtml);
     $('.floating-alerts .alert').last().alert();
 }
 
-
-
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajax({
         url: '../v2/php/processar_notificacoes.php',
         type: 'GET',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             if (response.success) {
                 showNotification(response.message, 'info');
                 if (response.data) {
-                    console.log(response.data);  
-                    
+
                 }
             } else {
                 // showNotification(response.message, 'danger');
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             showNotification('Erro ao carregar notificações.', 'danger');
         }
     });
