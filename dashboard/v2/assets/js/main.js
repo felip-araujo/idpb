@@ -59,10 +59,11 @@ $(document).ready(function () {
 });
 
 function abrirSolicitacoes() {
-
     $('#solicitacoes').load('../gestao/solicitacoes.html', function () {
     })
 }
+
+
 
 function showNotification(message, type) {
     var alertClass = 'alert-' + type;

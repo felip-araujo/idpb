@@ -49,7 +49,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         </div>
     </div>
 
-    <!-- Modal 3 -->
+    <!-- Modal 2 -->
     <div class="modal fade" id="inserir_funcao_membro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -66,6 +66,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             </div>
         </div>
     </div>
+
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" style="font-size: medium;" onclick="closeNav()">×</a>
@@ -109,6 +110,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             <div class="container" id="conteudoMembros"></div>
             <div class="container" id="conteudoCelulas"></div>
             <div class="container" id="solicitacoes"></div>
+            <div class="container" id="excUsuarios"></div>
             <div class="container-fluid">
                 <div class="row" style="background-color: #999; padding: 1rem;">
                     <div class="col-sm text-light rounded" style="background-color:#222; margin-left:.5rem; margin-right:.5rem;">
