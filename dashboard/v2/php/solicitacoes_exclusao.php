@@ -38,7 +38,7 @@ try {
         $table .=    "<td>" . htmlspecialchars($solicitacao['nome_solicitante']) . "</td>";
         $table .=    "<td>" . htmlspecialchars($solicitacao['nome_excluido']) . "</td>";
         $table .=    "<td>" . htmlspecialchars($solicitacao['data']) . "</td>";
-        $table .=    '<td><button class="btn btn-danger" onclick="confirmarExclusao(' . $solicitacao['id'] . $solicitacao['id_usuario_exclusao'] . ')" >Confirmar Exclusão</button></td>';
+        $table .=    '<td><button class="btn btn-danger" onclick="confirmarExclusao(' . $solicitacao['id'] . ')" >Confirmar Exclusão</button></td>';
         $table .=    '<td><button class="btn btn-secondary" onclick="rejeitarExclusao(' . $solicitacao['id'] . ')">Rejeitar Exclusão</button></td>';
         $table .=  '</tr>';
     }

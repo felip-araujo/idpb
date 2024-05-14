@@ -109,8 +109,19 @@ $(document).ready(function () {
 })
 
 
-function editUser() {
-    alert("teste edit");
+function editUser(userId) {
+    $.ajax({
+        type: 'POST',
+        url: '../gestao/backend/editar-usuario.php',
+        data: {editUserId: userId}, 
+        success: function (response) {
+            // $('#usuariosEditar').html("<table>" + response + "</table>");
+            $('#usuariosEditar').html(response);
+        },
+        error: function () {
+            $('#usuariosEditar').html("<p>Ocorreu um erro ao tentar carregar os dados.</p>")
+        }
+    })
 }
 
 

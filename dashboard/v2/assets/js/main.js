@@ -63,6 +63,10 @@ function abrirSolicitacoes() {
     })
 }
 
+function editarMembros() {
+    $('#tables').load('../gestao/excluir-usuarios.html', function () {
+    })
+}
 
 
 function showNotification(message, type) {

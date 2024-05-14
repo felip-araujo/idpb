@@ -26,7 +26,7 @@ try {
         VALUES (:id_usuario_solicitante, :id_usuario_exclusao, :mensagem, NOW())");
         $inserir_solicitacao->bindParam(':id_usuario_solicitante', $_SESSION['id']);
         $inserir_solicitacao->bindParam(':id_usuario_exclusao', $id_usuario);
-        $inserir_solicitacao->bindValue(':mensagem', "Usuario com o ID {$_SESSION['id']} solicitou a exclusão.");
+        $inserir_solicitacao->bindValue(':mensagem', "{$_SESSION['nome']} solicitou a exclusão.");
 
         if ($inserir_solicitacao->execute()) {
             echo "Solicitação enviada ao administrador!";

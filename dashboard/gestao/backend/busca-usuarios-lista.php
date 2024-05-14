@@ -27,7 +27,7 @@ try {
         $table .=    "<td>" . htmlspecialchars($usuario['ID_Usuario']) . "</td>";
         $table .=    "<td>" . htmlspecialchars($usuario['Nome']) . "</td>";
         $table .=    "<td>" . htmlspecialchars($usuario['Funcoes']) . "</td>";
-        $table .=    '<td><button class="btn btn-primary" onclick="editUser(' . $usuario['ID_Usuario'] . ')">Editar</button></td>';
+        $table .=    '<td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar_usuario" onclick="editUser(' . $usuario['ID_Usuario'] . ')">Editar</button></td>';
         $table .=    '<td><button class="btn btn-danger" id="deleteUser" name="deleteUserId" onclick="deleteUser (' . $usuario['ID_Usuario'] . ')">Excluir</button></td>';
         $table .=  '</tr>';
     }
