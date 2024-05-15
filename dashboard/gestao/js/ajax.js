@@ -182,3 +182,16 @@ $(document).ready(function () {
         downloadLink.remove();
     }
 });
+
+function fetchAndPopulateCells(selectElementId) {
+    $.ajax({
+        url: '../gestao/backend/busca_celula.php',
+        type: 'GET', 
+        success: function(response) {
+            $('#' + selectElementId).html(response);
+        }, 
+        error: function() {
+            $('#' + selectElementId).html('<option>Erro ao carregar células!</option>');
+        }
+    });
+}

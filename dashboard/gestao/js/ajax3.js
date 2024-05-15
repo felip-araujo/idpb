@@ -24,11 +24,10 @@ function confirmarExclusao(id, idUsuarioExclusao) {
 
                 alert(response);
                 location.reload();
-                $('#mostrarGrade').html(response);
+                
             },
             error: function (response) {
                 alert(response);
-                $('#mostrarGrade').html(response);
             }
         });
     }
@@ -47,11 +46,11 @@ function rejeitarExclusao(id, idUsuarioExclusao) {
 
             alert(response);
             location.reload();
-            $('#mostrarGrade').html(response);
+            
         },
         error: function (response) {
             alert(response);
-            $('#mostrarGrade').html(response);
+            
         }
     });
 } 

@@ -10,7 +10,7 @@ try {
     
     ")->fetchAll(PDO::FETCH_ASSOC);
 
-    $table = '<table class="table table-dark rounded">';
+    $table = '<table class="table table-dark table-responsive rounded">';
     $table .= '<thead style="margin-bottom: .5rem;">';
     $table .=  '<tr>';
     $table .=    '<th scope="col">ID:</th>';

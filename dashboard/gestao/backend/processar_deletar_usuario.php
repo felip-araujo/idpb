@@ -9,15 +9,20 @@ try {
     $busca_funcao_adm->bindParam('id_solicitante', $_SESSION['id']);
     $busca_funcao_adm->execute();
     if ($busca_funcao_adm->rowCount() >= 1) {
-        try {
-            $deletar = $pdo->prepare("DELETE FROM Usuarios_X WHERE ID_Usuario = :id_usuario");
-            $deletar->bindParam(':id_usuario', $id_usuario);
+
+        $deletar_funcoes = $pdo->prepare("DELETE FROM Usuario_Funcoes_X WHERE ID_Usuario = :i");
+        $deletar_funcoes->bindParam(':i', $id_usuario);
+        if ($deletar_funcoes->execute()) {
+
+            $deletar = $pdo->prepare("DELETE FROM Usuarios_X WHERE ID_Usuario = :id_delete");
+            $deletar->bindParam(':id_delete', $id_usuario);
             if ($deletar->execute()) {
-                echo "Usuário removido com sucesso!";
+                echo " Usuario removido do Sistema!";
             } else {
-                "Usuário nao removido!";
+                echo "Erro na exclusão do usuario";
             }
-        } catch (PDOException $e) {
+        } else {
+            echo "Erro ao deletar funcoes do usuario";
         }
     } else {
 
@@ -34,7 +39,5 @@ try {
             echo "Erro na Solicitação!";
         }
     }
-} catch (PDOException $e) { 
+} catch (PDOException $e) {
 }
-
-
