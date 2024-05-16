@@ -136,10 +136,10 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
             <div class="container" id="excUsuarios"></div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col rounded" style="background-color:#999; margin-left:.5rem; margin-top:.8rem; margin-right:.5rem;">
+                    <div class="col rounded" style="background-color:#eee; margin-left:.5rem; margin-top:.8rem; margin-right:.5rem;">
                         <?php include './php/teste-notificacao.php' ?>
                     </div>
-                    <div class="col text-light rounded" style="background-color:#777; margin-left:.5rem; margin-right:.5rem; margin-top:.8rem" id="tables">
+                    <div class="col text-light rounded" style="margin-left:.5rem; margin-right:.5rem; margin-top:.8rem" id="tables">
 
                     </div>
                 </div>
