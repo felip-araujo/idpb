@@ -1,0 +1,53 @@
+## Quais respostas temos? *e pretendemos ter**
+
+- Total de Pessoas (contagem de CPF’s)
+- Total de Crianças (até 12 anos)
+- Total de Jovens (13 até 29 anos)
+- Total de Casados (não confundir com número de casais que congregam na igreja)
+- Total de Idosos (+60)
+- Totais de relacionamentos
+    - Solteiros
+    - Casados
+    - Divorciados
+    - Viúvos
+- Total de Escolaridade
+    - Fundamental
+    - Médio
+    - Superior
+    - Pós-graduação
+    - Mestrado
+    - Doutorado
+- Total de Homens
+- Total de Mulheres
+- Total de Famílias (ainda não)
+- Total de Usuários do sistema (contagem pela tabela de usuários)
+- Total de Células (Agrupar pelo número da célula)
+- Total de Coordenações (Agrupar pelo número da coordenação)
+- Novos Membros (data de entrada na igreja)
+- Membros que saíram (contagem de membros ‘não ativos’ na coluna ‘ativo’ (booleano) )
+- Aniversários esse mês
+    - array com a data do aniversário e o nome e CPF do aniversariante.
+- Total de Convertidos
+    - E array com nome do membro e se é convertido
+- Total de não Convertidos
+    - E array com nome do membro e se não é convertido
+- Todas as Profissões
+    - E array com nome do membro e a profissão
+- Total de Batismos
+- Total de Eventos Próximos (tabela de eventos com data)
+- Mapa de calor com localização dos membros(mapa)
+    - Quantidade de membros por bairro(número)
+- Total de participantes de ministério
+    - Array com nome, CPF, e-mail e ministério
+- Acessos ao site da igreja
+- Número Visualizações das lives no domingo
+    - Esse é interessante captar os valores e montar um gráfico
+
+### **Contribuições e Doações**
+
+- **Total de contribuições por mês**
+- **Número de doadores**
+- **Média de contribuição por doador**
+- **Distribuição das doações por tipo (dízimos, ofertas, campanhas específicas)**
+- **Evolução das contribuições ao longo do tempo**
+- **Eventos com maiores contribuições**
