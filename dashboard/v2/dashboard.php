@@ -6,6 +6,30 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     echo '<script>window.location.href="/idpb/login"</script>';
 } else {
 }
+
+
+$cadastrarMembro = false;
+$inserirFuncaoMembro = false;
+$solicitarEdicao = false;
+$membros = false;
+$celulas = false;
+$suporte = false;
+$relatorios = false;
+$dash = false;
+
+
+if ($_SESSION['funcao_usuario'] == 1 and 6) {
+    $cadastrarMembro = true;
+    $inserirFuncaoMembro = true;
+    $solicitarEdicao = true;
+    $membros = true;
+    $celulas = true;
+    $suporte = true;
+    $relatorios = true;
+    $dash = true;
+} else if ($_SESSION['funcao_usuario'] == 5) {
+    $relatorios = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +73,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
         </div>
     </div>
 
+
+
     <!-- Modal 2 -->
     <div class="modal fade" id="inserir_funcao_membro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -58,7 +84,9 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php include('../gestao/inserir-nova-funcao-em-usuario.html') ?>
+                    <?php
+                    include('../gestao/inserir-nova-funcao-em-usuario.html');
+                    ?>
                 </div>
                 <div class="modal-footer">
 
@@ -90,11 +118,21 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" style="font-size: medium;" onclick="closeNav()">×</a>
         <p class="text-center font-italic" style="font-size:small; margin-top: 1rem"> <?php include './php/saud.php'; ?> </p>
-        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem; margin-top: .8rem;" href="#"> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
-        <a id="linkMembros" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-user"></i> Membros</a>
-        <a id="linkCelulas" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Celulas</a>
-        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-chart-bar"></i> Relatórios</a>
-        <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-receipt"></i></i> Suporte</a>
+        <?php if ($dash) : ?>
+            <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem; margin-top: .8rem;" href="#"> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
+        <?php endif; ?>
+        <?php if ($membros) : ?>
+            <a id="linkMembros" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-user"></i> Membros</a>
+        <?php endif; ?>
+        <?php if ($celulas) : ?>
+            <a id="linkCelulas" style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-users"></i> </i> Celulas</a>
+        <?php endif; ?>
+        <?php if ($relatorios) : ?>
+            <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-chart-bar"></i> Relatórios</a>
+        <?php endif; ?>
+        <?php if ($suporte) : ?>
+            <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-receipt"></i></i> Suporte</a>
+        <?php endif; ?>
         <a style="background-color:#222; font-size: 18px; text-decoration:none; margin-bottom: .5rem;" href="#"> <i class="fa-solid fa-gear"></i> Configurações</a>
     </div>
 
@@ -113,17 +151,23 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['nome'])) {
 
             <div class="container d-fluid text-left " style="padding: 1rem;">
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meuModal">
-                    Cadastrar novo membro na liderança
-                </button>
+                <?php if ($cadastrarMembro) : ?>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meuModal">
+                        Cadastrar novo membro na liderança
+                    </button>
+                <?php endif; ?>
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inserir_funcao_membro">
-                    Inserir nova Função para Membro da Liderança
-                </button>
+                <?php if ($inserirFuncaoMembro) : ?>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inserir_funcao_membro">
+                        Inserir nova Função para Membro da Liderança
+                    </button>
+                <?php endif; ?>
 
-                <button type="button" class="btn btn-primary" onclick="editarMembros()">
-                    Solicitar Edição
-                </button>
+                <?php if ($solicitarEdicao) : ?>
+                    <button type="button" class="btn btn-primary" onclick="editarMembros()">
+                        Solicitar Edição
+                    </button>
+                <?php endif; ?>
 
             </div>
             <div id="loadingIcon" style=" display: none; color:#222;" class="text-center">
