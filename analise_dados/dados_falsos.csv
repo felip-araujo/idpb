@@ -1,4 +1,4 @@
-cpf,nome_completo,data_nascimento,genero,numero_celular,email,estado_civil,numero_celula,participacao_ministerio,data_batismo,data_conversao,escolaridade,profissao,cep,rua,bairro,cidade,uf,numero,receber_noticias,id
+cpf,nome_completo,data_nascimento,genero,numero_celular,email,estado_civil,numero_celula,participacao_ministerio,data_batismo,da    
 467.318.295-28,Matteo Abreu,1986-04-27,Feminino,(92)947377796,maria-florferreira@example.net,Viúvo(a),1,Intercessão,2022-06-05,2024-06-07,Superior,Coach,69070-421,Chácara de Teixeira,Cinquentenário,Manaus,AM,198,Sim,1
 461.758.029-85,Dra. Laura Rezende,1983-03-24,Masculino,(92)975673456,manuelamacedo@example.org,Viúvo(a),8,MIDAF - Dança,2022-04-20,2024-06-25,Superior,Ambulante,69072-971,Setor Guerra,Alta Tensão 1ª Seção,Manaus,AM,634,Sim,2
 165.034.972-61,Enrico Vargas,1962-03-09,Masculino,(92)926954816,aliceda-rosa@example.org,Viúvo(a),6,Comunicação,2020-11-08,2024-04-18,Mestrado,Engenheiro mecatrônico,69074-393,Viela Pastor,Fazendinha,Manaus,AM,603,Não,3
