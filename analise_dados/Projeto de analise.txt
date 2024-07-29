@@ -3,7 +3,6 @@
 - Total de Pessoas (contagem de CPF’s)
 - Total de Crianças (até 12 anos)
 - Total de Jovens (13 até 29 anos)
-- Total de Casados (não confundir com número de casais que congregam na igreja)
 - Total de Idosos (+60)
 - Totais de relacionamentos
     - Solteiros
