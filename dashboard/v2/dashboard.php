@@ -32,7 +32,7 @@ if ($_SESSION['funcao_usuario'] == 1 and 6) {
 }
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 
 <head>
