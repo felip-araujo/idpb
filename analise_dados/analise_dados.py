@@ -5,20 +5,26 @@ from datetime import datetime
 import os
 
 # Caminhos dos diretórios
-csv_dir = 'analise_dados/dados_csv'
-json_dir = 'analise_dados/json'
+base_dir = '/home/bitnami/htdocs/idpb'
+csv_dir = os.path.join(base_dir, 'analise_dados/dados_csv')
+json_dir = os.path.join(base_dir, 'analise_dados/json')
 
 # Função para criar diretórios
 def criar_diretorio(diretorio):
     try:
         os.makedirs(diretorio, exist_ok=True)
         print(f'Diretório criado ou já existe: {diretorio}')
+        if os.path.exists(diretorio):
+            print(f'O diretório {diretorio} foi verificado como existente no sistema de arquivos.')
+        else:
+            print(f'O diretório {diretorio} não foi encontrado após a tentativa de criação.')
     except Exception as e:
         print(f'Erro ao criar diretório {diretorio}: {e}')
 
 # Criar diretórios se não existirem
 criar_diretorio(csv_dir)
 criar_diretorio(json_dir)
+
 
 # Conectar ao banco de dados
 conexao = mariadb.connect(
