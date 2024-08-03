@@ -4630,3 +4630,15 @@ Traceback (most recent call last):
   File "/home/bitnami/htdocs/idpb/analise_dados/analise_dados.py", line 1, in <module>
     import pymysql
 ModuleNotFoundError: No module named 'pymysql'
+Traceback (most recent call last):
+  File "/home/bitnami/htdocs/idpb/analise_dados/analise_dados.py", line 1, in <module>
+    import pymysql
+ModuleNotFoundError: No module named 'pymysql'
+Traceback (most recent call last):
+  File "/home/bitnami/htdocs/idpb/analise_dados/analise_dados.py", line 1, in <module>
+    import pymysql
+ModuleNotFoundError: No module named 'pymysql'
+Traceback (most recent call last):
+  File "/home/bitnami/htdocs/idpb/analise_dados/analise_dados.py", line 1, in <module>
+    import pymysql
+ModuleNotFoundError: No module named 'pymysql'
