@@ -1,4 +1,4 @@
-import mariadb
+import pymysql
 import pandas as pd
 import json
 from datetime import datetime
@@ -27,7 +27,7 @@ criar_diretorio(json_dir)
 
 
 # Conectar ao banco de dados
-conexao = mariadb.connect(
+conexao = pymysql.connect(
     host="54.196.208.38",
     user="root",
     password="qiykGUao3R.D",
@@ -43,21 +43,21 @@ sql.execute("SELECT * FROM membros")
 resultados = sql.fetchall()
 colunas = [desc[0] for desc in sql.description]
 df_membros = pd.DataFrame(resultados, columns=colunas)
-df_membros.to_csv('analise_dados/dados_csv/dados_membros.csv', index=False)
+df_membros.to_csv('dados_csv/dados_membros.csv', index=False)
 
 # Executar a consulta e criar DataFrame para celulas
 sql.execute("SELECT * FROM celulas")
 resultados = sql.fetchall()
 colunas = [desc[0] for desc in sql.description]
 df_celulas = pd.DataFrame(resultados, columns=colunas)
-df_celulas.to_csv('analise_dados/dados_csv/dados_celulas.csv', index=False)
+df_celulas.to_csv('dados_csv/dados_celulas.csv', index=False)
 
 # Executar a consulta e criar DataFrame para usuarios
 sql.execute("SELECT * FROM usuarios")
 resultados = sql.fetchall()
 colunas = [desc[0] for desc in sql.description]
 df_usuarios = pd.DataFrame(resultados, columns=colunas)
-df_usuarios.to_csv('analise_dados/dados_csv/dados_usuarios.csv', index=False)
+df_usuarios.to_csv('dados_csv/dados_usuarios.csv', index=False)
 
 # Fechar o cursor e a conexão
 sql.close()
@@ -182,17 +182,17 @@ profissoes = {
 }
 
 # Salvar em arquivos JSON
-with open('analise_dados/json/dados_analisados.json', 'w', encoding='utf-8') as f:
+with open('json/dados_analisados.json', 'w', encoding='utf-8') as f:
     json.dump(dados_json, f, ensure_ascii=False, indent=4)
 
-with open('analise_dados/json/participa_ministerio.json', 'w', encoding='utf-8') as f:
+with open('json/participa_ministerio.json', 'w', encoding='utf-8') as f:
     json.dump(participa_ministerio, f, ensure_ascii=False, indent=4)
 
-with open('analise_dados/json/batizados.json', 'w', encoding='utf-8') as f:
+with open('json/batizados.json', 'w', encoding='utf-8') as f:
     json.dump(batizados, f, ensure_ascii=False, indent=4)
 
-with open('analise_dados/json/convertidos.json', 'w', encoding='utf-8') as f:
+with open('json/convertidos.json', 'w', encoding='utf-8') as f:
     json.dump(convertidos, f, ensure_ascii=False, indent=4)
 
-with open('analise_dados/json/profissoes.json', 'w', encoding='utf-8') as f:
+with open('json/profissoes.json', 'w', encoding='utf-8') as f:
     json.dump(profissoes, f, ensure_ascii=False, indent=4)
