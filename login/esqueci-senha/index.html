@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../asstes.login/login.css">
+    <link rel="icon" href="../assets/images/f_logo.svg">
+
+</head>
+
+<body>
+    <div class="container-wrapper">
+        <div class="container-login">
+            <img src="../assets/images/f_logo.svg" alt="" class="logotipo">
+            <h1 class="titulo" style="font-weight: 600; margin-bottom: -1rem;">Redefinir Senha</h1>
+
+
+            <form class="formulario" action="../php/esqueci-senha.php" method="post">
+                <div class="input-box">
+                    <label for="email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </label>
+                    <input class="input" type="email" id="email" name="email" placeholder="digite o seu e-mail"
+                        required>
+                </div>
+                <div class="input-box">
+
+                    <button class="input-btn" type="submit" name="enviar">Enviar Código</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- codigo de importação do font awesome -->
+    <script src="https://kit.fontawesome.com/d4755c66d3.js" crossorigin="anonymous"></script>
+    <script src="./asstes.login/main.js"></script>
+</body>
+
+</html>

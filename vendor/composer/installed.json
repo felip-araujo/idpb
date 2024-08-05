@@ -1,14 +1,9 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "b74e2621170b87c7a4bcf608b4beec66",
     "packages": [
         {
             "name": "aws/aws-crt-php",
             "version": "v1.2.4",
+            "version_normalized": "1.2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awslabs/aws-crt-php.git",
@@ -30,7 +25,9 @@
             "suggest": {
                 "ext-awscrt": "Make sure you install awscrt native extension to use any of the functionality."
             },
+            "time": "2023-11-08T00:42:13+00:00",
             "type": "library",
+            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "src/"
@@ -58,11 +55,12 @@
                 "issues": "https://github.com/awslabs/aws-crt-php/issues",
                 "source": "https://github.com/awslabs/aws-crt-php/tree/v1.2.4"
             },
-            "time": "2023-11-08T00:42:13+00:00"
+            "install-path": "../aws/aws-crt-php"
         },
         {
             "name": "aws/aws-sdk-php",
             "version": "3.300.9",
+            "version_normalized": "3.300.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
@@ -112,12 +110,14 @@
                 "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
                 "ext-sockets": "To use client-side monitoring"
             },
+            "time": "2024-03-01T19:04:32+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.0-dev"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/functions.php"
@@ -153,11 +153,12 @@
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.300.9"
             },
-            "time": "2024-03-01T19:04:32+00:00"
+            "install-path": "../aws/aws-sdk-php"
         },
         {
             "name": "guzzlehttp/guzzle",
             "version": "7.8.1",
+            "version_normalized": "7.8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
@@ -193,6 +194,7 @@
                 "ext-intl": "Required for Internationalized Domain Name (IDN) support",
                 "psr/log": "Required for using the Log middleware"
             },
+            "time": "2023-12-03T20:35:24+00:00",
             "type": "library",
             "extra": {
                 "bamarni-bin": {
@@ -200,6 +202,7 @@
                     "forward-command": false
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/functions_include.php"
@@ -279,11 +282,12 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-03T20:35:24+00:00"
+            "install-path": "../guzzlehttp/guzzle"
         },
         {
             "name": "guzzlehttp/promises",
             "version": "2.0.2",
+            "version_normalized": "2.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
@@ -302,6 +306,7 @@
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "phpunit/phpunit": "^8.5.36 || ^9.6.15"
             },
+            "time": "2023-12-03T20:19:20+00:00",
             "type": "library",
             "extra": {
                 "bamarni-bin": {
@@ -309,6 +314,7 @@
                     "forward-command": false
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "GuzzleHttp\\Promise\\": "src/"
@@ -362,11 +368,12 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-03T20:19:20+00:00"
+            "install-path": "../guzzlehttp/promises"
         },
         {
             "name": "guzzlehttp/psr7",
             "version": "2.6.2",
+            "version_normalized": "2.6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
@@ -396,6 +403,7 @@
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
+            "time": "2023-12-03T20:05:35+00:00",
             "type": "library",
             "extra": {
                 "bamarni-bin": {
@@ -403,6 +411,7 @@
                     "forward-command": false
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "GuzzleHttp\\Psr7\\": "src/"
@@ -478,11 +487,12 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-03T20:05:35+00:00"
+            "install-path": "../guzzlehttp/psr7"
         },
         {
             "name": "mtdowling/jmespath.php",
             "version": "2.7.0",
+            "version_normalized": "2.7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jmespath/jmespath.php.git",
@@ -502,6 +512,7 @@
                 "composer/xdebug-handler": "^3.0.3",
                 "phpunit/phpunit": "^8.5.33"
             },
+            "time": "2023-08-25T10:54:48+00:00",
             "bin": [
                 "bin/jp.php"
             ],
@@ -511,6 +522,7 @@
                     "dev-master": "2.7-dev"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/JmesPath.php"
@@ -544,11 +556,12 @@
                 "issues": "https://github.com/jmespath/jmespath.php/issues",
                 "source": "https://github.com/jmespath/jmespath.php/tree/2.7.0"
             },
-            "time": "2023-08-25T10:54:48+00:00"
+            "install-path": "../mtdowling/jmespath.php"
         },
         {
             "name": "phpmailer/phpmailer",
             "version": "v6.9.1",
+            "version_normalized": "6.9.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
@@ -587,7 +600,9 @@
                 "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)",
                 "thenetworg/oauth2-azure": "Needed for Microsoft XOAUTH2 authentication"
             },
+            "time": "2023-11-25T22:23:28+00:00",
             "type": "library",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "PHPMailer\\PHPMailer\\": "src/"
@@ -625,11 +640,12 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-25T22:23:28+00:00"
+            "install-path": "../phpmailer/phpmailer"
         },
         {
             "name": "psr/http-client",
             "version": "1.0.3",
+            "version_normalized": "1.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
@@ -645,12 +661,14 @@
                 "php": "^7.0 || ^8.0",
                 "psr/http-message": "^1.0 || ^2.0"
             },
+            "time": "2023-09-23T14:17:50+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Client\\": "src/"
@@ -677,11 +695,12 @@
             "support": {
                 "source": "https://github.com/php-fig/http-client"
             },
-            "time": "2023-09-23T14:17:50+00:00"
+            "install-path": "../psr/http-client"
         },
         {
             "name": "psr/http-factory",
             "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
@@ -697,12 +716,14 @@
                 "php": ">=7.0.0",
                 "psr/http-message": "^1.0 || ^2.0"
             },
+            "time": "2023-04-10T20:10:41+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Message\\": "src/"
@@ -732,11 +753,12 @@
             "support": {
                 "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
             },
-            "time": "2023-04-10T20:10:41+00:00"
+            "install-path": "../psr/http-factory"
         },
         {
             "name": "psr/http-message",
             "version": "2.0",
+            "version_normalized": "2.0.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
@@ -751,12 +773,14 @@
             "require": {
                 "php": "^7.2 || ^8.0"
             },
+            "time": "2023-04-04T09:54:51+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Message\\": "src/"
@@ -785,11 +809,12 @@
             "support": {
                 "source": "https://github.com/php-fig/http-message/tree/2.0"
             },
-            "time": "2023-04-04T09:54:51+00:00"
+            "install-path": "../psr/http-message"
         },
         {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
+            "version_normalized": "3.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ralouphie/getallheaders.git",
@@ -808,7 +833,9 @@
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^5 || ^6.5"
             },
+            "time": "2019-03-08T08:55:37+00:00",
             "type": "library",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/getallheaders.php"
@@ -829,11 +856,12 @@
                 "issues": "https://github.com/ralouphie/getallheaders/issues",
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
-            "time": "2019-03-08T08:55:37+00:00"
+            "install-path": "../ralouphie/getallheaders"
         },
         {
             "name": "symfony/deprecation-contracts",
             "version": "v3.4.0",
+            "version_normalized": "3.4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
@@ -848,6 +876,7 @@
             "require": {
                 "php": ">=8.1"
             },
+            "time": "2023-05-23T14:45:45+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -858,6 +887,7 @@
                     "url": "https://github.com/symfony/contracts"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "function.php"
@@ -896,11 +926,12 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-23T14:45:45+00:00"
+            "install-path": "../symfony/deprecation-contracts"
         },
         {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.29.0",
+            "version_normalized": "1.29.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -921,6 +952,7 @@
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
+            "time": "2024-01-29T20:11:03+00:00",
             "type": "library",
             "extra": {
                 "thanks": {
@@ -928,6 +960,7 @@
                     "url": "https://github.com/symfony/polyfill"
                 }
             },
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "bootstrap.php"
@@ -976,16 +1009,9 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "install-path": "../symfony/polyfill-mbstring"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "dev": true,
+    "dev-package-names": []
 }
