@@ -38,32 +38,6 @@ if (isset($_POST['enviar'])) {
             </script>";
             exit;
         }
-
-        // if ($resultado) {
-        //     $codigo_db = $resultado['codigo'];
-        //     $data_expiracao = $resultado['data_expiracao'];
-
-        //     // Verifica se o código é válido e não expirou
-        //     if ($codigo_enviado == $codigo_db && $dataHoraAtual < $data_expiracao) {
-        //         // Redireciona para a página de troca de senha com o código na URL
-        //         header("Location: ./troca-senha.php?codigo=" . urlencode($codigo_enviado));
-        //         exit;
-        //     } else {
-        //         // Código expirado ou inválido
-        //         echo "<script type='text/javascript'>
-        //             alert('Código inválido ou expirado!');
-        //             window.location.href = '../index.html';
-        //         </script>";
-        //         exit;
-        //     }
-        // } else {
-        //     // Código não encontrado no banco de dados
-        //     echo "<script type='text/javascript'>
-        //         alert('Código não encontrado!');
-        //         window.location.href = '../index.html';
-        //     </script>";
-        //     exit;
-        // }
     } catch (PDOException $e) {
         // Trata erros de conexão e execução
         echo "Erro ao acessar o banco de dados: " . $e->getMessage();
