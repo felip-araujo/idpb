@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\SMTP;
 // require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
 // require '/home/htdocs/idpb/vendor/autoload.php';
 // require_once  '../../vendor/autoload.php';
-require  '/opt/bitnami/apache/htdocs/idpb/vendor/autoload.php';
+require_once  '/opt/bitnami/apache/htdocs/idpb/vendor/autoload.php';
 
 
 date_default_timezone_set('America/Sao_Paulo');
