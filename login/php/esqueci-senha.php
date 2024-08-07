@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer
+require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
+require '/home/bitnami/htdocs/idpb/vendor/autoload.php'; // Carrega o autoloader do Composer PROD
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception; 
