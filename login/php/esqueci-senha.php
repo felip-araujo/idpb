@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
-require __DIR__ . 'idpb/vendor/autoload.php';
+// require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
+require '/home/htdocs/idpb/vendor/autoload.php';
+// require __DIR__ . '/home/htdocs/idpb/vendor/autoload.php';
 
 
 ini_set('display_errors', 1);
