@@ -58,7 +58,7 @@ if (isset($_POST['enviar'])) {
             // Conteúdo do Email
             $mail->isHTML(true);
             $mail->CharSet = 'UTF-8';
-            $mail->Subject = "Código de Verificação";
+            $mail->Subject = "Código de Verificação IDPB";
             $mail->Body    = "Seu código de verificação é <b>{$codigo}</b>";
             $mail->AltBody = "Seu código de verificação é {$codigo}";
 

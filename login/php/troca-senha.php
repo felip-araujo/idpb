@@ -22,7 +22,7 @@ if (isset($_GET['codigo'])) {
         if ($dataHoraAtual > $data_expiracao) {
 
             $mensagem = '<div class="alert alert-danger" role="alert">
-            Código expirado, tente novamente mais tarde!
+            Código expirado, solicite um novo código!
           </div>';
         } else {
             $mensagem = '<div class="alert alert-primary" role="alert" >
@@ -30,72 +30,71 @@ if (isset($_GET['codigo'])) {
           </div>';
 
             if (isset($_POST['alterar-senha'])) {
-                $novasenha = $_POST['nova-senha'];
-                $confirmsenha = $_POST['confirm-senha'];
 
-                // Verifica se as senhas coincidem
-                if ($novasenha !== $confirmsenha) {
-                    // echo 'Senhas não coincidem';
+                $nova_senha = $_POST['nova-senha'];
+                $confirm_senha = $_POST['confirm-senha'];
+
+
+                if ($nova_senha !== $confirm_senha) {
                     $mensagem = '<div class="alert alert-danger" role="alert">
-                    Senhas não coincidem!
+                    Senhas não coincidem
                   </div>';
                 } else {
-                    // Verifica o comprimento da senha
-                    if (strlen($novasenha) < 8) {
-                        // echo 'A senha deve ter pelo menos 8 caracteres';
-                        $mensagem = '<div class="alert alert-danger" role="alert">
-                        A senha deve ter pelo menos 8 caracteres
-                  </div>';
-                    }
-                    // Verifica se há pelo menos uma letra maiúscula
-                    elseif (!preg_match('/[A-Z]/', $novasenha)) {
-                        // echo 'A senha deve ter pelo menos uma letra maiúscula';
-                        $mensagem = '<div class="alert alert-danger" role="alert">
-                        A senha deve ter pelo menos uma letra maiúscula
-                  </div>';
-                    }
-                    // Verifica se há pelo menos uma letra minúscula
-                    elseif (!preg_match('/[a-z]/', $novasenha)) {
-                        // echo 'A senha deve ter pelo menos uma letra minúscula';
-                        $mensagem = '<div class="alert alert-danger" role="alert">
-                        A senha deve ter pelo menos uma letra minúscula
-                  </div>';
-                    }
-                    // Verifica se há pelo menos um número
-                    elseif (!preg_match('/\d/', $novasenha)) {
-                        // echo 'A senha deve ter pelo menos um número';
-                        $mensagem = '<div class="alert alert-danger" role="alert">
-                        A senha deve ter pelo menos um número
-                  </div>';
-                    }
-                    // Verifica se há pelo menos um caractere especial
-                    elseif (!preg_match('/[\W]/', $novasenha)) {
-                        // echo 'A senha deve ter pelo menos um caractere especial';
-                        $mensagem = '<div class="alert alert-danger" role="alert">
-                        A senha deve ter pelo menos um caractere especial
-                  </div>';
-                    } else {
-                        // echo 'Senha válida';
+                    if (strlen($nova_senha) >= 8) {
+                        if (preg_match('/[A-Z]/', $nova_senha)) {
+                            if (preg_match('/[a-z]/', $nova_senha)) {
+                                if (preg_match('/\d/', $nova_senha)) {
+                                    if (preg_match('/[\W]/', $nova_senha)) {
+                                        $hash_senha = password_hash($nova_senha, PASSWORD_DEFAULT);
 
-                        $hashed_password = password_hash($nova_senha, PASSWORD_DEFAULT);
-                        $trocaSenha = $pdo->prepare("UPDATE Usuarios_X SET Senha = :senha WHERE ID_Usuario = :id");
-                        $trocaSenha->bindParam('senha', $hashed_password);
-                        $trocaSenha->bindParam('id', $id_usuario, PDO::PARAM_INT);
+                                        try {
+                                            $upsenha = $pdo->prepare("UPDATE Usuarios_X SET Senha = :senha WHERE ID_Usuario = :id_usuario");
+                                            $upsenha->bindParam(':senha', $hash_senha);
+                                            $upsenha->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                                            $upsenha->execute();
 
-                        if ($trocaSenha->execute()) {
-                            $mensagem = '<div class="alert alert-success" role="alert">
-                            Senha Alterada com sucesso!
+                                            if ($upsenha->rowCount() > 0) {
+                                                $mensagem = '<div class="alert alert-success" role="alert">
+                                            Senha alterada com sucesso!
+                                            </div>';
+                                            } else {
+                                                $mensagem = '<div class="alert alert-danger" role="alert">
+                                                Senha não atualizada.
+                                            </div>';
+                                            }
+                                        } catch (PDOException $e) {
+                                            $mensagem = '<div class="alert alert-danger" role="alert">
+                                            Erro ao atualizar a senha.
+                                            </div>';
+                                        }
+                                    } else {
+                                        $mensagem = '<div class="alert alert-danger" role="alert">
+                                        A senha deve conter pelo menos um caractere especial
+                                        </div>';
+                                    }
+                                } else {
+                                    $mensagem = '<div class="alert alert-danger" role="alert">
+                                A senha deve conter pelo menos um número
+                                </div>';
+                                }
+                            } else {
+                                $mensagem = '<div class="alert alert-danger" role="alert">
+                            A senha deve conter pelo menos uma letra minúscula
                             </div>';
+                            }
                         } else {
                             $mensagem = '<div class="alert alert-danger" role="alert">
-                            Erro ao alterar senha!
-                            </div>' . $stmt->errorInfo()[2];
+                            A senha deve conter pelo menos uma letra maiúscula
+                            </div>';
                         }
+                    } else {
+                        $mensagem = '<div class="alert alert-danger" role="alert">
+                        A senha deve conter pelo menos 8 caracteres.
+                  </div>';
                     }
                 }
             }
         }
-    } else {
     }
 } else {
     $mensagem = '<div class="alert alert-danger" role="alert">
@@ -144,7 +143,9 @@ if (isset($_GET['codigo'])) {
 
             <div id="mensagem" style="font-size: .8rem;">
                 <strong>
-                    <p> <?php echo $mensagem, $hashed_password ?> </p>
+                    <p> <?php if ($mensagem) {
+                            echo $mensagem;
+                        }  ?> </p>
                 </strong>
             </div>
 
