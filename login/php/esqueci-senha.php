@@ -1,14 +1,9 @@
 <?php
 session_start();
 
-// require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
-require '/home/htdocs/idpb/vendor/autoload.php';
-// require __DIR__ . '/home/htdocs/idpb/vendor/autoload.php';
-
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// // require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
+// require '/home/htdocs/idpb/vendor/autoload.php';
+// // require __DIR__ . '/home/htdocs/idpb/vendor/autoload.php';
 
 
 use PHPMailer\PHPMailer\PHPMailer;
