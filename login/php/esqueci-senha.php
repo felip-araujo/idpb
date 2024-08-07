@@ -2,8 +2,8 @@
 session_start();
 
 // require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
-require '/opt/bitnami/apache/htdocs/idpb/vendor/autoload.php'; // Carrega o autoloader do Composer PROD
-// require __DIR__ . '/vendor/autoload.php';
+// require '/opt/bitnami/apache/htdocs/idpb/vendor/autoload.php'; // Carrega o autoloader do Composer PROD
+require __DIR__ . '/vendor/autoload.php';
 
 
 use PHPMailer\PHPMailer\PHPMailer;
