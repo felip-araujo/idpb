@@ -23,8 +23,6 @@ try {
                            FROM usuarios u
                            WHERE u.email = :email");
 
-
-
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     $membro = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -56,20 +54,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         // Coleta os dados do formulário
         $data = $_POST['data'];
+        $celula = $numero_celula;
         $convertidos = isset($_POST['houve_conversao']) ? 1 : 0;
         $email_convertido = $_POST['email_convertido'] ?? null;
         $telefone_convertido = $_POST['telefone_convertido'] ?? null;
         $evento = isset($_POST['foi_evento']) ? 1 : 0;
         $nome_evento = $_POST['qual_evento'] ?? null;
-        $criancas_presentes = $_POST['criancas_presentes'] ?? 0;
+        $criancas_presentes = isset($_POST['criancas_presentes']) && $_POST['criancas_presentes'] !== '' ? (int)$_POST['criancas_presentes'] : null;
         $coordenador_presente = isset($_POST['coordenador_presente']) ? 1 : 0;
         $supervisor_presente = isset($_POST['supervisor_presente']) ? 1 : 0;
 
         // Insere o relatório na tabela relatorio_lider
         $stmt = $pdo->prepare("INSERT INTO relatorio_lider 
-                               (data, convertidos, email_convertido, telefone_convertido, evento, nome_evento, criancas, coordenador_presente, supervisor_presente) 
-                               VALUES (:data, :convertidos, :email_convertido, :telefone_convertido, :evento, :nome_evento, :criancas_presentes, :coordenador_presente, :supervisor_presente)");
+                               (data, celula, convertidos, email_convertido, telefone_convertido, evento, nome_evento, criancas, coordenador_presente, supervisor_presente) 
+                               VALUES (:data, :celula, :convertidos, :email_convertido, :telefone_convertido, :evento, :nome_evento, :criancas_presentes, :coordenador_presente, :supervisor_presente)");
         $stmt->bindParam(':data', $data);
+        $stmt->bindParam(':celula', $numero_celula);
         $stmt->bindParam(':convertidos', $convertidos);
         $stmt->bindParam(':email_convertido', $email_convertido);
         $stmt->bindParam(':telefone_convertido', $telefone_convertido);
@@ -181,12 +181,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- Script para mostrar/ocultar campos condicionalmente -->
     <script>
-        document.querySelector('input[name="houve_conversao"]').addEventListener('change', function () {
-            document.getElementById('convertidos').style.display = this.value == '1' ? 'block' : 'none';
+        // Manipula exibição dos campos "convertidos" e "evento"
+        document.getElementById('houve_conversao_sim').addEventListener('change', function () {
+            document.getElementById('convertidos').style.display = 'block';
         });
-
-        document.querySelector('input[name="foi_evento"]').addEventListener('change', function () {
-            document.getElementById('evento').style.display = this.value == '1' ? 'block' : 'none';
+        document.getElementById('houve_conversao_nao').addEventListener('change', function () {
+            document.getElementById('convertidos').style.display = 'none';
+        });
+        document.getElementById('foi_evento_sim').addEventListener('change', function () {
+            document.getElementById('evento').style.display = 'block';
+        });
+        document.getElementById('foi_evento_nao').addEventListener('change', function () {
+            document.getElementById('evento').style.display = 'none';
         });
     </script>
 </body>
