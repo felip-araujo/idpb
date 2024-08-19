@@ -12,4 +12,6 @@ try {
 } catch (PDOException $e) {
     echo "Falha ao conectar ao banco de dados: " . $e->getMessage();
 } 
+
+//https://tresdevs.com.br/idpb/analise_dados/php_teste/index.php
 ?>

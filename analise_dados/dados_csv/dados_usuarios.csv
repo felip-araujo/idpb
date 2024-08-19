@@ -3,3 +3,4 @@ id_Usuario,email,senha,nome,numero_celula,numero_supervisao,numero_coordenacao
 2,chrisdynamus@gmail.com,$2y$10$ToMhRETjAKwec5FosRRkcuT0SOxwX3evhxwndnJ68yB1ctXfIpWT6,Christopher Filipe Rodrigues dos Santos,2,2,2
 3,ediel.purim@gmail.com,$2y$10$Kfdijb4mcLJy3f.kIvwkguHfWDic7axZnumFqtYNAC66T4M6b4SE2,Ediel  ,3,3,3
 4,ochristopherfilipe@gmail.com,christopher,Christopher Santos,4,4,4
+5,teste@gmail.com,teste,Teste Santos,5,5,5
