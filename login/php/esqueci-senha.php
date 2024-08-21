@@ -45,6 +45,7 @@ if (isset($_POST['enviar'])) {
     function enviarEmail( $ID_Usuario, $email, $codigo)
     {
         $mail = new PHPMailer(true); // Instancia o PHPMailer
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;  // Ativa o modo de depuração do PHPMailer
         try {
             // Configurações do servidor
             $mail->isSMTP();
