@@ -1,17 +1,12 @@
 <?php
 session_start();
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception; 
 use PHPMailer\PHPMailer\SMTP;
 
 // require 'C:\xampp\htdocs\idpb\vendor\autoload.php'; // Carrega o autoloader do Composer LOCAL
-require '/home/bitnami/htdocs/idpb/vendor/autoload.php';
+require '/home/bitnami/htdocs/idpb/vendor/autoload.php'; //Carrega o autoloader do Composer PROD
 
 
 date_default_timezone_set('America/Sao_Paulo');
@@ -50,7 +45,7 @@ if (isset($_POST['enviar'])) {
     function enviarEmail( $ID_Usuario, $email, $codigo)
     {
         $mail = new PHPMailer(true); // Instancia o PHPMailer
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;  // Ativa o modo de depuração do PHPMailer
+        
         try {
             // Configurações do servidor
             $mail->isSMTP();
