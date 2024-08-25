@@ -1,0 +1,124 @@
+tenho duas tabelas, uma chamada relatorio_lider assim:
+
+id
+int(11)
+celula
+int(4)
+data
+date
+visitantes
+tinyint(1)
+numero_visitantes
+int(3)
+convertidos
+tinyint(1)
+numero_convertidos
+int(3)
+evento
+tinyint(1)
+nome_evento
+text
+criancas
+int(10)
+
+ 
+e outra chamada presencas assim:
+
+id
+int(11)
+numero_celula
+int(11)
+cpf
+varchar(14)
+data
+date
+presente
+tinyint(1)
+
+o que eu quero é fazer um script python que gere esses resultados:
+
+buscando na tabela “usuarios”
+
+retorna o número da célula da coluna numero_celula
+
+retorna o número da coordenação da coluna numero_coordenacao
+
+retorna o nome do líder da coluna nome
+
+retorna total de membros da tabela membros contando o total de cpfs unicos da coluna cpf que tenha o mesmo numero de celula da coluna numero_celula da tabela membros
+
+buscando na tabela de “relatorio_lider”
+
+retorna a data que foi feito o relatório da coluna data
+
+retorna Soma por faixa etária (busca o cpf dos membros na tabela membros e usa a coluna data_nascimento)
+
+- 0-2
+- 3-6
+- 7-12
+- 13-17
+- 18-25
+- 26-35
+- 36-59
+- 60+
+
+retorna quantidade de presentes da tabela presencas usando a coluna cpf e sendo a mesma data da coluna data da tabela relatorio_lider e sendo o mesmo numero_celula da tabela usuarios 
+
+retorna se houve visitantes da coluna visitantes e o total de visitantes da coluna numero_visitantes da tabela relatorio_lider e deve ser da mesma data e o mesmo numero_celula
+
+retorna nome dos presentes (busca o cpf dos membros na tabela “membros” e atribui o nome pela coluna nome_completo)
+
+retorna sexo dos presentes (busca o cpf dos membros na tabela “membros” e busca na coluna genero, deve retornar a quantidade de cada genero sendo Masculino e Feminino como está na coluna da tabela membros)
+
+retorna quantidade de crianças presentes da tabela relatorio_lider da coluna criancas e deve ser tambem da mesma data
+
+retorna se houve convertidos da tabela relatorio_lider da coluna convertidos e o total de convertidos da coluna numero_convertidos e deve ser da mesma data e o mesmo numero_celula
+
+retorna booleano se foi evento ou não da coluna evento da tabela relatorio_lider e junta com o retorno da coluna nome_evento que é o nome do evento
+
+retorna se o coordenador estava presente da tabela relatorio_lider da coluna coordenador_presente
+
+retorna se o supervisor estava presente da tabela relatorio_lider da coluna supervisor_presente
+
+retorna as observações da tabela relatorio_lider da coluna observacoes
+
+
+o script começa assim:
+
+
+
+import pymysql
+import pandas as pd
+import json
+from datetime import datetime
+import os
+
+# Conectar ao banco de dados
+conexao = pymysql.connect(
+    host="54.196.208.38",
+    user="root",
+    password="qiykGUao3R.D",
+    database="IDPB",
+    port=3306
+)
+
+# Criar um cursor
+sql = conexao.cursor()
+
+# Executar a consulta e criar DataFrame para relatorio_lider
+sql.execute("SELECT * FROM relatorio_lider")
+resultados = sql.fetchall()
+colunas = [desc[0] for desc in sql.description]
+df_relatorio_lider = pd.DataFrame(resultados, columns=colunas)
+df_relatorio_lider.to_csv('dados_csv/dados_relatorio_lider.csv', index=False)
+
+# Executar a consulta e criar DataFrame para presencas
+sql.execute("SELECT * FROM presencas")
+resultados = sql.fetchall()
+colunas = [desc[0] for desc in sql.description]
+df_presencas = pd.DataFrame(resultados, columns=colunas)
+df_presencas.to_csv('dados_csv/dados_presencas.csv', index=False)
+
+# Fechar o cursor e a conexão
+sql.close()
+conexao.close()
