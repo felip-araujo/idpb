@@ -9,8 +9,10 @@ source "${SCRIPT_DIR}/venv/bin/activate"
 # Muda para o diretório do script
 cd "${SCRIPT_DIR}"
 
-# Executa o script Python
+# Executa os scripts Python
 python3 analise_dados.py
+
+python3 relatorio_lider.py
 
 # Desativa o ambiente virtual
 deactivate
